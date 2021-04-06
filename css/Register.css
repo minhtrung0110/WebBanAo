@@ -1,0 +1,149 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  background-image: url('../images/background_login.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.container-fluid, div{
+    background: #aaaaaa;
+}
+.day{
+    background: #fff;
+}
+.img {background: #111111; }
+.login {
+    width: 50%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: #aaaaaa;
+    border-radius: 3%;
+    margin: 3% auto;
+    box-shadow: 0px 0px 80px rgba(0,0,0,.8);
+    border: 1ex solid #010001;
+}
+
+span{
+    border: 1px solid;
+   
+}
+img.img{
+    width: 8%;
+    height: 6%;
+    margin: 1% 2% 0% 2.8%;
+    padding: 2% 0% 0% 12%;
+    display: inline;
+}
+div.titulo {
+    background: #111111;
+  border-radius: 3% 3% 0% 0%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 100%;
+  font-size: 2.3em;
+  color: #ffffff;
+  font-weight: bold;
+  border-bottom: 3px #333333 solid;
+    font-family: Arial;
+    -webkit-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    
+}
+
+.login form {
+    width: 80%;
+    height: auto;
+    overflow: hidden;
+    margin: 0px auto;
+
+}
+hr.line{
+    width: 80%;
+    color: red;
+    border: solid red 2px;
+    margin: auto;
+}
+form input.Register{
+    width: 78%;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 1% 20% 2% 8.5%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: #000000;
+    padding-left: 4%;
+   background: rgba(245,245,245,1);   
+    border-radius: 6px;
+    border-bottom:  #eeeeee 1px solid;
+    border-right:  #eeeeee 1px solid;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+div.information{
+    font: Arial 22px bold;
+    color: #000000;
+    font-weight: bold;
+    display: block;
+    margin: 1% 20% 1% 8.5%;
+}
+div.dayofbirth{
+    font: Arial 18px bold;
+    color: #000000;
+    font-weight: bold;
+   margin: 1% 20% 2% 8.5%;
+}
+
+div.gender{
+    height: auto;
+    font:  19px bold;
+    color: #000000;
+    font-weight: bold;
+    display: block;
+     margin: 1% 20% 2% 8.5%;
+}
+
+
+
+.login form div #enviar {
+    width: 50%;
+    margin: auto;
+    height: 10%;
+    display: block;
+    padding:  3%;
+    border-radius: 6px;
+
+    background: #a64bf4;
+    background: -webkit-linear-gradient(right, #5511f4, #7f0aec, #e00fe7, #ec397e);
+    background: -o-linear-gradient(right, #f6250a, #b721ff, #21d4fd, #e7e40f);
+    background: -moz-linear-gradient(right, #f6250a, #f6250a, #21d4fd, #f0d415);
+    background: linear-gradient(right, #f6250a, #b721ff, #2bc63d, #f9f9f0);
+
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 0 -1px #1d7464, 0 1px #7bb8b3;
+    font-family: Arial;
+
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.login form div #enviar:hover {
+  background: #16aa56;
+}
+

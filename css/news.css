@@ -1,0 +1,67 @@
+.div1 ul li {
+    list-style: none;
+    clear: left;
+    padding: 20px;
+}
+.news-items{
+    display: none;
+}
+.div1 {
+    height: 700px;
+    width: 80%;
+}
+
+.div1 ul {
+    margin: 10px;
+    padding-left: 200px;
+}
+
+.div ul li a {
+    color: black;
+}
+
+.div1 .div3 {
+    display: block;
+    margin-bottom: 2%;
+    color: black;
+    text-decoration: none;
+}
+
+.div1 ul li a:hover {
+    /*color: #da4848;*/
+    color: #A52A2A;
+}
+
+.div1 ul li img {
+    float: left;
+    margin-right: 10px;
+}
+
+.div1 ul li h1 {
+    font-size: 23px;
+}
+
+
+/*tin tuc*/
+
+div ul li {
+    list-style: none;
+}
+
+.div4 {
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.div5 {
+    text-align: center;
+    /* margin-left: 100px;
+    margin-right: 100px;*/
+}
+
+div ul li p {
+    margin-left: 200px;
+    margin-right: 220px;
+    text-align: justify;
+}
