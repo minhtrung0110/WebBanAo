@@ -1,8 +1,20 @@
-
-*{
-  margin: 0;
+* {
   padding: 0;
-  background-image: url('../images/background_login.jpg');
+  margin: 0;
+  box-sizing: border-box;
+  
+}
+html {
+  color: #333;
+  font-size: 70.5%;
+  font-family: 'Open Sans', sans-serif;
+  
+}
+.main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-image: url(../images/background_login.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -11,139 +23,114 @@
   -moz-background-size: cover;
   -o-background-size: cover;
 }
-.container-fluid, div{
-    background: #aaaaaa;
+.form {
+  width: 400px;
+  min-height: 100px;
+  padding: 32px 24px;
+  text-align: center;
+  background: #fff;
+  border-radius: 2px;
+  margin: 24px;
+  align-self: center;
+  box-shadow: 4px 6px 5px 0 rgba(117, 119, 121, 0.1);
 }
-.day{
-    background: #fff;
+.form .heading {
+  font-size: 2rem;
 }
-.img {background: #111111; }
-.login {
-    width: 50%;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
-    background: #aaaaaa;
-    border-radius: 3%;
-    margin: 3% auto;
-    box-shadow: 0px 0px 80px rgba(0,0,0,.8);
-    border: 1ex solid #010001;
+.form .desc {
+  text-align: center;
+  color: #1900ff;
+  font-size: 1.6rem;
+  font-weight: lighter;
+  line-height: 2.4rem;
+  margin-top: 16px;
+  font-weight: 300;
 }
 
-span{
-    border: 1px solid;
-   
+.form-group {
+  display: flex;
+  margin-bottom: 16px;
+  flex-direction: column;
 }
-img.img{
-    width: 8%;
-    height: 6%;
-    margin: 1% 2% 0% 2.8%;
-    padding: 2% 0% 0% 12%;
-    display: inline;
+
+.form-label,
+.form-message {
+  text-align: left;
 }
-div.titulo {
-    background: #111111;
-  border-radius: 3% 3% 0% 0%;
-  padding-top: 2%;
-  padding-bottom: 2%;
+
+.form-label {
+  font-weight: 700;
+  padding-bottom: 6px;
+  line-height: 1.8rem;
+  font-size: 1.4rem;
+}
+
+.form-control {
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #b3b3b3;
+  border-radius: 3px;
+  outline: none;
+  font-size: 1.4rem;
+}
+
+.form-control:hover {
+  border-color: #1dbfaf;
+}
+
+.form-group.invalid .form-control {
+  border-color: #f33a58;
+}
+
+.form-group.invalid .form-message {
+  color: #f33a58;
+}
+
+.form-message {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  padding: 4px 0 0;
+}
+
+.form-submit {
+  outline: none;
+  background-color: #1dbfaf;
+  margin-top: 12px;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
   width: 100%;
-  font-size: 2.3em;
-  color: #ffffff;
-  font-weight: bold;
-  border-bottom: 3px #333333 solid;
-    font-family: Arial;
-    -webkit-transition: all 0.6s;
-    -o-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    transition: all 0.6s;
-    
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.login form {
-    width: 80%;
-    height: auto;
-    overflow: hidden;
-    margin: 0px auto;
-
+.form-submit:hover {
+  background-color: #df2c14;
+  border: 1px solid rgb(29, 28, 28);
+  box-shadow: 2px 3px 4px #ddd;
 }
-hr.line{
-    width: 80%;
-    color: red;
-    border: solid red 2px;
-    margin: auto;
-}
-form input.Register{
-    width: 78%;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 1% 20% 2% 8.5%;
-    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-    padding-top: 2%;
-    padding-bottom: 2%;
-    color: #000000;
-    padding-left: 4%;
-   background: rgba(245,245,245,1);   
-    border-radius: 6px;
-    border-bottom:  #eeeeee 1px solid;
-    border-right:  #eeeeee 1px solid;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
-}
-div.information{
-    font: Arial 22px bold;
-    color: #000000;
-    font-weight: bold;
-    display: block;
-    margin: 1% 20% 1% 8.5%;
-}
-div.dayofbirth{
-    font: Arial 18px bold;
-    color: #000000;
-    font-weight: bold;
-   margin: 1% 20% 2% 8.5%;
+.form-submit2 {
+  outline: #eee;
+  background-color: #1dbfaf;
+  margin-top: 12px;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-div.gender{
-    height: auto;
-    font:  19px bold;
-    color: #000000;
-    font-weight: bold;
-    display: block;
-     margin: 1% 20% 2% 8.5%;
+.form-submit2:hover {
+  background-color: #45c42c;
+  border: 1px solid #000;
+  box-shadow: 2px 3px 4px #ddd;
 }
 
-
-
-.login form div #enviar {
-    width: 50%;
-    margin: auto;
-    height: 10%;
-    display: block;
-    padding:  3%;
-    border-radius: 6px;
-
-    background: #a64bf4;
-    background: -webkit-linear-gradient(right, #5511f4, #7f0aec, #e00fe7, #ec397e);
-    background: -o-linear-gradient(right, #f6250a, #b721ff, #21d4fd, #e7e40f);
-    background: -moz-linear-gradient(right, #f6250a, #f6250a, #21d4fd, #f0d415);
-    background: linear-gradient(right, #f6250a, #b721ff, #2bc63d, #f9f9f0);
-
-    text-align: center;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 25px;
-    font-weight: bold;
-    text-shadow: 0 -1px #1d7464, 0 1px #7bb8b3;
-    font-family: Arial;
-
-
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+.spacer {
+  margin-top: 36px;
 }
-.login form div #enviar:hover {
-  background: #16aa56;
-}
-
