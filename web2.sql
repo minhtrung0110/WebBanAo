@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Apr 05, 2021 at 06:18 PM
+-- Generation Time: Apr 12, 2021 at 05:27 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `chitietgiamgia` (
-  `MA_CTGG` int(10) UNSIGNED NOT NULL,
-  `MA_SP` int(10) UNSIGNED NOT NULL
+  `MA_CTGG` int(10) UNSIGNED DEFAULT NULL,
+  `MA_SP` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 -- --------------------------------------------------------
@@ -40,7 +40,7 @@ CREATE TABLE `chitietgiamgia` (
 
 CREATE TABLE `chitiethoadon` (
   `MA_CTHD` int(10) UNSIGNED NOT NULL,
-  `MA_SP` int(10) UNSIGNED NOT NULL,
+  `MA_SP` int(10) UNSIGNED DEFAULT NULL,
   `SO_LUONG` int(11) DEFAULT NULL,
   `TIEN_GIAM_GIA` float DEFAULT NULL,
   `DON_GIA` float DEFAULT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `chitiethoadon` (
 
 CREATE TABLE `chitietphieunhap` (
   `MA_CTPN` int(10) UNSIGNED NOT NULL,
-  `MA_SP` int(10) UNSIGNED NOT NULL,
+  `MA_SP` int(10) UNSIGNED DEFAULT NULL,
   `DON_GIA` float NOT NULL,
   `SO_LUONG` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
@@ -87,6 +87,13 @@ CREATE TABLE `danhmuc` (
   `TEN_DANH_MUC` varchar(30) COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
+--
+-- Dumping data for table `danhmuc`
+--
+
+INSERT INTO `danhmuc` (`MA_DANH_MUC`, `TEN_DANH_MUC`) VALUES
+(1, 'Quản Lý Nhân Viên');
+
 -- --------------------------------------------------------
 
 --
@@ -95,9 +102,15 @@ CREATE TABLE `danhmuc` (
 
 CREATE TABLE `groupquyen` (
   `MA_GROUP_QUYEN` int(10) UNSIGNED NOT NULL,
-  `MA_TK` int(10) UNSIGNED NOT NULL,
   `TEN_GROUP_QUYEN` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Dumping data for table `groupquyen`
+--
+
+INSERT INTO `groupquyen` (`MA_GROUP_QUYEN`, `TEN_GROUP_QUYEN`) VALUES
+(1, 'admin');
 
 -- --------------------------------------------------------
 
@@ -107,10 +120,10 @@ CREATE TABLE `groupquyen` (
 
 CREATE TABLE `hoadon` (
   `MA_HD` int(10) UNSIGNED NOT NULL,
-  `MA_CTHD` int(10) UNSIGNED NOT NULL,
-  `MA_NV` int(10) UNSIGNED NOT NULL,
-  `MA_KH` int(10) UNSIGNED NOT NULL,
-  `MA_MGG` int(10) UNSIGNED NOT NULL,
+  `MA_CTHD` int(10) UNSIGNED DEFAULT NULL,
+  `MA_NV` int(10) UNSIGNED DEFAULT NULL,
+  `MA_KH` int(10) UNSIGNED DEFAULT NULL,
+  `MA_MGG` int(10) UNSIGNED DEFAULT NULL,
   `DIA_CHI` text COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `TINH_TRANG` tinyint(1) DEFAULT NULL,
   `TIEN_GIAM_GIA` float DEFAULT NULL,
@@ -126,7 +139,7 @@ CREATE TABLE `hoadon` (
 
 CREATE TABLE `khachhang` (
   `MA_KH` int(10) UNSIGNED NOT NULL,
-  `MA_TK` int(10) UNSIGNED NOT NULL,
+  `MA_TK` int(10) UNSIGNED DEFAULT NULL,
   `TEN_KH` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `EMAIL` varchar(40) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `PHONE` varchar(10) COLLATE utf8mb4_vietnamese_ci NOT NULL,
@@ -142,7 +155,7 @@ CREATE TABLE `khachhang` (
 
 CREATE TABLE `nhanvien` (
   `MA_NV` int(10) UNSIGNED NOT NULL,
-  `MA_TK` int(10) UNSIGNED NOT NULL,
+  `MA_TK` int(10) UNSIGNED DEFAULT NULL,
   `TEN_NV` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `EMAIL` varchar(30) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `PHONE` varchar(10) COLLATE utf8mb4_vietnamese_ci NOT NULL,
@@ -157,8 +170,8 @@ CREATE TABLE `nhanvien` (
 
 CREATE TABLE `phieunhap` (
   `MA_PN` int(10) UNSIGNED NOT NULL,
-  `MA_CTPN` int(10) UNSIGNED NOT NULL,
-  `MA_TK` int(10) UNSIGNED NOT NULL,
+  `MA_CTPN` int(10) UNSIGNED DEFAULT NULL,
+  `MA_TK` int(10) UNSIGNED DEFAULT NULL,
   `NGAY_NHAP` datetime NOT NULL,
   `TONG_DON_GIA` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
@@ -170,10 +183,17 @@ CREATE TABLE `phieunhap` (
 --
 
 CREATE TABLE `quyen` (
-  `MA_GROUP_QUYEN` int(10) UNSIGNED NOT NULL,
-  `MA_DANH_MUC` int(10) UNSIGNED NOT NULL,
+  `MA_GROUP_QUYEN` int(10) UNSIGNED DEFAULT NULL,
+  `MA_DANH_MUC` int(10) UNSIGNED DEFAULT NULL,
   `TEN_QUYEN` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Dumping data for table `quyen`
+--
+
+INSERT INTO `quyen` (`MA_GROUP_QUYEN`, `MA_DANH_MUC`, `TEN_QUYEN`) VALUES
+(1, 1, 'Quản Lý Nhân Viên');
 
 -- --------------------------------------------------------
 
@@ -200,11 +220,18 @@ CREATE TABLE `sanpham` (
 
 CREATE TABLE `taikhoan` (
   `MA_TK` int(10) UNSIGNED NOT NULL,
-  `MA_GROUP_QUYEN` int(10) UNSIGNED NOT NULL,
-  `TEN_DANG_NHAP` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `MAT_KHAU` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `STATUS` varchar(10) COLLATE utf8mb4_vietnamese_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+  `MA_GROUP_QUYEN` int(10) UNSIGNED DEFAULT NULL,
+  `TEN_DANG_NHAP` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `MAT_KHAU` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `STATUS` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`MA_TK`, `MA_GROUP_QUYEN`, `TEN_DANG_NHAP`, `MAT_KHAU`, `STATUS`) VALUES
+(1, 1, 'admin', 'admin', '1');
 
 --
 -- Indexes for dumped tables
@@ -247,8 +274,7 @@ ALTER TABLE `danhmuc`
 -- Indexes for table `groupquyen`
 --
 ALTER TABLE `groupquyen`
-  ADD PRIMARY KEY (`MA_GROUP_QUYEN`),
-  ADD KEY `MA_TK` (`MA_TK`);
+  ADD PRIMARY KEY (`MA_GROUP_QUYEN`);
 
 --
 -- Indexes for table `hoadon`
@@ -264,13 +290,15 @@ ALTER TABLE `hoadon`
 -- Indexes for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  ADD PRIMARY KEY (`MA_KH`);
+  ADD PRIMARY KEY (`MA_KH`),
+  ADD KEY `MA_TK` (`MA_TK`);
 
 --
 -- Indexes for table `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  ADD PRIMARY KEY (`MA_NV`);
+  ADD PRIMARY KEY (`MA_NV`),
+  ADD KEY `MA_TK` (`MA_TK`);
 
 --
 -- Indexes for table `phieunhap`
@@ -284,7 +312,7 @@ ALTER TABLE `phieunhap`
 -- Indexes for table `quyen`
 --
 ALTER TABLE `quyen`
-  ADD KEY (`MA_GROUP_QUYEN`),
+  ADD KEY `MA_GROUP_QUYEN` (`MA_GROUP_QUYEN`),
   ADD KEY `MA_DANH_MUC` (`MA_DANH_MUC`);
 
 --
@@ -326,13 +354,13 @@ ALTER TABLE `chuongtrinhgiamgia`
 -- AUTO_INCREMENT for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `MA_DANH_MUC` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `MA_DANH_MUC` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `groupquyen`
 --
 ALTER TABLE `groupquyen`
-  MODIFY `MA_GROUP_QUYEN` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `MA_GROUP_QUYEN` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
@@ -344,7 +372,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MA_KH` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `MA_KH` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `nhanvien`
@@ -365,12 +393,6 @@ ALTER TABLE `sanpham`
   MODIFY `MA_SP` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `taikhoan`
---
-ALTER TABLE `taikhoan`
-  MODIFY `MA_TK` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints for dumped tables
 --
 
@@ -378,8 +400,8 @@ ALTER TABLE `taikhoan`
 -- Constraints for table `chitietgiamgia`
 --
 ALTER TABLE `chitietgiamgia`
-  ADD CONSTRAINT `chitietgiamgia_ibfk_1` FOREIGN KEY (`MA_CTGG`) REFERENCES `chuongtrinhgiamgia` (`MA_CTGG`),
-  ADD CONSTRAINT `chitietgiamgia_ibfk_2` FOREIGN KEY (`MA_SP`) REFERENCES `sanpham` (`MA_SP`);
+  ADD CONSTRAINT `chitietgiamgia_ibfk_1` FOREIGN KEY (`MA_SP`) REFERENCES `sanpham` (`MA_SP`),
+  ADD CONSTRAINT `chitietgiamgia_ibfk_2` FOREIGN KEY (`MA_SP`) REFERENCES `chuongtrinhgiamgia` (`MA_CTGG`);
 
 --
 -- Constraints for table `chitiethoadon`
@@ -394,12 +416,6 @@ ALTER TABLE `chitietphieunhap`
   ADD CONSTRAINT `chitietphieunhap_ibfk_1` FOREIGN KEY (`MA_SP`) REFERENCES `sanpham` (`MA_SP`);
 
 --
--- Constraints for table `groupquyen`
---
-ALTER TABLE `groupquyen`
-  ADD CONSTRAINT `groupquyen_ibfk_1` FOREIGN KEY (`MA_TK`) REFERENCES `taikhoan` (`MA_TK`);
-
---
 -- Constraints for table `hoadon`
 --
 ALTER TABLE `hoadon`
@@ -407,6 +423,18 @@ ALTER TABLE `hoadon`
   ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`MA_KH`) REFERENCES `khachhang` (`MA_KH`),
   ADD CONSTRAINT `hoadon_ibfk_3` FOREIGN KEY (`MA_MGG`) REFERENCES `chuongtrinhgiamgia` (`MA_CTGG`),
   ADD CONSTRAINT `hoadon_ibfk_4` FOREIGN KEY (`MA_NV`) REFERENCES `nhanvien` (`MA_NV`);
+
+--
+-- Constraints for table `khachhang`
+--
+ALTER TABLE `khachhang`
+  ADD CONSTRAINT `khachhang_ibfk_1` FOREIGN KEY (`MA_TK`) REFERENCES `taikhoan` (`MA_TK`);
+
+--
+-- Constraints for table `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  ADD CONSTRAINT `nhanvien_ibfk_1` FOREIGN KEY (`MA_TK`) REFERENCES `taikhoan` (`MA_TK`);
 
 --
 -- Constraints for table `phieunhap`
@@ -419,13 +447,14 @@ ALTER TABLE `phieunhap`
 -- Constraints for table `quyen`
 --
 ALTER TABLE `quyen`
-  ADD CONSTRAINT `quyen_ibfk_1` FOREIGN KEY (`MA_DANH_MUC`) REFERENCES `danhmuc` (`MA_DANH_MUC`);
+  ADD CONSTRAINT `quyen_ibfk_2` FOREIGN KEY (`MA_GROUP_QUYEN`) REFERENCES `groupquyen` (`MA_GROUP_QUYEN`),
+  ADD CONSTRAINT `quyen_ibfk_3` FOREIGN KEY (`MA_DANH_MUC`) REFERENCES `danhmuc` (`MA_DANH_MUC`);
 
 --
 -- Constraints for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  ADD CONSTRAINT `taikhoan_ibfk_3` FOREIGN KEY (`MA_GROUP_QUYEN`) REFERENCES `groupquyen` (`MA_GROUP_QUYEN`);
+  ADD CONSTRAINT `taikhoan_ibfk_1` FOREIGN KEY (`MA_GROUP_QUYEN`) REFERENCES `groupquyen` (`MA_GROUP_QUYEN`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
