@@ -1,6 +1,6 @@
 
 <?php
-       
+      session_start();
      function login() { 
          if(!empty($_POST) &&isset($_POST)){
             $password =$_POST['pwd'];
@@ -19,6 +19,7 @@
 
         //thuc hien truy van du lieu - chen du lieu vao database
         $query="SELECT  EMAIL, MAT_KHAU FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
+        $checkname ="";
         $result=mysqli_query($connect,$query);
         var_dump($result);
         $data=array();
@@ -29,17 +30,16 @@
         //dong kêt nối
          $connect->close();
         if($data!=null && count($data)>0){
-            $_SESSION["login"]=false;
+            $_SESSION['login']=false;
             header("Location: ../index.php?dn=true");// có thể bỏ dn= true vì người dùng có thể sữa dn thành false hoặc true 
         }
         else{
-         header("Location: ../index.php?dn=false");
-            $_SESSION["login"]=true;}
+            $_SESSION['customer_name'] = $checkname;
+
+            $_SESSION['login']=true;}
+            header("Location: ../index.php?dn=false");
         }
-        
-            # về search hàm mysqli_numrow;
-
-
+           
     }
     login();
 ?>

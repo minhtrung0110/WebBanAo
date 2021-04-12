@@ -9,11 +9,31 @@
 			<div class=" col-md-2 col-sm-0" ></div>
 			<div class="Account col-md-3 col-sm-5" >
 			<button class="login btn btn-outline-success"   ><a  class="login" style="text-decoration: none; color: green;font-weight:bold;"href='giaodien/login.php'>
-			<?php if ($_SESSION["login"]==true)
-				 echo"Kính Chào Quý Khách"; 
+			<?php 
+				if (isset($_SESSION['login']) ) {
+					if($_SESSION['login']) echo "Kính Chào!!!"; 
+					
+					else echo "Đăng Nhập";
+				}
 				else echo "Đăng Nhập";
-			?></a></button>
-			<button class="btn btn-outline-danger register" ><a class="register" style="text-decoration: none; color: red;font-weight:bold;" href='giaodien/register.php'>Đăng Ký Tài Khoản</a> </button>
+
+			?>	</a></button>
+			<button class="btn btn-outline-danger register" ><a class="register" style="text-decoration: none; color: red;font-weight:bold;" href=
+				'<?php
+						if($_SESSION['login']) echo "giaodien/logout.php";
+						else echo "giaodien/register.php";
+				?>'
+			>
+				<?php
+					if (isset($_SESSION['login']) ) {
+						if($_SESSION['login']) echo "Đăng Xuất"; 
+						  
+						else echo "Đăng Ký";
+					}
+					else echo "Đăng Ký";
+
+				?>
+			</a> </button>
 			
 			</div>
 			
