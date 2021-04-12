@@ -9,7 +9,7 @@
             echo $email;
             echo $password;
          
-        $connect =new mysqli("localhost","root","","threeclothing");
+        $connect =new mysqli("localhost","root","","doanweb2");
         $connect -> set_charset("utf8");
         //kiem tra ket noi
         if($connect->connect_error){
@@ -19,8 +19,13 @@
 
         //thuc hien truy van du lieu - chen du lieu vao database
         $query="SELECT  EMAIL, MAT_KHAU FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
-        $checkname ="";
+        $queryname ="SELECT TEN_DANG_NHAP FROM taikhoan WHERE EMAIL='".$email."'";
+      
         $result=mysqli_query($connect,$query);
+        $checkname=mysqli_query($connect,$queryname);
+
+        $resultusername=mysqli_fetch_array($checkname);
+
         var_dump($result);
         $data=array();
         while($row = mysqli_fetch_array($result,1)){
@@ -30,13 +35,13 @@
         //dong kêt nối
          $connect->close();
         if($data!=null && count($data)>0){
-            $_SESSION['login']=false;
+            $_SESSION['login']=true;
             header("Location: ../index.php?dn=true");// có thể bỏ dn= true vì người dùng có thể sữa dn thành false hoặc true 
         }
         else{
-            $_SESSION['customer_name'] = $checkname;
-
-            $_SESSION['login']=true;}
+            $_SESSION['customer_name'] = $resultusername[0];
+            echo $resultusername;
+            $_SESSION['login']=false;}
             header("Location: ../index.php?dn=false");
         }
            

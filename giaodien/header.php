@@ -8,10 +8,18 @@
 			</div>
 			<div class=" col-md-2 col-sm-0" ></div>
 			<div class="Account col-md-3 col-sm-5" >
-			<button class="login btn btn-outline-success"   ><a  class="login" style="text-decoration: none; color: green;font-weight:bold;"href='giaodien/login.php'>
+			<button class="login btn btn-outline-success"   ><a  class="login" style="text-decoration: none; color: green;font-weight:bold;"href=
+				'<?php
+						if (isset($_SESSION['login']) ) {
+							if($_SESSION['login']) echo "giaodien/user.php";
+							else echo "giaodien/login.php";
+							}
+						else echo "giaodien/login.php";
+				?>'
+			>
 			<?php 
 				if (isset($_SESSION['login']) ) {
-					if($_SESSION['login']) echo "Kính Chào!!!"; 
+					if($_SESSION['login']) echo "Chào '".$_SESSION['customer_name']."' ! "; 
 					
 					else echo "Đăng Nhập";
 				}
@@ -20,8 +28,11 @@
 			?>	</a></button>
 			<button class="btn btn-outline-danger register" ><a class="register" style="text-decoration: none; color: red;font-weight:bold;" href=
 				'<?php
+					if (isset($_SESSION['login']) ) {
 						if($_SESSION['login']) echo "giaodien/logout.php";
 						else echo "giaodien/register.php";
+						}
+					else echo "giaodien/register.php";
 				?>'
 			>
 				<?php
