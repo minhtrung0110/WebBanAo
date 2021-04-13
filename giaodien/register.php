@@ -18,7 +18,7 @@
 
         <div class="spacer"></div>
 
-        <div class="form-group">
+       <div class="form-group">
           <label for="username" class="form-label">Họ và Tên:</label>
           <input id="username" name="username" type="text" placeholder="VD: Minh Trung" class="form-control">
           <span class="form-message"></span>
@@ -26,23 +26,22 @@
 
         <div class="form-group">
           <label for="email" class="form-label">Email:</label>
-          <input id="email" name="email" type="email" placeholder="VD: email@domain.com" class="form-control">
+          <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
           <span class="form-message"></span>
         </div>
 
         <div class="form-group">
-          <label for="password" class="form-label">Mật Khẩu:</label>
-          <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+          <label for="pwd" class="form-label">Mật Khẩu:</label>
+          <input id="password" name="pwd" type="password" placeholder="Nhập mật khẩu" class="form-control">
           <span class="form-message"></span>
         </div>
-
-        <div class="form-group">
+       <div class="form-group">
           <label for="password_confirmation" class="form-label">Nhập lại Mật Khẩu</label>
           <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
           <span class="form-message"></span>
         </div>
 
-        <button type="submit" class="form-submit" name="submit">Đăng Ký</button>
+        <button type="submit" class="form-submit2">Đăng Nhập</button>
       </form>
 
 
@@ -50,6 +49,22 @@
     </div>
    
     <script>
+      /* document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#form-1',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#username', 'Vui lòng nhập tên đầy đủ của bạn'),
+            Validator.isEmail('#email'),
+            Validator.minLength('#password', 5),
+            Validator.isRequired('#password_confirmation'),
+            Validator.isConfirmed('#password_confirmation', function () {
+              return document.querySelector('#form-1 #password').value;
+            }, 'Mật khẩu nhập lại không chính xác')
+          ],
+        });
+      });*/
 
       document.addEventListener('DOMContentLoaded', function () {
         Validator({
@@ -59,16 +74,12 @@
           rules: [
             Validator.isRequired('#username', 'Vui lòng nhập tên đầy đủ của bạn'),
             Validator.isEmail('#email'),
-            Validator.minLength('#password', 6),
+            Validator.minLength('#password', 5),
             Validator.isRequired('#password_confirmation'),
             Validator.isConfirmed('#password_confirmation', function () {
               return document.querySelector('#form-1 #password').value;
             }, 'Mật khẩu nhập lại không chính xác')
           ],
-           onSubmit: function () {
-            $('form').submit();
-             }
-         
         });
       });
 
