@@ -19,7 +19,7 @@
 			>
 			<?php 
 				if (isset($_SESSION['login']) ) {
-					if($_SESSION['login']) echo "Chào '".$_SESSION['customer_name']."' ! "; 
+					if($_SESSION['login']) echo '<i class="fas fa-user-alt"></i> '.$_SESSION['customer_name'].""; 
 					
 					else echo "Đăng Nhập";
 				}

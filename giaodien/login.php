@@ -45,7 +45,7 @@
           errorSelector: '.form-message',
           rules: [
             Validator.isEmail('#email'),
-            Validator.minLength('#password', 6),
+            Validator.minLength('#password', 5),
           ],
         });
       });

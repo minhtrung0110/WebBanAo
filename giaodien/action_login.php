@@ -18,31 +18,30 @@
         }
 
         //thuc hien truy van du lieu - chen du lieu vao database
-        $query="SELECT  EMAIL, MAT_KHAU FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
-        $queryname ="SELECT TEN_DANG_NHAP FROM taikhoan WHERE EMAIL='".$email."'";
-      
+        $query="SELECT  EMAIL, MAT_KHAU,TEN_DANG_NHAP FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
+        $checkname ="SELECT TEN_DANG_NHAP FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
         $result=mysqli_query($connect,$query);
-        $checkname=mysqli_query($connect,$queryname);
-
-        $resultusername=mysqli_fetch_array($checkname);
-
+        $resultname =mysqli_query($connect,$checkname);
         var_dump($result);
         $data=array();
         while($row = mysqli_fetch_array($result,1)){
             $data[] =$row;
         }
-
+        //Lấy Tên Người Dùng
+        $username = mysqli_fetch_assoc($resultname);
+        $name=$username['TEN_DANG_NHAP'];
         //dong kêt nối
          $connect->close();
         if($data!=null && count($data)>0){
+            $_SESSION['customer_name'] = $name;//lay tên người dùng
             $_SESSION['login']=true;
-            header("Location: ../index.php?dn=true");// có thể bỏ dn= true vì người dùng có thể sữa dn thành false hoặc true 
+            header("Location: ../index.php");// có thể bỏ dn= true vì người dùng có thể sữa dn thành false hoặc true 
         }
         else{
-            $_SESSION['customer_name'] = $resultusername[0];
-            echo $resultusername;
-            $_SESSION['login']=false;}
-            header("Location: ../index.php?dn=false");
+            
+            $_SESSION['login']=false;
+            header("Location: ../error.php");
+            }
         }
            
     }
