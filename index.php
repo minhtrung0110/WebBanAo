@@ -37,7 +37,7 @@ session_start();
 
 
     <!--FOOTER-->
-    <?php require("giaodien/footer.php"); ?>
+    <?php require("giaodien/footer.php");  var_dump($_SESSION['login'])?>
 
 </div>
 
@@ -45,8 +45,8 @@ session_start();
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="js/slide.js"></script>
-<script src="style.js"></script>
-<script src="js/index.js"></script>
+<script src="main.js"></script>
+
 
 </body>
 

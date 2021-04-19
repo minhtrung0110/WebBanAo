@@ -4,6 +4,7 @@
      function login() { 
          if(!empty($_POST) &&isset($_POST)){
             $password =$_POST['pwd'];
+            $password=md5($password);
             $email =$_POST['email'];
 
             echo $email;
@@ -40,7 +41,7 @@
         else{
             
             $_SESSION['login']=false;
-            header("Location: ../error.php");
+            header("Location: ../index.php");
             }
         }
            

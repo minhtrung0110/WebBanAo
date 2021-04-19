@@ -5,8 +5,9 @@
          if(!empty($_POST)){
             $username =$_POST['username'];
             $password =$_POST['pwd'];
+            $password=md5($password);
             $email =$_POST['email'];
-         
+            $status=1;
         $connect =new mysqli("localhost","root","","doanweb2");
         $connect -> set_charset("utf8");
         //kiem tra ket noi
@@ -16,8 +17,8 @@
         }
 
         //thuc hien truy van du lieu - chen du lieu vao database 2 bang taikhoan va khachhang
-        $query="INSERT INTO taikhoan (MA_TK,TEN_DANG_NHAP,MAT_KHAU,EMAIL)
-                VALUE('".$_SESSION['a']."','".$username."','".$password."','".$email."')";
+        $query="INSERT INTO taikhoan (MA_TK,TEN_DANG_NHAP,MAT_KHAU,STATUS,EMAIL)
+                VALUE('".$_SESSION['a']."','".$username."','".$password."','".$status."','".$email."')";
          $checkemail="SELECT * from taikhoan WHERE EMAIL='".$email."'  ";
 
 

@@ -41,7 +41,7 @@
           <span class="form-message"></span>
         </div>
 
-        <button type="submit" class="form-submit2">Đăng Nhập</button>
+        <button type="submit" class="form-submit2">Đăng Ký</button>
       </form>
 
 
