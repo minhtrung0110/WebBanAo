@@ -12,6 +12,8 @@ include("db/MySQLConnect.php");
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="fonts/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="css/index_product.css">
+    <link rel="stylesheet" type="text/css" href="css/user.css">
 
 	
 </head>
@@ -28,7 +30,16 @@ include("db/MySQLConnect.php");
     <!--CONTENT-->
     <div class="container-fluid content">
         <!--BANNER-->
-        <?php require("giaodien/slideshow_banner.php"); ?>
+        <?php 
+        if(!isset($_GET['id'])){
+         require("giaodien/slideshow_banner.php"); 
+        #Product in INDEX.PHP
+         require("giaodien/index_product.php"); }
+         else if($_GET['id']=='user'){
+             require("giaodien/user.php");
+         }
+        
+        ?>
 	
 
 

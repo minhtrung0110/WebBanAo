@@ -11,7 +11,7 @@
 			<button class="login btn btn-outline-success"   ><a  class="login" style="text-decoration: none; color: green;font-weight:bold;"href=
 				'<?php
 						if (isset($_SESSION['login']) ) {
-							if($_SESSION['login']) echo "giaodien/user.php";
+							if($_SESSION['login']) echo "index.php?id=user";
 							else echo "giaodien/login.php";
 							}
 						else echo "giaodien/login.php";

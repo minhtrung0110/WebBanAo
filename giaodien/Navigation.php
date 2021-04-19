@@ -13,11 +13,11 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link active" href="index.html" style="color: #fff">TRANG CHỦ <span class="sr-only">(current)</span></a>
+                <a class="nav-link active" href="index.php" style="color: #fff">TRANG CHỦ <span class="sr-only">(current)</span></a>
                 </li>
                
                 <li class="nav-item dropdown fullmenu" >
-                <a class="nav-link " onclick="" id="navbarDropdown">
+                <a class="nav-link " onclick="" id="navbarDropdown" href="index.php?id=product?act=show" >
                 SẢN PHẨM
                 </a>
 				        <div class="dropdown-content" id="product">

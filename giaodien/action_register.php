@@ -17,8 +17,8 @@
         }
 
         //thuc hien truy van du lieu - chen du lieu vao database 2 bang taikhoan va khachhang
-        $query="INSERT INTO taikhoan (MA_TK,TEN_DANG_NHAP,MAT_KHAU,EMAIL)
-                VALUE('".$_SESSION['a']."','".$username."','".$password."','".$email."')";
+        $query="INSERT INTO taikhoan (TEN_DANG_NHAP,MAT_KHAU,EMAIL)
+                VALUE('".$username."','".$password."','".$email."')";
          $checkemail="SELECT * from taikhoan WHERE EMAIL='".$email."'  ";
 
 

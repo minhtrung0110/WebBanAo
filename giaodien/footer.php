@@ -23,9 +23,10 @@
 			<a class="link" href="#"> <i class="fas fa-chevron-circle-right"></i>Chính Sách Bảo Hành Sản Phẩm</a>
 		</div>
 		<div class="col-md-3 col-sm-0">
-            <h5>FAN PAGE</h5>
+            <h5>BẢN ĐỒ</h5>
             <hr style="width: 32%;">
-			<iframe src="https://www.facebook.com/c7clothing3"frameborder="2px" style="border: 2px solid #000; "  allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.715806699765!2d106.66693111428684!3d10.756372062506026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752efb6cf93b7d%3A0x475a1ae77414d826!2zMTc1IEFuIEQuIFbGsMahbmcsIFBoxrDhu51uZyA4LCBRdeG6rW4gNSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1606838872761!5m2!1svi!2s"
+				 frameborder="2px" style="border: 2px solid #000; "  allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 		</div>
         <div class="col-md-1 col-sm-0"></div>
 	</div>
