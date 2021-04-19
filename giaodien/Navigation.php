@@ -1,3 +1,8 @@
+<?php 
+                  $getLoaiSP=mysqli_query($connect,"SELECT DISTINCT LOAI_SP FROM sanpham;");
+                  //$countLoai=mysqli_fetch_row($connect,"SELECT DISTINCT LOAI_SP FROM sanpham;");
+                  $getLoaiSPSale=mysqli_query($connect,"SELECT DISTINCT LOAI_SP FROM sanpham;");// Dòng này khi co giam gia se lấy ở đó
+?>
 <nav class="navbar navbar-expand-lg navbar-light menu " id="navbar">
 
 		<img src="" class="navbar-brand img-fluid  ">
@@ -10,35 +15,39 @@
                 <li class="nav-item active">
                 <a class="nav-link active" href="index.html" style="color: #fff">TRANG CHỦ <span class="sr-only">(current)</span></a>
                 </li>
-                
-                
+               
                 <li class="nav-item dropdown fullmenu" >
                 <a class="nav-link " onclick="" id="navbarDropdown">
                 SẢN PHẨM
                 </a>
-				<div class="dropdown-content" id="product">
-                    <a class="dropdown-item " href="#"><i class="fas fa-circle"></i>Hoodie</a> 
-                    <a class="dropdown-item" href="#"><i class="fas fa-circle"></i>Tee</a>
-                    <a class="dropdown-item " href="#"><i class="fas fa-circle"></i>Hoodie</a> 
-                    <a class="dropdown-item" href="#"><i class="fas fa-circle"></i>Tee</a>
-                
-                
+				        <div class="dropdown-content" id="product">
+                <?php
+                  $i=1;
+                  while ($row_category= mysqli_fetch_array($getLoaiSP)){
+                ?>
+                    <a class="dropdown-item " href="index.php?id=<?php echo 'cate_product_'.$i  ?>"><i class="fas fa-circle"></i><?php echo $row_category['LOAI_SP'] ?></a> 
+                <?php
+                $i++;
+                  }
+                ?>
                 </div>
                 
                 </li>
-            
-            
+
                 <li class="nav-item dropdown">
                 <a class="nav-link"  id="navbarDropdown" onclick="document.getElementById('sale').style.display='block'">
                     KHUYẾN MÃI
                 </a>
                 <div class="dropdown-content" id="sale">
-                    <a class="dropdown-item " href="#"><i class="fas fa-circle"></i>Hoodie</a> 
-                    <a class="dropdown-item" href="#"><i class="fas fa-circle"></i>Tee</a>
-                    <a class="dropdown-item " href="#"><i class="fas fa-circle"></i>Hoodie</a> 
-                    <a class="dropdown-item" href="#"><i class="fas fa-circle"></i>Tee</a>
-                
-                
+                <?php
+                  $i=1;
+                  while ($sale_category= mysqli_fetch_array($getLoaiSPSale)){
+                ?>
+                    <a class="dropdown-item " href="index.php?id=<?php echo 'cate_sale_'.$i  ?>"><i class="fas fa-circle"></i><?php echo $sale_category['LOAI_SP'] ?></a> 
+                <?php
+                $i++;
+                  }
+                ?>
                 </div>
                 </li>
                 <li class="nav-item">

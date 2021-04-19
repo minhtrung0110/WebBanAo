@@ -1,6 +1,6 @@
 <?php
      session_start();
-     $_SESSION['a']=+8;   
+     $_SESSION['a']=3;   
      function register() { 
          if(!empty($_POST)){
             $username =$_POST['username'];
@@ -17,8 +17,8 @@
         }
 
         //thuc hien truy van du lieu - chen du lieu vao database 2 bang taikhoan va khachhang
-        $query="INSERT INTO taikhoan (MA_TK,TEN_DANG_NHAP,MAT_KHAU,STATUS,EMAIL)
-                VALUE('".$_SESSION['a']."','".$username."','".$password."','".$status."','".$email."')";
+        $query="INSERT INTO taikhoan (MA_TK,TEN_DANG_NHAP,MAT_KHAU,EMAIL)
+                VALUE('".$_SESSION['a']."','".$username."','".$password."','".$email."')";
          $checkemail="SELECT * from taikhoan WHERE EMAIL='".$email."'  ";
 
 
@@ -28,6 +28,7 @@
         $data= mysqli_fetch_array(mysqli_query($connect,$checkemail));
          if($data == null){
              mysqli_query($connect,$query);
+             echo $query;
              header("Location:login.php");
          }
          else {

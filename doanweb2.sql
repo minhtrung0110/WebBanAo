@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2021 at 08:55 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Generation Time: Apr 19, 2021 at 05:56 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -243,7 +243,20 @@ INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KIC
 (22, 'SWEAT CLOUD', 100, 400000, 'Sweater', 'L', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/sweat-cloud.jpg'),
 (23, 'Reflection', 300, 550000, 'Jacket', 'S', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/reflection.jpg'),
 (24, 'Reflection ', 200, 550000, 'Jacket', 'M', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/reflection.jpg'),
-(25, 'Reflection ', 100, 550000, 'Jacket', 'L', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/reflection.jpg');
+(25, 'Reflection ', 100, 550000, 'Jacket', 'L', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/reflection.jpg'),
+(26, 'Bomber', 500, 650000, 'Bombber', 'S', 'asd', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slider`
+--
+
+CREATE TABLE `slider` (
+  `ID` int(11) NOT NULL,
+  `src` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `active` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 -- --------------------------------------------------------
 
@@ -255,8 +268,8 @@ CREATE TABLE `taikhoan` (
   `MA_TK` int(10) UNSIGNED NOT NULL,
   `MA_GROUP_QUYEN` int(10) UNSIGNED DEFAULT NULL,
   `TEN_DANG_NHAP` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `MAT_KHAU` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `STATUS` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `MAT_KHAU` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `STATUS` int(1) NOT NULL DEFAULT 1,
   `EMAIL` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
@@ -265,9 +278,10 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`MA_TK`, `MA_GROUP_QUYEN`, `TEN_DANG_NHAP`, `MAT_KHAU`, `STATUS`, `EMAIL`) VALUES
-(1, 1, 'admin', 'admin', '1', 'admin@gmail.com'),
-(2, 2, 'Vy', '123456', '1', 'chautuongvy@gmail.com'),
-(3, 3, 'Minh Trung', '123456', '1', 'minhtrung@gmail.com');
+(1, 1, 'admin', 'admin', 1, 'admin@gmail.com'),
+(2, 2, 'Vy', '123456', 1, 'chautuongvy@gmail.com'),
+(3, NULL, 'Đại Nam', 'e10adc3949ba59abbe56e057f20f883e', 1, 'dai123@gmail.com'),
+(8, NULL, 'Minh Trung', 'e10adc3949ba59abbe56e057f20f883e', 1, 'minhtrung@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -426,7 +440,7 @@ ALTER TABLE `phieunhap`
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `MA_SP` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `MA_SP` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
