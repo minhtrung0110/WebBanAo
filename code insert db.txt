@@ -1,12 +1,71 @@
 // San Pham
-INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES ('17', 'Brave Monster ', '300', '650000', 'Hoodie', 'S', 'một tinh thần sống chậm sảng khoái và tự do – vốn chưa từng xuất hiện trong DNA của BOO LAAB nhưng lại là một trong những tôn chỉ của cộng đồng hippie. BOO LAAB cũng lần đầu tiên mở cửa phòng thí nghiệm để các “nguyên mẫu” của họ hòa mình vào thiên nhiên', '../images/product-items/brave-monster.jpg');
-INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES ('18', 'Brave Monster ', '200', '650000', 'Hoodie', 'M', 'một tinh thần sống chậm sảng khoái và tự do – vốn chưa từng xuất hiện trong DNA của BOO LAAB nhưng lại là một trong những tôn chỉ của cộng đồng hippie. BOO LAAB cũng lần đầu tiên mở cửa phòng thí nghiệm để các “nguyên mẫu” của họ hòa mình vào thiên nhiên', '../images/product-items/brave-monster.jpg');
-INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES ('19', 'Brave Monster ', '100', '600000', 'Hoodie', 'L', 'một tinh thần sống chậm sảng khoái và tự do – vốn chưa từng xuất hiện trong DNA của BOO LAAB nhưng lại là một trong những tôn chỉ của cộng đồng hippie. BOO LAAB cũng lần đầu tiên mở cửa phòng thí nghiệm để các “nguyên mẫu” của họ hòa mình vào thiên nhiên', '../images/product-items/brave-monster.jpg');
+-PhieuNhap1
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'Tee HappyAniversary Yellow', '40', '500000', 'Tee', 'S', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary01.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'Tee HappyAniversary Yellow', '40', '500000', 'Tee', 'M', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary01.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'Tee HappyAniversary Yellow', '40', '500000', 'Tee', 'L', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary01.jpg');
 
-INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES ('20', 'SWEAT CLOUD', '300', '400000', 'Sweater', 'S', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/sweat-cloud.jpg');
-INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES ('21', 'SWEAT CLOUD ', '200', '400000', 'Sweater', 'M', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/sweat-cloud.jpg');
-INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES ('22', 'SWEAT CLOUD', '100', '400000', 'Sweater', 'L', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/sweat-cloud.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'Aniversary Big Logo', '50', '500000', 'Tee', 'S', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary02.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'Aniversary Big Logo', '100', '500000', 'Tee', 'M', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary02.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'Aniversary Big Logo', '80', '500000', 'Tee', 'L', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary02.jpg');
 
-INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES ('23', 'Reflection', '300', '550000', 'Jacket', 'S', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/reflection.jpg');
-INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES ('24', 'Reflection ', '200', '550000', 'Jacket', 'M', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/reflection.jpg');
-INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES ('25', 'Reflection ', '100', '550000', 'Jacket', 'L', 'Không mua bây giờ thì mua bao giờ !!!', '../images/product-items/reflection.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HappyAniversary Special Fire', '40', '600000', 'Tee', 'S', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary03.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HappyAniversary Special Fire', '40', '600000', 'Tee', 'M', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary03.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HappyAniversary Special Fire', '40', '600000', 'Tee', 'L', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary03.jpg');
+
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HappyAniversary Church', '80', '500000', 'Tee', 'S', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary04.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HappyAniversary Church', '80', '500000', 'Tee', 'M', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary04.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HappyAniversary Church', '80', '500000', 'Tee', 'L', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary04.jpg');
+-PhieuNhap2
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'BIG-LOGO-LVENTS', '100','550000', 'Tee', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'BIG-LOGO-LVENTS.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'BIG-LOGO-LVENTS', '100', '550000', 'Tee', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'BIG-LOGO-LVENTS.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'BIG-LOGO-LVENTS', '100', '550000', 'Tee', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'BIG-LOGO-LVENTS.jpg');
+
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HOLLIDAY SUMMER', '100','580000', 'Tee', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HOLLIDAY SUMMER', '100', '580000', 'Tee', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HOLLIDAY SUMMER', '100', '580000', 'Tee', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer.jpg');
+
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HOLLIDAY FUNNY', '100','600000', 'Tee', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer-Fun.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HOLLIDAY FUNNY', '100', '600000', 'Tee', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer-Fun.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HOLLIDAY FUNNY', '100', '600000', 'Tee', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer-Fun.jpg');
+
+
+
+-PhieuNhap3
+
+
+
+//ChiTietPhieuNhap
+-PhieuNhap1
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '1', '450000', 'S', '40');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '2', '450000', 'M', '40');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '3', '450000', 'L', '40');
+
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '4', '450000', 'S', '50');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '5', '450000', 'M', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '6', '450000', 'L', '80');
+
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '7', '450000', 'S', '40');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '8', '450000', 'M', '40');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '9', '450000', 'L', '40');
+
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '10', '450000', 'S', '80');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '11', '450000', 'M', '80');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('1', '12', '450000', 'L', '80');
+-PhieuNhap2
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '13', '450000', 'S', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '14', '450000', 'M', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '15', '450000', 'L', '100');
+
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '16', '450000', 'S', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '17', '450000', 'M', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '18', '450000', 'L', '100');
+
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '19', '450000', 'S', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '20', '450000', 'M', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '21', '450000', 'L', '100');
+
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '22', '450000', 'S', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '23', '450000', 'M', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '24', '450000', 'L', '100');
+
+-PhieuNhap3
