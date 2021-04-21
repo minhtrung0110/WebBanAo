@@ -28,7 +28,10 @@ INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KIC
 INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HOLLIDAY FUNNY', '100', '600000', 'Tee', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer-Fun.jpg');
 INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'HOLLIDAY FUNNY', '100', '600000', 'Tee', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer-Fun.jpg');
 
-
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'ANGLES-RAINBOW', '100','700000', 'Hoodie', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodies-Angles.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'ANGLES-RAINBOW', '100', '700000', 'Hoodie', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodies-Angles.jpg');
+INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KICH_THUOC`, `MO_TA`, `HINH_ANH_URL`) VALUES (NULL, 'ANGLES-RAINBOW', '100', '700000', 'Hoodie', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodies-Angles.jpg');
+Hoodies-Angles.jpg
 
 -PhieuNhap3
 
@@ -67,5 +70,10 @@ INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`
 INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '22', '450000', 'S', '100');
 INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '23', '450000', 'M', '100');
 INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '24', '450000', 'L', '100');
+
+
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '25', '550000', 'S', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '26', '550000', 'M', '100');
+INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES ('2', '27', '550000', 'L', '100');
 
 -PhieuNhap3

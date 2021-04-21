@@ -1,7 +1,28 @@
 <?php
-    $query="SELECT TEN_SP,DON_GIA,HINH_ANH_URL FROM sanpham WHERE LOAI_SP='Tee'";
-    $count=0;
-    $result =mysqli_query($connect,$query);
+	// Thiet Lap muoi Gio
+	date_default_timezone_set('Asia/Ho_Chi_Minh');
+	
+	$datemax=date_create(date('d-m-Y'));
+	$datemin=date_create(date('d-m-Y'));
+	date_modify($datemin,"-1 month");
+	$min=date_format($datemin,'Y-m-d');
+	$max=date_format($datemax,'Y-m-d');
+	
+	$query1="SELECT MA_PN FROM phieunhap WHERE NGAY_NHAP BETWEEN '".$min."' AND '".$max."' ORDER BY NGAY_NHAP DESC LIMIT 1  ";
+	$getMaPN=mysqli_query($connect,$query1);
+	$MaPN=mysqli_fetch_assoc($getMaPN);
+	$query2="SELECT DISTINCT MA_SP FROM chitietphieunhap WHERE MA_PN ='".$MaPN['MA_PN']."' ORDER BY  MA_SP ASC";//DUNG TOI DAY
+	$getMaSP=mysqli_query($connect,$query2);
+	$ArrayMaSP=array();
+	$i=0;
+	while($row_MaSP=mysqli_fetch_array($getMaSP,1)){
+		//$ArrayMaSP[$i++]=$MaSP['MA_SP'];
+		//echo $MASP['MA_SP'];
+		$ArrayMaSP[$i++]= $row_MaSP['MA_SP'];
+	}
+	$query3="SELECT DISTINCT TEN_SP FROM sanpham WHERE   MA_SP BETWEEN '".$ArrayMaSP['0']."' AND '".$ArrayMaSP[$i-1]."' ORDER BY  MA_SP DESC ";
+	$count=0;
+   $result =mysqli_query($connect,$query3);
 ?>
 
 <div class="container-fluid content-product">
@@ -12,31 +33,38 @@
 		<div class="row new-arrival-content " id="arrival">
         <?php
             while($row_new_product=mysqli_fetch_array($result)){
+				
                 $count++;
+				$re_url=mysqli_query($connect,"SELECT HINH_ANH_URL FROM sanpham WHERE TEN_SP='".$row_new_product['TEN_SP']."'");
+				$URL=mysqli_fetch_assoc($re_url);
+				$re_dongia=mysqli_query($connect,"SELECT DON_GIA FROM sanpham WHERE TEN_SP='".$row_new_product['TEN_SP']."'");
+				$DONGIA=mysqli_fetch_assoc($re_dongia);
+
 		?>	
-			<div class="col-md-3 col-sm-12   text-center new-arrival-product">		
+			<div class="col-md-3 col-sm-12   text-center new-arrival-product" >		
 
 				<div class="  new-arrival-items">
-					<img src="images/products/new-arrival01.jpg" class="img-fluid img-new-arrival">
+					<img src="images/product-items/<?php echo $URL['HINH_ANH_URL'];?>" class="img-fluid img-new-arrival">
 					<div class="overlay">
 					<a class="info" href="product.html">Chi Tiết</a>
 					</div>
 															
 				</div>
-				<div class="new-arrival-infor"  style="float:left">
+				<div class="new-arrival-infor"   >
 						<?php  echo $row_new_product['TEN_SP']; ?>
 						<p>
-					
-						<b class="price " style="color: red;float:left"><?php  echo $row_new_product['DON_GIA']; ?>đ</b>
-					</p>			
-
-					<button type="button" class="btn btn-outline-warning" >Mua Ngay</button>
-
+						<b class="price " style="color: red"><?php  echo $DONGIA['DON_GIA']; ?>đ</b>
+					</p>		
+					<div class= "row"  >	
+					<button type="button" class="btn btn-outline-success col-md-7 col-sm-7" style="float:left">Thêm Vào Giỏ </button>
+					<button type="button" class="btn btn-outline-warning col-md-4 col-sm-4" style="float:right" >Mua Ngay</button>
+					</div>
 				</div>	
 				
 			</div>
             <?php
                 if ($count==4) break;
+			
             }
             ?>
 		</div>

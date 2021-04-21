@@ -15,9 +15,7 @@
 			</div>
 			<div id="detai col-md-9 sol-sm-12">
 			<div class="container-fluid content ">
-				<button id="dangxuat" class="btn btn-outline-danger" onclick="dx()">
-					Đăng Xuất
-				</button>
+		
 				<br>
 				
 				<div class="information-user">
