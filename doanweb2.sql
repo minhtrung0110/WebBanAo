@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2021 at 05:12 AM
+-- Generation Time: Apr 24, 2021 at 05:17 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -39,13 +39,26 @@ CREATE TABLE `chitietgiamgia` (
 --
 
 CREATE TABLE `chitiethoadon` (
-  `MA_CTHD` int(10) UNSIGNED NOT NULL,
+  `MA_HD` int(10) UNSIGNED NOT NULL,
   `MA_SP` int(10) UNSIGNED DEFAULT NULL,
   `SO_LUONG` int(11) DEFAULT NULL,
   `TIEN_GIAM_GIA` float DEFAULT NULL,
   `DON_GIA` float DEFAULT NULL,
   `THANH_TIEN` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Dumping data for table `chitiethoadon`
+--
+
+INSERT INTO `chitiethoadon` (`MA_HD`, `MA_SP`, `SO_LUONG`, `TIEN_GIAM_GIA`, `DON_GIA`, `THANH_TIEN`) VALUES
+(1, 10, 2, 0, 500000, 1000000),
+(1, 13, 1, 0, 550000, 550000),
+(1, 1, 2, 0, 500000, 1000000),
+(4, 25, 2, 0, 700000, 1400000),
+(4, 5, 1, 0, 500000, 500000),
+(4, 9, 1, 0, 600000, 600000),
+(4, 12, 2, 0, 500000, 1000000);
 
 -- --------------------------------------------------------
 
@@ -66,6 +79,46 @@ CREATE TABLE `chitietphieunhap` (
 --
 
 INSERT INTO `chitietphieunhap` (`MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, `SO_LUUONG`) VALUES
+(1, 1, 450000, 'S', 40),
+(1, 2, 450000, 'M', 40),
+(1, 3, 450000, 'L', 40),
+(1, 4, 450000, 'S', 50),
+(1, 5, 450000, 'M', 100),
+(1, 6, 450000, 'L', 80),
+(1, 7, 450000, 'S', 40),
+(1, 8, 450000, 'M', 40),
+(1, 9, 450000, 'L', 40),
+(1, 10, 450000, 'S', 80),
+(1, 11, 450000, 'M', 80),
+(1, 12, 450000, 'L', 80),
+(2, 13, 450000, 'S', 100),
+(2, 14, 450000, 'M', 100),
+(2, 15, 450000, 'L', 100),
+(2, 16, 450000, 'S', 100),
+(2, 17, 450000, 'M', 100),
+(2, 18, 450000, 'L', 100),
+(2, 19, 450000, 'S', 100),
+(2, 20, 450000, 'M', 100),
+(2, 21, 450000, 'L', 100),
+(2, 13, 450000, 'S', 100),
+(2, 14, 450000, 'M', 100),
+(2, 15, 450000, 'L', 100),
+(2, 16, 450000, 'S', 100),
+(2, 17, 450000, 'M', 100),
+(2, 18, 450000, 'L', 100),
+(2, 19, 450000, 'S', 100),
+(2, 20, 450000, 'M', 100),
+(2, 21, 450000, 'L', 100),
+(2, 22, 450000, 'S', 100),
+(2, 23, 450000, 'M', 100),
+(2, 24, 450000, 'L', 100),
+(2, 22, 450000, 'S', 100),
+(2, 23, 450000, 'M', 100),
+(2, 24, 450000, 'L', 100),
+(2, 22, 450000, 'S', 100),
+(2, 25, 550000, 'S', 100),
+(2, 26, 550000, 'M', 100),
+(2, 27, 550000, 'L', 100),
 (1, 1, 450000, 'S', 40),
 (1, 2, 450000, 'M', 40),
 (1, 3, 450000, 'L', 40),
@@ -169,7 +222,6 @@ INSERT INTO `groupquyen` (`MA_GROUP_QUYEN`, `TEN_GROUP_QUYEN`) VALUES
 
 CREATE TABLE `hoadon` (
   `MA_HD` int(10) UNSIGNED NOT NULL,
-  `MA_CTHD` int(10) UNSIGNED DEFAULT NULL,
   `MA_NV` int(10) UNSIGNED DEFAULT NULL,
   `MA_KH` int(10) UNSIGNED DEFAULT NULL,
   `MA_MGG` int(10) UNSIGNED DEFAULT NULL,
@@ -179,6 +231,14 @@ CREATE TABLE `hoadon` (
   `TONG_TIEN` float DEFAULT NULL,
   `NGAY_LAP` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`MA_HD`, `MA_NV`, `MA_KH`, `MA_MGG`, `DIA_CHI`, `TINH_TRANG`, `TIEN_GIAM_GIA`, `TONG_TIEN`, `NGAY_LAP`) VALUES
+(1, 1, 2, NULL, 'Lê Thánh Tôn ,Quận 1 ,Tp Hồ Chí Minh', 1, 0, 2550000, '2021-04-20 21:56:21'),
+(4, 1, 3, NULL, 'Quận 6.TP Hồ Chí Minh', 1, 0, 3500000, '2021-04-23 22:06:29');
 
 -- --------------------------------------------------------
 
@@ -196,6 +256,14 @@ CREATE TABLE `khachhang` (
   `DIA_CHI` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
+--
+-- Dumping data for table `khachhang`
+--
+
+INSERT INTO `khachhang` (`MA_KH`, `MA_TK`, `TEN_KH`, `EMAIL`, `PHONE`, `GIOI_TINH`, `DIA_CHI`) VALUES
+(2, 3, 'Đại Ngu', 'dai123@gmail.com', '0925368741', 'Nam', 'Quận 9 ,TP HCM'),
+(3, 0, 'Võ Minh Quang Trang Thuận', 'ThuanDauBo@gmail.com', '0808772546', 'Nam', 'Quận 6 ,TP HCM');
+
 -- --------------------------------------------------------
 
 --
@@ -205,11 +273,18 @@ CREATE TABLE `khachhang` (
 CREATE TABLE `nhanvien` (
   `MA_NV` int(10) UNSIGNED NOT NULL,
   `MA_TK` int(10) UNSIGNED DEFAULT NULL,
-  `TEN_NV` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `TEN_NV` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `EMAIL` varchar(30) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `PHONE` varchar(10) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `GIOI_TINH` varchar(10) COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Dumping data for table `nhanvien`
+--
+
+INSERT INTO `nhanvien` (`MA_NV`, `MA_TK`, `TEN_NV`, `EMAIL`, `PHONE`, `GIOI_TINH`) VALUES
+(1, 4, 'Nguyễn Đức Minh Trung', 'minhtrung@gmail.com', '0707624367', 'Nam');
 
 -- --------------------------------------------------------
 
@@ -249,6 +324,7 @@ CREATE TABLE `quyen` (
 --
 
 INSERT INTO `quyen` (`MA_GROUP_QUYEN`, `MA_DANH_MUC`, `TEN_QUYEN`) VALUES
+(1, 1, 'Quản Lý Nhân Viên'),
 (1, 1, 'Quản Lý Nhân Viên');
 
 -- --------------------------------------------------------
@@ -323,6 +399,12 @@ INSERT INTO `slider` (`ID`, `src`, `active`) VALUES
 (3, 'img3.jpg', 1),
 (4, 'img4.jpg', 1),
 (5, 'img5.jpg', 1),
+(6, 'img6.jpg', 1),
+(1, 'img1.jpg', 1),
+(2, 'img2.jpg', 1),
+(3, 'img3.jpg', 1),
+(4, 'img4.jpg', 1),
+(5, 'img5.jpg', 1),
 (6, 'img6.jpg', 1);
 
 -- --------------------------------------------------------
@@ -347,9 +429,8 @@ CREATE TABLE `taikhoan` (
 INSERT INTO `taikhoan` (`MA_TK`, `MA_GROUP_QUYEN`, `TEN_DANG_NHAP`, `MAT_KHAU`, `STATUS`, `EMAIL`) VALUES
 (0, NULL, 'Thuan', 'e10adc3949ba59abbe56e057f20f883e', 1, 'thuan@gmail.com'),
 (1, 1, 'admin', 'admin', 1, 'admin@gmail.com'),
-(2, 2, 'Vy', '123456', 1, 'chautuongvy@gmail.com'),
 (3, NULL, 'Đại Nam', 'e10adc3949ba59abbe56e057f20f883e', 1, 'dai123@gmail.com'),
-(8, NULL, 'Minh Trung', 'e10adc3949ba59abbe56e057f20f883e', 1, 'minhtrung@gmail.com');
+(4, 2, 'Minh Trung', '123456', 1, 'minhtrung@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -366,8 +447,8 @@ ALTER TABLE `chitietgiamgia`
 -- Indexes for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  ADD PRIMARY KEY (`MA_CTHD`),
-  ADD KEY `MA_SP` (`MA_SP`);
+  ADD KEY `MA_SP` (`MA_SP`),
+  ADD KEY `MA_HD` (`MA_HD`) USING BTREE;
 
 --
 -- Indexes for table `chitietphieunhap`
@@ -399,7 +480,6 @@ ALTER TABLE `groupquyen`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`MA_HD`),
-  ADD KEY `MA_CTHD` (`MA_CTHD`),
   ADD KEY `MA_KH` (`MA_KH`),
   ADD KEY `MA_MGG` (`MA_MGG`),
   ADD KEY `MA_NV` (`MA_NV`);
@@ -450,12 +530,6 @@ ALTER TABLE `taikhoan`
 --
 
 --
--- AUTO_INCREMENT for table `chitiethoadon`
---
-ALTER TABLE `chitiethoadon`
-  MODIFY `MA_CTHD` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `chuongtrinhgiamgia`
 --
 ALTER TABLE `chuongtrinhgiamgia`
@@ -477,19 +551,19 @@ ALTER TABLE `groupquyen`
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MA_HD` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `MA_HD` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MA_KH` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MA_KH` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `MA_NV` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `MA_NV` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `phieunhap`
@@ -511,14 +585,15 @@ ALTER TABLE `sanpham`
 -- Constraints for table `chitietgiamgia`
 --
 ALTER TABLE `chitietgiamgia`
-  ADD CONSTRAINT `chitietgiamgia_ibfk_2` FOREIGN KEY (`MA_SP`) REFERENCES `chuongtrinhgiamgia` (`MA_CTGG`),
+  ADD CONSTRAINT `chitietgiamgia_ibfk_2` FOREIGN KEY (`MA_CTGG`) REFERENCES `chuongtrinhgiamgia` (`MA_CTGG`),
   ADD CONSTRAINT `chitietgiamgia_ibfk_3` FOREIGN KEY (`MA_SP`) REFERENCES `sanpham` (`MA_SP`);
 
 --
 -- Constraints for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`MA_SP`) REFERENCES `sanpham` (`MA_SP`);
+  ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`MA_SP`) REFERENCES `sanpham` (`MA_SP`),
+  ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`MA_HD`) REFERENCES `hoadon` (`MA_HD`);
 
 --
 -- Constraints for table `chitietphieunhap`
