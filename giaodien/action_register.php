@@ -8,7 +8,7 @@
             $password=md5($password);
             $email =$_POST['email'];
             $status=1;
-            include("db/MySQLConnect.php");
+            include("../db/MySQLConnect.php");
 
         //thuc hien truy van du lieu - chen du lieu vao database 2 bang taikhoan va khachhang
         $query="INSERT INTO taikhoan (TEN_DANG_NHAP,MAT_KHAU,EMAIL)
@@ -17,7 +17,7 @@
 
 
        
-        echo $query;
+       
         $data=array();
         $data= mysqli_fetch_array(mysqli_query($connect,$checkemail));
          if($data == null){
