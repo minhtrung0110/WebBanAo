@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2021 at 05:17 PM
+-- Generation Time: Apr 30, 2021 at 04:52 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -58,7 +58,9 @@ INSERT INTO `chitiethoadon` (`MA_HD`, `MA_SP`, `SO_LUONG`, `TIEN_GIAM_GIA`, `DON
 (4, 25, 2, 0, 700000, 1400000),
 (4, 5, 1, 0, 500000, 500000),
 (4, 9, 1, 0, 600000, 600000),
-(4, 12, 2, 0, 500000, 1000000);
+(4, 12, 2, 0, 500000, 1000000),
+(1, 13, 2, 0, 500000, 1000000),
+(4, 25, 2, 0, 700000, 1400000);
 
 -- --------------------------------------------------------
 
@@ -237,7 +239,7 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MA_HD`, `MA_NV`, `MA_KH`, `MA_MGG`, `DIA_CHI`, `TINH_TRANG`, `TIEN_GIAM_GIA`, `TONG_TIEN`, `NGAY_LAP`) VALUES
-(1, 1, 2, NULL, 'Lê Thánh Tôn ,Quận 1 ,Tp Hồ Chí Minh', 1, 0, 2550000, '2021-04-20 21:56:21'),
+(1, 1, 2, NULL, 'Lê Thánh Tôn ,Quận 1 ,Tp Hồ Chí Minh', 1, 0, 3550000, '2021-04-20 21:56:21'),
 (4, 1, 3, NULL, 'Quận 6.TP Hồ Chí Minh', 1, 0, 3500000, '2021-04-23 22:06:29');
 
 -- --------------------------------------------------------
@@ -430,7 +432,7 @@ INSERT INTO `taikhoan` (`MA_TK`, `MA_GROUP_QUYEN`, `TEN_DANG_NHAP`, `MAT_KHAU`, 
 (0, NULL, 'Thuan', 'e10adc3949ba59abbe56e057f20f883e', 1, 'thuan@gmail.com'),
 (1, 1, 'admin', 'admin', 1, 'admin@gmail.com'),
 (3, NULL, 'Đại Nam', 'e10adc3949ba59abbe56e057f20f883e', 1, 'dai123@gmail.com'),
-(4, 2, 'Minh Trung', '123456', 1, 'minhtrung@gmail.com');
+(4, 2, 'Minh Trung', 'e10adc3949ba59abbe56e057f20f883e', 1, 'minhtrung@gmail.com');
 
 --
 -- Indexes for dumped tables

@@ -73,27 +73,40 @@
 		<br>
 
 		<!--- the ảnh gi do-->
-		
+	<?php
+	$query4="SELECT p.MA_SP,p.TEN_SP,SUM(od.SO_LUONG) AS TotalQuantity ,p.DON_GIA,p.HINH_ANH_URL 
+	from sanpham as p inner join chitiethoadon as od on p.MA_SP = od.MA_SP 
+	GROUP BY p.TEN_SP ORDER BY SUM(od.SO_LUONG) DESC LIMIT 6";
+	$getBestSelling= mysqli_query($connect,$query4);
+
+	?>
 	<div class="container-fluid  top-sold row">
 		<p class="text-center title ">SẢN PHẨM BÁN CHẠY</p>
 		<hr class="hr-arrival">
 		<br>
 		<div class="col-md-1 col-sm-1"></div>
 		<div class="col-md-10 col-sm-10 row top-sold-content " id="bestseller">
-				
-	<div class="col-md-4 col-sm-12 text-center top-sold-product">
+		<?php
+            while($row_best_seller=mysqli_fetch_array($getBestSelling)){
+				$best_url=mysqli_query($connect,"SELECT HINH_ANH_URL FROM sanpham WHERE TEN_SP='".$row_best_seller['TEN_SP']."'");
+				$URL_best=mysqli_fetch_assoc($best_url);
+				$best_dongia=mysqli_query($connect,"SELECT DON_GIA FROM sanpham WHERE TEN_SP='".$row_best_seller['TEN_SP']."'");
+				$DONGIA_best=mysqli_fetch_assoc($best_dongia);
+
+		?>	
+			<div class="col-md-4 col-sm-12 text-center top-sold-product">
 				<div class="  top-sold-items">
-					<img src="images/products/topsold01.jpg" class="img-fluid img-top-sold">
+					<img src="images/product-items/<?php echo $URL_best['HINH_ANH_URL'] ?>" class="img-fluid img-top-sold">
 					<div class="overlay">
 					<a class="info" href="product.html">Chi Tiết</a>
 					</div>
 															
 				</div>
 				<div class="top-sold-infor">
-					BOBUI BIG-LOGO-FIRE YELLOW
+					<?php echo $row_best_seller['TEN_SP'] ?>
 						<p style="margin-bottom: 1ex;">
 					
-						<b class="price " style="color: red">550.000 đ</b>
+						<b class="price " style="color: red"><?php echo $DONGIA_best['DON_GIA']  ?> </b>
 					</p>			
 					<div class=" button">
 						<button type="button" class="btn btn-outline-primary col-md-7 " style="float: left;"><a href="">Thêm Vào Giỏ Hàng</a> </button>
@@ -102,6 +115,9 @@
 					
 				</div>	
 			</div>
+			<?php
+			}
+			?>
 		</div>
 		<div class="col-md-1 col-sm-1"></div>
 
@@ -110,9 +126,7 @@
 
 		<button type="button" class="btn btn-outline-warning extendend"><a href="tops-product-index.html"> Xem Thêm</a> </button>
 
-
 		<br>
-
 	
 	    </div>
     </div>
