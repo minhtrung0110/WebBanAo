@@ -1,4 +1,8 @@
-
+<?php
+//session_start();
+//if(isset($_SESSION['login'])) $checklogin = $_SESSION['login'];
+//var_dump($checklogin);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,6 +55,11 @@
       });
 
     </script>
+    <!--<script type="text/javascript">
+var check = "<?php echo $checklogin; ?>" ; 
+  if(check==false)
+    alert("Đăng Nhập Thất Bại!Vui lòng nhập đúng Mật Khẩu. Nếu bạn chưa có Tài Khoản Vui Lòng Đăng Ký Tài Khoản?");
+</script>-->
 
 </body>
 

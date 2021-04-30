@@ -17,7 +17,7 @@
                 </li>
                
                 <li class="nav-item dropdown fullmenu" >
-                <a class="nav-link " onclick="" id="navbarDropdown" href="index.php?id=product?act=show" >
+                <a class="nav-link " onclick="" id="navbarDropdown" href="index.php?id=product" >
                 SẢN PHẨM
                 </a>
 				        <div class="dropdown-content" id="product">
@@ -25,7 +25,7 @@
                   $i=1;
                   while ($row_category= mysqli_fetch_array($getLoaiSP)){
                 ?>
-                    <a class="dropdown-item " href="index.php?id=<?php echo 'cate_product_'.$i  ?>"><i class="fas fa-circle"></i><?php echo $row_category['LOAI_SP'] ?></a> 
+                    <a class="dropdown-item " href="index.php?id=<?php echo 'cate_product_'.$row_category['LOAI_SP']  ?>"><i class="fas fa-circle"></i><?php echo $row_category['LOAI_SP'] ?></a> 
                 <?php
                 $i++;
                   }
@@ -43,7 +43,7 @@
                   $i=1;
                   while ($sale_category= mysqli_fetch_array($getLoaiSPSale)){
                 ?>
-                    <a class="dropdown-item " href="index.php?id=<?php echo 'cate_sale_'.$i  ?>"><i class="fas fa-circle"></i><?php echo $sale_category['LOAI_SP'] ?></a> 
+                    <a class="dropdown-item " href="index.php?id=<?php echo 'cate_sale_'.$row_category['LOAI_SP']  ?>"><i class="fas fa-circle"></i><?php echo $sale_category['LOAI_SP'] ?></a> 
                 <?php
                 $i++;
                   }

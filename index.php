@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("db/MySQLConnect.php");
+if(isset($_SESSION['login'])) $checklogin = $_SESSION['login'];
 
 ?>
 <!DOCTYPE html>
@@ -14,6 +15,7 @@ include("db/MySQLConnect.php");
 	<link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="css/index_product.css">
     <link rel="stylesheet" type="text/css" href="css/user.css">
+    <link rel="stylesheet" type="text/css" href="css/allproduct.css">
 
 	
 </head>
@@ -38,6 +40,9 @@ include("db/MySQLConnect.php");
          else if($_GET['id']=='user'){
              require("giaodien/user.php");
          }
+         else if($_GET['id']=='product'){
+             require("giaodien/allproduct.php");
+         }
         
         ?>
 	
@@ -48,7 +53,7 @@ include("db/MySQLConnect.php");
 
 
     <!--FOOTER-->
-    <?php require("giaodien/footer.php");  var_dump($_SESSION['login'])?>
+    <?php require("giaodien/footer.php");  ?>
 
 </div>
 
@@ -56,9 +61,19 @@ include("db/MySQLConnect.php");
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="js/slide.js"></script>
-<script src="main.js"></script>
+<!-- thong bao trang thai dang nhap-->
+<script>
+var login = "<?php echo $checklogin; ?>" ;
+if(login==0){
+    alert("Đăng Nhập Thất Bại!Vui lòng nhập đúng Mật Khẩu. Nếu bạn chưa có Tài Khoản Vui Lòng Đăng Ký Tài Khoản?");
 
+}else{
+    alert("Đăng Nhập Thành Công !!!")};
+</script>
 
 </body>
 
 </html>
+<?php
+
+?>

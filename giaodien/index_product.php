@@ -20,8 +20,7 @@
 		//echo $MASP['MA_SP'];
 		$ArrayMaSP[$i++]= $row_MaSP['MA_SP'];
 	}
-	$query3="SELECT DISTINCT TEN_SP FROM sanpham WHERE   MA_SP BETWEEN '".$ArrayMaSP['0']."' AND '".$ArrayMaSP[$i-1]."' ORDER BY  MA_SP DESC ";
-	$count=0;
+	$query3="SELECT DISTINCT TEN_SP FROM sanpham WHERE   MA_SP BETWEEN '".$ArrayMaSP['0']."' AND '".$ArrayMaSP[$i-1]."' ORDER BY  MA_SP DESC LIMIT 4 ";
    $result =mysqli_query($connect,$query3);
 ?>
 
@@ -33,8 +32,6 @@
 		<div class="row new-arrival-content " id="arrival">
         <?php
             while($row_new_product=mysqli_fetch_array($result)){
-				
-                $count++;
 				$re_url=mysqli_query($connect,"SELECT HINH_ANH_URL FROM sanpham WHERE TEN_SP='".$row_new_product['TEN_SP']."'");
 				$URL=mysqli_fetch_assoc($re_url);
 				$re_dongia=mysqli_query($connect,"SELECT DON_GIA FROM sanpham WHERE TEN_SP='".$row_new_product['TEN_SP']."'");
@@ -56,14 +53,14 @@
 						<b class="price " style="color: red"><?php  echo $DONGIA['DON_GIA']; ?>đ</b>
 					</p>		
 					<div class= "row"  >	
-					<button type="button" class="btn btn-outline-success col-md-7 col-sm-7" style="float:left">Thêm Vào Giỏ </button>
-					<button type="button" class="btn btn-outline-warning col-md-4 col-sm-4" style="float:right" >Mua Ngay</button>
+					<button type="button" class="btn btn-outline-success col-md-7 col-sm-7" >Thêm Vào Giỏ </button>
+					<button type="button" class="btn btn-outline-warning col-md-4 col-sm-4"  >Mua Ngay</button>
 					</div>
 				</div>	
 				
 			</div>
             <?php
-                if ($count==4) break;
+              
 			
             }
             ?>

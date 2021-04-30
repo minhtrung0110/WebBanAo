@@ -1,6 +1,7 @@
 
 <?php
       session_start();
+      $checklogin;
      function login() { 
          if(!empty($_POST) &&isset($_POST)){
             $password =$_POST['pwd'];
@@ -36,6 +37,7 @@
         if($data!=null && count($data)>0){
             $_SESSION['customer_name'] = $name;//lay tên người dùng
             $_SESSION['login']=true;
+            $_SESSION['check']='hello ';
             header("Location: ../index.php");// có thể bỏ dn= true vì người dùng có thể sữa dn thành false hoặc true 
         }
         else{
@@ -48,3 +50,4 @@
     }
     login();
 ?>
+
