@@ -1,12 +1,13 @@
 <?php
 session_start();
 include("db/MySQLConnect.php");
-if(isset($_SESSION['login'])) $checklogin = $_SESSION['login'];
+if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login'])) $checklogin =  $_SESSION['alert_login'];
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="images/header-website.png" type="image/png" />  
 	<title>Three Clothing</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,12 +65,12 @@ if(isset($_SESSION['login'])) $checklogin = $_SESSION['login'];
 
 <!-- thong bao trang thai dang nhap-->
 <script>
-/*var login = "<?php echo $checklogin; ?>" ;
+var login = "<?php echo $checklogin; ?>" ;
 if(login==0){
     alert("Đăng Nhập Thất Bại!Vui lòng nhập đúng Mật Khẩu. Nếu bạn chưa có Tài Khoản Vui Lòng Đăng Ký Tài Khoản?");
-
+<?php   $_SESSION['alert_login']="" ?>
 }else{
-    alert("Đăng Nhập Thành Công !!!")};*/
+    alert("Đăng Nhập Thành Công !!!") <?php   $_SESSION['alert_login']=""?> }; 
 </script>
 
 <script src="js/jquery-3.3.1.min.js"></script>

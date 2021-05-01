@@ -22,21 +22,29 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <body>
 <!-- main -->
 <?php
+session_start();
 $mess_error="";
     if(isset($_POST['login-admin']) && !empty($_POST['login-admin']) ){
         $name=$_POST['name'];
         $password=$_POST['password'];
-        $password=md5($password);
+       // $password=md5($password);
         include("../db/MySQLConnect.php");
         $query="SELECT TEN_DANG_NHAP,MAT_KHAU FROM `taikhoan` WHERE MA_GROUP_QUYEN=2 OR MA_GROUP_QUYEN=1 GROUP BY TEN_DANG_NHAP";
         $result=mysqli_query($connect,$query);
         $check=false;
         while($data=mysqli_fetch_array($result) ){
-                if($data['TEN_DANG_NHAP']==$name && $data['MAT_KHAU']==$password) $check=true;
+                if($data['TEN_DANG_NHAP']==$name && $data['MAT_KHAU']==$password) {$check=true; $name=$data['TEN_DANG_NHAP'];}
         }        
-        if( $check==true )
+        if( $check==true ){
+			$_SESSION['admin_name']=$name;
+			$_SESSION['admin_login']=true;
         header("Location:./dashboard/index.php");
-        else  $mess_error="TÊN ĐĂNG NHẬP HOẶC MẬT KHẨU NHẬP SAI!!";
+
+		}
+        else  {
+			$mess_error="TÊN ĐĂNG NHẬP HOẶC MẬT KHẨU NHẬP SAI!!";
+			$_SESSION['admin_login']=false;
+		}
     }
 
 

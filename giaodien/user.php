@@ -84,9 +84,6 @@ $name=$_SESSION['customer_name'];
 				<label for="psw"><b>Mật Khẩu:</b></label>
 				<input class="login-input" type="text" placeholder="Nhập Mật Khẩu:" name="psw"  id="psw"required>
 
-				<label for="email"><b>Email:</b></label>
-				<input class="login-input" type="text" placeholder="Nhập Email:" name="email"  id="psw"required>
-
 				<label for="phone"><b>Số Điện Thoại:</b></label>
 				<input class="login-input" type="text" placeholder="Nhập Số Điện Thoại:" name="phone"  id="psw"required>
 

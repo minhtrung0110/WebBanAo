@@ -52,6 +52,7 @@
           $name=$username['TEN_DANG_NHAP'];
             $_SESSION['customer_name'] = $name;//lay tên người dùng
             $_SESSION['login']=true;
+            $_SESSION['alert_login']=true;
             header("Location: ../index.php");// có thể bỏ dn= true vì người dùng có thể sữa dn thành false hoặc true 
         }
         else{        

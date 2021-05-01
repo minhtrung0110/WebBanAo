@@ -5,7 +5,6 @@ function UpdateCustomer() {
 	   $fullname =$_POST['fullname'];
 	   $password =$_POST['psw'];
 	   $password=md5($password);
-	   $email =$_POST['email'];
 	   $phone =$_POST['phone'];
 	   $gender =$_POST['gender'];
 	   $address =$_POST['address'];
@@ -13,7 +12,7 @@ function UpdateCustomer() {
 	   $name=$_SESSION['customer_name'];
 
    //thuc hien truy van du lieu - chen u lieu vao database 2 bang taikhoan va khachhang
-   $query="UPDATE khachhang SET TEN_KH='$fullname',EMAIL='$email',PHONE='$phone',GIOI_TINH='$gender',DIA_CHI='$address' WHERE TEN_KH='$name'";
+   $query="UPDATE khachhang SET TEN_KH='$fullname',PHONE='$phone',GIOI_TINH='$gender',DIA_CHI='$address' WHERE TEN_KH='$name'";
 	$query1=" UPDATE `taikhoan` SET TEN_DANG_NHAP='$fullname',MAT_KHAU='$password' WHERE TEN_DANG_NHAP='$name'";
 		echo $query1;
 		echo $query;

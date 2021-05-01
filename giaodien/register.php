@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+if(isset( $_SESSION['mail_error']) && !empty( $_SESSION['mail_error']) ) $checkmail =  $_SESSION['mail_error'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +15,6 @@
     <script src="../js/validate.js"> </script>
 </body>
 <?php
-     session_start();
      $_SESSION['a']=3; 
      $mess_error="";  
      //function register() { 
@@ -131,6 +133,14 @@
       });
 
     </script>
+<script>
+var mail = "<?php echo $_SESSION['mail_error']; ?>" ;
+console.log(mail);
+if(mail==false){
+    alert("EMAIL ĐÃ TỒN TẠI VUI LÒNG CHỌN EMAIL KHÁC !!!");
+<?php   $_SESSION['mail_error']=true ?>
+}
+</script>
 
 </body>
 
