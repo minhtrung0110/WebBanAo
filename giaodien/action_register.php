@@ -7,12 +7,13 @@
             $password =$_POST['pwd'];
             $password=md5($password);
             $email =$_POST['email'];
-            $status=1;
+           // $status=1;
+            $quyen=3;
             include("../db/MySQLConnect.php");
 
         //thuc hien truy van du lieu - chen du lieu vao database 2 bang taikhoan va khachhang
-        $query="INSERT INTO taikhoan (TEN_DANG_NHAP,MAT_KHAU,EMAIL)
-                VALUE('".$username."','".$password."','".$email."')";
+        $query="INSERT INTO taikhoan (TEN_DANG_NHAP,MAT_KHAU,EMAIL,MA_GROUP_QUYEN)
+                VALUE('".$username."','".$password."','".$email."','".$quyen."')";
         $query1= "INSERT INTO khachhang (TEN_KH,EMAIL)
         VALUE('".$username."','".$email."')";
          $checkemail="SELECT * from taikhoan WHERE EMAIL='".$email."'  ";

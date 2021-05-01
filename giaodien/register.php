@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +11,55 @@
     <link rel="stylesheet" type="text/css" href="../css/register.css">
     <script src="../js/validate.js"> </script>
 </body>
+<?php
+     session_start();
+     $_SESSION['a']=3; 
+     $mess_error="";  
+     //function register() { 
+         if(isset($_POST['register']) && !empty($_POST['register']) ){
+            $username =$_POST['username'];
+            $password =$_POST['pwd'];
+            $password=md5($password);
+            $email =$_POST['email'];
+           // $status=1;
+            $quyen=3;
+            include("../db/MySQLConnect.php");
+
+        //thuc hien truy van du lieu - chen du lieu vao database 2 bang taikhoan va khachhang
+        $query="INSERT INTO taikhoan (TEN_DANG_NHAP,MAT_KHAU,EMAIL,MA_GROUP_QUYEN)
+                VALUE('".$username."','".$password."','".$email."','".$quyen."')";
+        $query1= "INSERT INTO khachhang (TEN_KH,EMAIL)
+        VALUE('".$username."','".$email."')";
+         $checkemail="SELECT TEN_DANG_NHAP from taikhoan WHERE EMAIL='".$email."'  ";
+        $result=mysqli_query($connect,$query1);
+
+       
+       
+        $data=array();
+        $data= mysqli_fetch_array(mysqli_query($connect,$checkemail));
+         if($data == null){
+             mysqli_query($connect,$query);
+             echo $query1;
+             echo $query;
+             header("Location:login.php");
+         }
+         else {
+            $mess_error="Email đã tồn tại !! vui lòng chọn Email khác";
+            /// bắt sự kiện JS hiện thông báo như thế nào  ???
+
+         }
+
+
+        //dong kêt nối
+         $connect->close();        
+        }
+    //}
+    //register();
+   
+?>
 <div class="main">
 
-      <form method="POST" action="action_register.php"  class="form" id="form-1">
+    <form action="action_register.php" method="post"  class="form" id="form-1">
         <h3 class="heading">Đăng Ký Tài Khoản</h3>
         <p class="desc"></p>
 
@@ -27,7 +74,7 @@
         <div class="form-group">
           <label for="email" class="form-label">Email:</label>
           <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-          <span class="form-message"></span>
+          <span class="form-message"><?php echo $mess_error  ?></span>
         </div>
 
         <div class="form-group">
@@ -41,7 +88,7 @@
           <span class="form-message"></span>
         </div>
 
-        <button type="submit" class="form-submit2">Đăng Ký</button>
+        <input type="submit" name="register" class="form-submit2" value="Đăng Ký">
       </form>
 
 
