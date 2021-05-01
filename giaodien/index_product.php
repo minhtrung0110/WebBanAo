@@ -50,9 +50,9 @@
 				<div class="new-arrival-infor"   >
 						<?php  echo $row_new_product['TEN_SP']; ?>
 						<p>
-						<b class="price " style="color: red"><?php  echo $DONGIA['DON_GIA']; ?>đ</b>
+						<b class="price " style="color: red"><?php  echo number_format($DONGIA['DON_GIA']);?> VNĐ </b>
 					</p>		
-					<div class= "row"  >	
+					<div class= "row"   >	
 					<button type="button" class="btn btn-outline-success col-md-7 col-sm-7" >Thêm Vào Giỏ </button>
 					<button type="button" class="btn btn-outline-warning col-md-4 col-sm-4"  >Mua Ngay</button>
 					</div>
@@ -103,7 +103,7 @@
 					<?php echo $row_best_seller['TEN_SP'] ?>
 						<p style="margin-bottom: 1ex;">
 					
-						<b class="price " style="color: red"><?php echo $DONGIA_best['DON_GIA']  ?> </b>
+						<b class="price " style="color: red"><?php echo number_format($DONGIA_best['DON_GIA'] )?> VNĐ </b>
 					</p>			
 					<div class=" button">
 						<button type="button" class="btn btn-outline-primary col-md-7 " style="float: left;"><a href="">Thêm Vào Giỏ Hàng</a> </button>

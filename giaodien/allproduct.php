@@ -25,7 +25,7 @@
                     <div class="  product-about">
                         <img src="images/product-items/<?php echo $url ?>" class="img-fluid img-top-sold">
                         <div class="overlay">
-                        <a class="info" href="product.html">Chi Tiết</a>
+                        <a class="info" href="index.php?quanly=detail&id=<?php echo $row_all_product['MA_SP'] ?>">Chi Tiết</a>
                         </div>
                                                                 
                     </div>
@@ -33,7 +33,7 @@
                         <?php echo $nameproduct ?>
                             <p style="margin-bottom: 1ex;">
                         
-                            <b class="price " style="color: red"><?php echo $price ?> Đ</b>
+                            <b class="price " style="color: red"><?php echo number_format($price) ?> VNĐ</b>
                         </p>			
                         <div class=" product-button">
                             <button type="button" class="btn btn-outline-primary col-md-7 " style="float: left;">Thêm Vào Giỏ Hàng</button>

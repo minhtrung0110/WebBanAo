@@ -16,6 +16,7 @@ if(isset($_SESSION['login'])) $checklogin = $_SESSION['login'];
     <link rel="stylesheet" type="text/css" href="css/index_product.css">
     <link rel="stylesheet" type="text/css" href="css/user.css">
     <link rel="stylesheet" type="text/css" href="css/allproduct.css">
+    <link rel="stylesheet" type="text/css" href="css/detail.css">
 
 	
 </head>
@@ -30,19 +31,23 @@ if(isset($_SESSION['login'])) $checklogin = $_SESSION['login'];
 
 
     <!--CONTENT-->
-    <div class="container-fluid content">
+    <div class="content">
         <!--BANNER-->
         <?php 
-        if(!isset($_GET['id'])){
+        if(!isset($_GET['quanly'])){
          require("giaodien/slideshow_banner.php"); 
         #Product in INDEX.PHP
          require("giaodien/index_product.php"); }
-         else if($_GET['id']=='user'){
+         else if($_GET['quanly']=='user'){
              require("giaodien/user.php");
          }
-         else if($_GET['id']=='product'){
+         else if($_GET['quanly']=='product'){
              require("giaodien/allproduct.php");
          }
+
+        else if($_GET['quanly']=='detail' ) {
+            require("giaodien/detail.php");
+        }
         
         ?>
 	
@@ -57,19 +62,20 @@ if(isset($_SESSION['login'])) $checklogin = $_SESSION['login'];
 
 </div>
 
-
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script src="js/slide.js"></script>
 <!-- thong bao trang thai dang nhap-->
 <script>
-var login = "<?php echo $checklogin; ?>" ;
+/*var login = "<?php echo $checklogin; ?>" ;
 if(login==0){
     alert("Đăng Nhập Thất Bại!Vui lòng nhập đúng Mật Khẩu. Nếu bạn chưa có Tài Khoản Vui Lòng Đăng Ký Tài Khoản?");
 
 }else{
-    alert("Đăng Nhập Thành Công !!!")};
+    alert("Đăng Nhập Thành Công !!!")};*/
 </script>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/slide.js"></script>
+<script src="main.js"></script>
 
 </body>
 

@@ -6,12 +6,12 @@
 			<div class="Logo-Brand col-md-2 col-sm-5" >
 				<img src="">
 			</div>
-			<div class=" col-md-2 col-sm-0" ></div>
-			<div class="Account col-md-3 col-sm-5" >
+			<div class=" col-md-1 col-sm-0" ></div>
+			<div class="Account col-md-4 col-sm-5" >
 			<button class="login btn btn-outline-success"   ><a  class="login" style="text-decoration: none; color: green;font-weight:bold;"href=
 				'<?php
 						if (isset($_SESSION['login']) ) {
-							if($_SESSION['login']) echo "index.php?id=user";
+							if($_SESSION['login']) echo "index.php?quanly=user";
 							else echo "giaodien/login.php";
 							}
 						else echo "giaodien/login.php";
