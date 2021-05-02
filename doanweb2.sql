@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2021 at 04:52 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Generation Time: May 02, 2021 at 08:15 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -263,8 +263,7 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MA_KH`, `MA_TK`, `TEN_KH`, `EMAIL`, `PHONE`, `GIOI_TINH`, `DIA_CHI`) VALUES
-(2, 3, 'Đại Ngu', 'dai123@gmail.com', '0925368741', 'Nam', 'Quận 9 ,TP HCM'),
-(3, 0, 'Võ Minh Quang Trang Thuận', 'ThuanDauBo@gmail.com', '0808772546', 'Nam', 'Quận 6 ,TP HCM');
+(3, 1, 'Minh Trung', 'minhtrung4367@gmail.com', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -418,7 +417,7 @@ INSERT INTO `slider` (`ID`, `src`, `active`) VALUES
 CREATE TABLE `taikhoan` (
   `MA_TK` int(10) UNSIGNED NOT NULL,
   `MA_GROUP_QUYEN` int(10) UNSIGNED DEFAULT NULL,
-  `TEN_DANG_NHAP` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `TEN_DANG_NHAP` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `MAT_KHAU` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `STATUS` int(1) NOT NULL DEFAULT 1,
   `EMAIL` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL
@@ -429,10 +428,8 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`MA_TK`, `MA_GROUP_QUYEN`, `TEN_DANG_NHAP`, `MAT_KHAU`, `STATUS`, `EMAIL`) VALUES
-(0, NULL, 'Thuan', 'e10adc3949ba59abbe56e057f20f883e', 1, 'thuan@gmail.com'),
-(1, 1, 'admin', 'admin', 1, 'admin@gmail.com'),
-(3, NULL, 'Đại Nam', 'e10adc3949ba59abbe56e057f20f883e', 1, 'dai123@gmail.com'),
-(4, 2, 'Minh Trung', 'e10adc3949ba59abbe56e057f20f883e', 1, 'minhtrung@gmail.com');
+(1, 3, 'Minh Trung', 'e10adc3949ba59abbe56e057f20f883e', 1, 'minhtrung4367@gmail.com'),
+(2, 1, 'admin', 'admin', 1, '');
 
 --
 -- Indexes for dumped tables
@@ -578,6 +575,12 @@ ALTER TABLE `phieunhap`
 --
 ALTER TABLE `sanpham`
   MODIFY `MA_SP` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  MODIFY `MA_TK` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

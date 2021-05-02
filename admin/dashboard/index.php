@@ -41,11 +41,29 @@ if(isset( $_SESSION['admin_login']) ) $checklogin=$_SESSION['admin_login'];
     <?php
         /*Navigation*/
         include("navigation.php");
-
         /* header */
         include("header.php");
 
         /*page content */
+
+
+        if(!isset($_GET['manage'])) {
+          require("overview.php"); }
+
+          else if($_GET['manage']=='orders'){
+              require("manage_order.php");
+          }
+          else if($_GET['manage']=='products'){
+              require("manage_product.php");
+          }
+ 
+         else if($_GET['manage']=='accounts' ) {
+             require("manage_account.php");
+         }
+
+
+
+
 
         /* footer content */
         include("footer.php");
