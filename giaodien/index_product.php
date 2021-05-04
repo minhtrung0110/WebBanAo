@@ -9,9 +9,10 @@
 	$max=date_format($datemax,'Y-m-d');
 	
 	$query1="SELECT MA_PN FROM phieunhap WHERE NGAY_NHAP BETWEEN '".$min."' AND '".$max."' ORDER BY NGAY_NHAP DESC LIMIT 1  ";
-	$getMaPN=mysqli_query($connect,$query1);
+	$getMaPN=mysqli_query($connect,$query1);//echo $query1;
 	$MaPN=mysqli_fetch_assoc($getMaPN);
 	$query2="SELECT DISTINCT MA_SP FROM chitietphieunhap WHERE MA_PN ='".$MaPN['MA_PN']."' ORDER BY  MA_SP ASC";//DUNG TOI DAY
+	//echo $query2;
 	$getMaSP=mysqli_query($connect,$query2);
 	$ArrayMaSP=array();
 	$i=0;
@@ -36,6 +37,8 @@
 				$URL=mysqli_fetch_assoc($re_url);
 				$re_dongia=mysqli_query($connect,"SELECT DON_GIA FROM sanpham WHERE TEN_SP='".$row_new_product['TEN_SP']."'");
 				$DONGIA=mysqli_fetch_assoc($re_dongia);
+				$ID_new=mysqli_query($connect,"SELECT MA_SP FROM sanpham WHERE TEN_SP='".$row_new_product['TEN_SP']."'");
+				$ID_new_product=mysqli_fetch_assoc($ID_new);
 
 		?>	
 			<div class="col-md-3 col-sm-12   text-center new-arrival-product" >		
@@ -43,7 +46,7 @@
 				<div class="  new-arrival-items">
 					<img src="images/product-items/<?php echo $URL['HINH_ANH_URL'];?>" class="img-fluid img-new-arrival">
 					<div class="overlay">
-					<a class="info" href="product.html">Chi Tiết</a>
+					<a class="info" href="index.php?quanly=detail&id=<?php echo $ID_new_product['MA_SP'] ?>">Chi Tiết</a>
 					</div>
 															
 				</div>
@@ -89,13 +92,15 @@
 				$URL_best=mysqli_fetch_assoc($best_url);
 				$best_dongia=mysqli_query($connect,"SELECT DON_GIA FROM sanpham WHERE TEN_SP='".$row_best_seller['TEN_SP']."'");
 				$DONGIA_best=mysqli_fetch_assoc($best_dongia);
+				$ID_best=mysqli_query($connect,"SELECT MA_SP FROM sanpham WHERE TEN_SP='".$row_best_seller['TEN_SP']."'");
+				$ID_best_sell=mysqli_fetch_assoc($ID_best);
 
 		?>	
 			<div class="col-md-4 col-sm-12 text-center top-sold-product">
 				<div class="  top-sold-items">
 					<img src="images/product-items/<?php echo $URL_best['HINH_ANH_URL'] ?>" class="img-fluid img-top-sold">
 					<div class="overlay">
-					<a class="info" href="product.html">Chi Tiết</a>
+					<a class="info" href="index.php?quanly=detail&id=<?php echo $ID_best_sell['MA_SP'] ?>">Chi Tiết</a>
 					</div>
 															
 				</div>
@@ -121,7 +126,7 @@
 			
 		
 
-		<button type="button" class="btn btn-outline-warning extendend"><a href="tops-product-index.html"> Xem Thêm</a> </button>
+		<button type="button" class="btn btn-outline-warning extendend"><a href="index.php?quanly=product"> Xem Thêm</a> </button>
 
 		<br>
 	

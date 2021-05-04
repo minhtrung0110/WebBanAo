@@ -1,7 +1,7 @@
 <?php 
                   $getLoaiSP=mysqli_query($connect,"SELECT DISTINCT LOAI_SP FROM sanpham;");
                   //$countLoai=mysqli_fetch_row($connect,"SELECT DISTINCT LOAI_SP FROM sanpham;");
-                  $getLoaiSPSale=mysqli_query($connect,"SELECT DISTINCT LOAI_SP FROM sanpham;");// Dòng này khi co giam gia se lấy ở đó
+                  $getLoaiSPSale=mysqli_query($connect,"SELECT MA_CTGG,LOAI_CHUONG_TRINH,TEN_CHUONG_TRINH FROM chuongtrinhgiamgia;");// Dòng này khi co giam gia se lấy ở đó
 ?>
 <nav class="navbar navbar-expand-lg navbar-light menu " id="navbar">
 
@@ -35,7 +35,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                <a class="nav-link"  id="navbarDropdown" onclick="document.getElementById('sale').style.display='block'">
+                <a class="nav-link"  id="navbarDropdown" href="index.php?quanly=sale" >
                     KHUYẾN MÃI
                 </a>
                 <div class="dropdown-content" id="sale">
@@ -43,7 +43,7 @@
                   $i=1;
                   while ($sale_category= mysqli_fetch_array($getLoaiSPSale)){
                 ?>
-                    <a class="dropdown-item " href="index.php?quanly=sale&type=<?php echo $row_category['LOAI_SP']  ?>"><i class="fas fa-circle"></i><?php echo $sale_category['LOAI_SP'] ?></a> 
+                    <a class="dropdown-item " href="index.php?quanly=sale&type=<?php echo $sale_category['MA_CTGG']  ?>"><i class="fas fa-circle"></i><?php echo $sale_category['TEN_CHUONG_TRINH'] ?></a> 
                 <?php
                 $i++;
                   }

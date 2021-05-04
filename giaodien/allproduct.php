@@ -84,7 +84,7 @@
 							</div>
 						</div>
 						<!-- //price -->
-						<!-- discounts -->
+						<!-- discounts 
 						<div class="left-side border-bottom py-2">
 							<h3 class="agileits-sear-head mb-3">Giảm Giá</h3>
 							<ul>
@@ -95,7 +95,7 @@
 							
 							</ul>
 						</div>
-						<!-- //discounts -->
+						 //discounts -->
 						<!-- reviews -->
 					
 						<!-- electronics -->
@@ -145,42 +145,7 @@
 							</ul>
 						</div>
 						<!-- //arrivals -->
-						<!-- best seller -->
-						<div class="f-grid py-2">
-							<h3 class="agileits-sear-head mb-3">Best Seller</h3>
-							<div class="box-scroll">
-								<div class="scroll">
-									<div class="row">
-										<div class="col-lg-3 col-sm-2 col-3 left-mar">
-											<img src="images/k1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="col-lg-9 col-sm-10 col-9 w3_mvd">
-											<a href="">Samsung Galaxy On7 Prime (Gold, 4GB RAM + 64GB Memory)</a>
-											<a href="" class="price-mar mt-2">$12,990.00</a>
-										</div>
-									</div>
-									<div class="row my-4">
-										<div class="col-lg-3 col-sm-2 col-3 left-mar">
-											<img src="images/k2.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="col-lg-9 col-sm-10 col-9 w3_mvd">
-											<a href="">Haier 195 L 4 Star Direct-Cool Single Door Refrigerator</a>
-											<a href="" class="price-mar mt-2">$12,499.00</a>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-3 col-sm-2 col-3 left-mar">
-											<img src="images/k3.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="col-lg-9 col-sm-10 col-9 w3_mvd">
-											<a href="">Ambrane 13000 mAh Power Bank (P-1310 Premium)</a>
-											<a href="" class="price-mar mt-2">$1,199.00 </a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- //best seller -->
+					
 					</div>
 					<!-- //product right -->
 				</div>
