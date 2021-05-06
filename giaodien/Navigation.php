@@ -1,4 +1,9 @@
 <?php 
+          $index="";$product="";$sale="";$news="";
+                if(!isset($_GET['quanly'])) $index="active";
+                else if($_GET['quanly']=='product') $product="active";
+                else if($_GET['quanly']=='sale') $sale="active";
+                else if($_GET['quanly']=='news') $news ="active";
                   $getLoaiSP=mysqli_query($connect,"SELECT DISTINCT LOAI_SP FROM sanpham;");
                   //$countLoai=mysqli_fetch_row($connect,"SELECT DISTINCT LOAI_SP FROM sanpham;");
                   $getLoaiSPSale=mysqli_query($connect,"SELECT MA_CTGG,LOAI_CHUONG_TRINH,TEN_CHUONG_TRINH FROM chuongtrinhgiamgia;");// Dòng này khi co giam gia se lấy ở đó
@@ -12,11 +17,11 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                <a class="nav-link active" href="index.php" style="color: #fff">TRANG CHỦ <span class="sr-only">(current)</span></a>
+                <li class="nav-item <?php echo $index ?>">
+                <a class="nav-link " href="index.php" style="color: #fff">TRANG CHỦ <span class="sr-only">(current)</span></a>
                 </li>
                
-                <li class="nav-item dropdown fullmenu" >
+                <li class="nav-item <?php echo $product?> dropdown fullmenu" >
                 <a class="nav-link " onclick="" id="navbarDropdown" href="index.php?quanly=product" >
                 SẢN PHẨM
                 </a>
@@ -34,7 +39,7 @@
                 
                 </li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item  <?php echo $sale ?> dropdown">
                 <a class="nav-link"  id="navbarDropdown" href="index.php?quanly=sale" >
                     KHUYẾN MÃI
                 </a>
@@ -50,8 +55,8 @@
                 ?>
                 </div>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">TIN TỨC</a>
+                <li class="nav-item <?php echo $news ?>">
+                <a class="nav-link" href="index.php?quanly=news">TIN TỨC</a>
                 </li>
 		    </ul>
 			  

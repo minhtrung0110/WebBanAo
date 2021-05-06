@@ -42,9 +42,8 @@
 					$price=$price - $price* $getpercentSale['PHAN_TRAM_GIAM_GIA'];
 					$idsale=$getSale['MA_CTGG'];
 					//Hien BadGe thong bao % giam gia
-					$notificationhead= '<span class="badge badge-pill badge-danger" 
-					style="font-size: 1.3em;font-weight: bold; float:left; margin-top:6px;margin-left:5px ">-';
-					 $notificationfoot='%</span> ';
+					$notificationhead= '  <div class="percent-sale">-';
+					$notificationfoot='%</div> ';
 					 $notificationpercent=$getpercentSale['PHAN_TRAM_GIAM_GIA']*100;
 
 				}
@@ -109,9 +108,8 @@
 					$price_product_best_sell=$price_product_best_sell - $price_product_best_sell* $getpercentSale['PHAN_TRAM_GIAM_GIA'];
 					$idsale=$getSale['MA_CTGG'];
 					//Hien BadGe thong bao % giam gia
-					$notificationhead= '<span class="badge badge-pill badge-danger" 
-					style="font-size: 1.3em;font-weight: bold; float:left; margin-top:6px;margin-left:5px ">-';
-					 $notificationfoot='%</span> ';
+					$notificationhead= '  <div class="percent-sale">-';
+					$notificationfoot='%</div> ';
 					 $notificationpercent=$getpercentSale['PHAN_TRAM_GIAM_GIA']*100;
 
 				}

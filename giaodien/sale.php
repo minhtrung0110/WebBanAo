@@ -25,7 +25,7 @@
                 
                   
                     <div class="  product-about">
-                        <span class="badge badge-pill badge-danger" style="font-size: 1.3em;font-weight: bold; float:left; margin-top:6px;margin-left:5px ">-<?php echo $row_all_product_sale['PHAN_TRAM_GIAM_GIA']*100; ?>%</span> 
+                        <div class="percent-sale">-<?php echo $row_all_product_sale['PHAN_TRAM_GIAM_GIA']*100; ?>%</div>
                         <img src="images/product-items/<?php echo  $URL ?>" class="img-fluid img-top-sold">
                         <div class="overlay">
                         <a class="info" href="index.php?quanly=detail&id=<?php echo $product_sale['MA_SP'] ?>&sale=<?php echo $MA_CTGG ?>">Chi Tiết</a>
