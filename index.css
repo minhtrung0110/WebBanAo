@@ -254,6 +254,33 @@ header .row .Account .Say-Hello .fa-user{
 .container-fluid   .overlaysearch button:hover {
   background: #008000;
 }
+/*/ Kết Quả Search*/
+.container-fluid .content .all-product .title_search{
+	margin: 2% 0;
+}
+.container-fluid .content .all-product .title_search .keyword_search {
+	font-weight: bold;
+	font-size: 30px;
+	font-family: 'Times New Roman', Times, serif;
+	color: #123cf7;
+	transition-delay: 5s;
+	text-shadow: 2px 2px 5px #eedaeb;
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%;
+}
+.container-fluid .content .all-product .title_search .keyword_search strong{
+	color: #ff0000;
+	font-size: 32px;
+}
+.container-fluid .content .all-product .no_result_search{
+	width: 40%;
+	margin: 0 30%;
+	text-shadow: 1px 1px #717171;
+	color:#ffcc00;
+	outline: #ff0000;
+	font-weight: bold;
+}
 
 
 

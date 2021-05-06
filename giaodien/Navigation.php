@@ -68,9 +68,9 @@
       <div id="myOverlay" class="overlaysearch">
 			<span class="closebtn" onclick="closeSearch()" title="Đóng Tìm Kiếm">×</span>
 			<div class="overlay-content">
-			  <form action="#">
-				<input type="text" style="font-weight: bold; color: #333;" placeholder="Tìm Kiếm..." name="search">
-				<button type="submit"><i class="fa fa-search  text-light"></i></button>
+			  <form action="index.php?quanly=search" method ="post">
+				<input type="text" style="font-weight: bold; color: #333;" placeholder="Tìm Kiếm..." name="search_product">
+				<button type="submit" name="search_submit"><i class="fa fa-search  text-light"></i></button>
 			  </form>
 			</div>
 		  </div>	

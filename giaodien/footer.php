@@ -15,8 +15,8 @@
 			<h5>TRUY CẬP NHANH</h5>
             <hr style="width: 55%;">
 			<a class="link" href="index.php"> <i class="fas fa-chevron-circle-right"></i>Trang Chủ</a>
-			<a class="link" href="index.php?id=product"> <i class="fas fa-chevron-circle-right"></i>Sản Phẩm</a>
-			<a class="link" href="#"> <i class="fas fa-chevron-circle-right"></i>Khuyến Mãi</a>	
+			<a class="link" href="index.php?quanly=product"> <i class="fas fa-chevron-circle-right"></i>Sản Phẩm</a>
+			<a class="link" href="index.php?quanly=sale"> <i class="fas fa-chevron-circle-right"></i>Khuyến Mãi</a>	
 			<a class="link" href="#"> <i class="fas fa-chevron-circle-right"></i>Tin Tức</a>			
 			<a class="link" href="#"> <i class="fas fa-chevron-circle-right"></i>Chăm Sóc Khách Hàng</a>
 			<a class="link" href="#"> <i class="fas fa-chevron-circle-right"></i>Chính Sách Đổi Trả</a>

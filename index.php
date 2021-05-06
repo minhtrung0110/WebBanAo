@@ -51,6 +51,9 @@ if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login'])) $check
         else if($_GET['quanly']=='detail' ) {
             require("giaodien/detail.php");
         }
+        else if($_GET['quanly']=='search' ) {
+            require("giaodien/search.php");
+        }
         
         ?>
 	
