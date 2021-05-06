@@ -1,8 +1,11 @@
 <?php
     //Lấy tất cả sản phẩm
-    $query1=" SELECT * from sanpham GROUP BY TEN_SP ORDER BY DON_GIA ASC";
-
-	
+	if(!isset($_GET['type']) && empty($_GET['type'])){
+		$query1=" SELECT * from sanpham GROUP BY TEN_SP ORDER BY DON_GIA ASC";	   
+		}else if(isset($_GET['type']) ){// lay theo loai
+			$id_loai=$_GET['type'];
+			$query1=" SELECT * from sanpham WHERE LOAI_SP='$id_loai' GROUP BY TEN_SP ORDER BY DON_GIA ASC"; 
+		}
     $getAllProduct=mysqli_query($connect,$query1);
     // Xu Lý Số Liệu HIện Thị Cho Danh Mục//
     $querySize="SELECT DISTINCT KICH_THUOC  FROM `sanpham` ";
@@ -17,22 +20,39 @@
 				<div class="col-md-9 col-sm-12 row product ">
                     <?php
                         while($row_all_product=mysqli_fetch_array($getAllProduct)) {
-                            $nameproduct=$row_all_product['TEN_SP'];
+							$MA_SP=$row_all_product['MA_SP'];
+							$nameproduct=$row_all_product['TEN_SP'];
                             $price=$row_all_product['DON_GIA'];
                             $url=$row_all_product['HINH_ANH_URL'];
+								//Kiem tra cac san pham co giam gia hay ko
+							$getSale=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * FROM `chitietgiamgia` WHERE MA_SP='$MA_SP'"));
+							$idsale="";$notificationfoot="";$notificationhead="";$notificationpercent="";
+							if($getSale!=null){
+								$getpercentSale=mysqli_fetch_assoc(mysqli_query($connect,"SELECT PHAN_TRAM_GIAM_GIA FROM chuongtrinhgiamgia WHERE MA_CTGG= '".$getSale['MA_CTGG']."' "));
+								$price=$price - $price* $getpercentSale['PHAN_TRAM_GIAM_GIA'];
+								$idsale=$getSale['MA_CTGG'];
+								//Hien BadGe thong bao % giam gia
+								$notificationhead= '<span class="badge badge-pill badge-danger" 
+								style="font-size: 1.3em;font-weight: bold; float:left; margin-top:6px;margin-left:5px ">-';
+								 $notificationfoot='%</span> ';
+								 $notificationpercent=$getpercentSale['PHAN_TRAM_GIAM_GIA']*100;
+
+							}
+                            
                     ?>
                     <div class="col-md-4 col-sm-12 text-center product-content ">
                     <div class="  product-about">
+						<?php  echo $notificationhead; echo $notificationpercent; echo $notificationfoot; ?>
                         <img src="images/product-items/<?php echo $url ?>" class="img-fluid img-top-sold">
                         <div class="overlay">
-                        <a class="info" href="index.php?quanly=detail&id=<?php echo $row_all_product['MA_SP'] ?>">Chi Tiết</a>
+                        <a class="info" href="index.php?quanly=detail&id=<?php echo $row_all_product['MA_SP'] ?>&sale=<?php echo $idsale ?>">Chi Tiết</a>
                         </div>
                                                                 
                     </div>
                     <div class="product-infor">
                         <?php echo $nameproduct ?>
                             <p style="margin-bottom: 1ex;">
-                        
+							
                             <b class="price " style="color: red"><?php echo number_format($price) ?> VNĐ</b>
                         </p>			
                         <div class=" product-button">

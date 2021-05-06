@@ -49,7 +49,7 @@ header .row .Account .Say-Hello .fa-user{
 	top: 0;
 	padding: 0;
 	background: #333;
-	z-index: 1;
+	z-index: 8;
 
 }
 .container-fluid .menu .navbar-toggler{

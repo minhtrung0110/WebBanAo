@@ -4,7 +4,13 @@ $getdetail="SELECT * FROM sanpham WHERE MA_SP=$id ";
 $resultDetail=mysqli_query($connect,$getdetail);
 $row_product_detail=mysqli_fetch_assoc($resultDetail);
 $tensp=$row_product_detail['TEN_SP'];
-
+$percentSale=0;
+if(isset($_GET['sale']) && !empty($_GET['sale']) ){
+	$IDsale=$_GET['sale'];
+	$getSale=mysqli_fetch_assoc(mysqli_query($connect,"SELECT PHAN_TRAM_GIAM_GIA FROM chuongtrinhgiamgia WHERE MA_CTGG= '$IDsale' "));
+	$percentSale=$getSale['PHAN_TRAM_GIAM_GIA'];
+}
+$price =$row_product_detail['DON_GIA']-$row_product_detail['DON_GIA']*$percentSale;
 $getTbSize="SELECT KICH_THUOC,SO_LUONG FROM sanpham WHERE TEN_SP='".$tensp."'";
 $resultTbSize=mysqli_query($connect,$getTbSize);
 /*Kiem tra còn hàng hay không*/
@@ -33,7 +39,7 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 				<div class="text-center titleproduct"><?php  echo $row_product_detail['TEN_SP'] ?></div>
 				<div class="price-chitiet">
 					<span>Giá bán:</span>
-					<strong  style="color: red;font-size: 29px" > <?php  echo number_format($row_product_detail['DON_GIA']) ?> VNĐ</strong>
+					<strong  style="color: red;font-size: 29px" > <?php  echo number_format($price) ?> VNĐ</strong>
 					
 				</div>
 				<div class="possibility-chitiet">
