@@ -45,7 +45,7 @@ while($row_all_product_sale=mysqli_fetch_array($getLimitProduct)) {
 	$PTGG=$row_all_product_sale['PHAN_TRAM_GIAM_GIA']*100;
 	$num_giamoi=number_format($giamoi);
 	$dongia=number_format($row_all_product_sale['DON_GIA']);
-	$output .= "<div class=\"col-md-4 col-sm-12 text-center product-content\">
+	$output .= "<div class=\"col-md-3 col-sm-12 text-center product-content\">
                		<div class=\"  product-about\">
                         <div class=\"percent-sale\">-$PTGG%</div>
                         <img src=\"images/product-items/$URL\" class=\"img-fluid img-top-sold\">
