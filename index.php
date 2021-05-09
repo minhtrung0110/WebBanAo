@@ -18,7 +18,12 @@ if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login'])) $check
     <link rel="stylesheet" type="text/css" href="css/user.css">
     <link rel="stylesheet" type="text/css" href="css/allproduct.css">
     <link rel="stylesheet" type="text/css" href="css/detail.css">
-
+    <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+	<style>
+    html{
+        scroll-behavior: smooth;
+    }
+    </style>
 	
 </head>
 <body>
