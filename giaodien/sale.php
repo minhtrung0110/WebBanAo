@@ -39,17 +39,6 @@ html{
 	border-right: #bccfd8 1px solid;
 }
 </style>
-<?php
-    //Lấy tất cả sản phẩm trong sale
-    if(!isset($_GET['type']) && empty($_GET['type'])){
-    $query1=" SELECT od.MA_CTGG,p.MA_SP,ctgg.PHAN_TRAM_GIAM_GIA,p.TEN_SP,p.HINH_ANH_URL,p.DON_GIA from sanpham as p inner join chitietgiamgia as od INNER JOIN chuongtrinhgiamgia as ctgg on p.MA_SP = od.MA_SP and ctgg.MA_CTGG=od.MA_CTGG  GROUP BY p.TEN_SP ORDER BY od.MA_CTGG ASC "; 
-   
-    }else if(isset($_GET['type'])){
-        $id_CTGG=$_GET['type'];
-        $query1=" SELECT od.MA_CTGG,p.MA_SP,ctgg.PHAN_TRAM_GIAM_GIA,p.TEN_SP,p.HINH_ANH_URL,p.DON_GIA from sanpham as p inner join chitietgiamgia as od INNER JOIN chuongtrinhgiamgia as ctgg on p.MA_SP = od.MA_SP and ctgg.MA_CTGG=od.MA_CTGG WHERE ctgg.MA_CTGG='$id_CTGG' GROUP BY p.TEN_SP ORDER BY od.MA_CTGG ASC "; 
-    }
-    $result =mysqli_query($connect,$query1);
-?>
 <script>
 function getresult(url) {
 	$.ajax({
@@ -62,7 +51,6 @@ function getresult(url) {
    });
 }
 </script>
-	<!-- top Products -->
     <div class="ads-grid py-sm-5 py-4 all-product ">
     	<script>
 			getresult("giaodien/getresult_sale.php<?php 
