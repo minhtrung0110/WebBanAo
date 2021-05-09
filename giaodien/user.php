@@ -1,9 +1,14 @@
 <?php
+
 $name=$_SESSION['customer_name'];
 	$query1="SELECT * FROM khachhang WHERE TEN_KH='$name'";
 	$result = mysqli_query($connect,$query1);
 	$row_customer=mysqli_fetch_assoc($result);
 	$id_customer=$row_customer['MA_KH'];
+/*Các đơn hàng đã đặt*/
+  $getHD="select * from hoadon where MA_KH='$id_customer'"	;
+  $resultHD=mysqli_query($connect,$getHD);
+
 ?>
 
 		<div class="user-content row">
@@ -14,8 +19,8 @@ $name=$_SESSION['customer_name'];
 				</div>
 				<div class="submenu">
 					<ul>
-						<li class="subc font" onclick="">Thông tin chung</li>
-						<li class="subc font" onclick="document.getElementById('diachi').style.display='block'">Sổ địa chỉ</li>
+						<li class="subc font" onclick=""><a href="index.php?quanly=user" >Thông tin chung</a></li>
+						
 						<li class="subc font" onclick="document.getElementById('donhang').style.display='block'">Đơn hàng của tôi</li>
 					</ul>
 				</div>
@@ -33,43 +38,75 @@ $name=$_SESSION['customer_name'];
 				<button type="button" class="btn btn-outline-primary font " onclick="document.getElementById('id01').style.display='block'">Cập Nhật Thông Tin Cá Nhân</button>
 				
 				<br>
-				<div class="container-fluid content ">		
-					<br>
-					<div class="oder"  id="donhang" style="display: none;">
-						<p class="font"  style="font-weight: bold; font-size: large;">Các Đơn Hàng Đã Đặt:</p>
-						<table border="1px solid black" style="width: 100%; text-align: center;" >
+				
+			
+			</div>
+		
+			<div class="container-fluid table-order  " >		
+					<br>			
+					<div class="table-responsive-md" id="donhang"  style="display: none; margin 0 8%">
+					<p class="font"  style="font-weight: bold; font-size: large;">Các Đơn Hàng Đã Đặt:</p>
+						<table  class="table table-hover  table-bordered" >
+							<thead class="thead-dark">
 							<tr>
-
-								<th class="tr" style="width: 2%;" >STT</th>
 								<th class="tr">Mã Đơn Hàng</th>
 								<th class="tr">Ngày Đặt</th>
 								<th class="tr">Tên Sản Phẩm</th>
 								<th class="tr">Tổng Tiền</th>
 								<th class="tr" style="width: 10%;">Trạng Thái Đơn Hàng</th>
 							</tr>
+    						</thead>
+							
+							<?php 
+							
+							while($row_hoadon=mysqli_fetch_array($resultHD)){
+								$MA_HD=$row_hoadon['MA_HD'];
+								$NGAY_DAT=$row_hoadon['NGAY_LAP'];
+								$TIEN=$row_hoadon['TONG_TIEN'];
+								$TRANG_THAI="Đang Xử Lý";
+								if($row_hoadon['TINH_TRANG']==1) $TRANG_THAI="Đã Hoàn Thành";
+							?>
 							<tr>
-								<td class="items">1</td>
-								<td class="items"><a href="">4562345</a> </td>
-								<td class="items">24/11/2020</td>
-								<td class="items name-product">Áo Degey Ice Cream blue size:M </td>
-								<td class="items">290.000</td>
-								<td class="items">đã hoàn thành</td>
+								
+								<td class="items id_order"><a  href="index.php?quanly=user&id_order=<?php echo $MA_HD ?>"><?php echo $MA_HD ?> </td>
+								<td class="items"><?php echo $NGAY_DAT ?></td>
+								<td class="items name-product">
+								<?php
+								$getDSSP="SELECT p.MA_SP,p.TEN_SP,SUM(od.SO_LUONG) AS TotalQuantity ,p.DON_GIA,p.KICH_THUOC from sanpham as p inner join chitiethoadon as od on p.MA_SP = od.MA_SP WHERE od.MA_HD='$MA_HD' GROUP BY p.TEN_SP ORDER BY SUM(od.SO_LUONG)";
+								$resultchitietTenSP=mysqli_query($connect,$getDSSP);
+								while ($row_TEN_SP=mysqli_fetch_array($resultchitietTenSP)){
+										$TEN_SP=$row_TEN_SP['TEN_SP'];
+										$ID_SP=$row_TEN_SP['MA_SP'];
+										$SL=$row_TEN_SP['TotalQuantity'];
+										$SIZE=$row_TEN_SP['KICH_THUOC'];
+								?>
+								<a  class="name_product_content" href="index.php?quanly=detail&id=<?php echo$ID_SP ?>">
+								<?php echo " $TEN_SP ---- Kích Thước:  $SIZE ---- Số Lượng: $SL  </br> "    ?>
+								 </a>
+								<?php
+								}
+								?>
+								</td>
+								<td class="items"><?php echo number_format($TIEN) ?> VNĐ</td>
+								<td class="items"><?php echo $TRANG_THAI ?></td>
 							</tr>
-							<tr>
-								<td class="items">2</td>
-								<td class="items"><a href="">4562389</a></td>
-								<td class="items">26/11/2020</td>
-								<td class="items name-product">Áo Degey Buffterfly black size:M </td>
-								<td class="items">320.000</td>
-								<td class="items">chờ xử lý</td>
-							</tr>
+							<?php
+							}
+							?>
+						
 						</table>
 					</div>
 				</div>
-			
-			</div>
 	
 		</div>
+		<?php
+				if(isset($_GET['id_order'] ) && !empty($_GET['id_order'])  ) {
+					include("giaodien/information_oder.php");
+				}
+				
+
+			?>
+
 <div id="id01" class="modal">
   
   <form class="modal-content animate" action="./giaodien/action_user.php" method="post">
@@ -106,6 +143,7 @@ $name=$_SESSION['customer_name'];
 
 
 
+<!-- chình cap nhập dữ liệu bằng rỗng thì ko cập nhật gì hết-->
 
-
- 
+ <!--
+SELECT hd.MA_HD,cthd.MA_SP,sp.TEN_SP,cthd.THANH_TIEN,hd.NGAY_LAP FROM `hoadon` as hd INNER JOIN `chitiethoadon` as cthd inner join `sanpham` as sp on cthd.MA_HD=hd.MA_HD and cthd.MA_SP=sp.MA_SP WHERE hd.MA_KH='3'-->

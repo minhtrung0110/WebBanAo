@@ -86,7 +86,7 @@
 	from sanpham as p inner join chitiethoadon as od on p.MA_SP = od.MA_SP 
 	GROUP BY p.TEN_SP ORDER BY SUM(od.SO_LUONG) DESC LIMIT 6";
 	$getBestSelling= mysqli_query($connect,$query2);
-
+//SELECT sp.MA_SP,sp.TEN_SP,SUM(cthd.SO_LUONG) as SOLUONG from chitiethoadon as cthd inner join sanpham as sp on cthd.MA_SP=sp.MA_SP WHERE cthd.MA_HD='4' ORDER BY SUM(cthd.SO_LUONG)
 	?>
 	<div class="container-fluid  top-sold row">
 		<p class="text-center title ">SẢN PHẨM BÁN CHẠY</p>

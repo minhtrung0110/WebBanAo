@@ -134,6 +134,25 @@
 	margin: 0;
 	padding: 0;
 }
+.content .user-content .table-order{
+	width: 80%;
+	margin: 2% 10%;
+}
+.content .user-content .table-order .table {
+	border: 1px solid rgb(99, 97, 97);
+	width: 100%; 
+	text-align: center;
+	border-radius: 3px;
+} 
+.content .user-content .table-order .table tr .name-product .name_product_content{
+	float:left;
+	color: #000;
+}
+.content .user-content .table-order .table tr .id_order a {
+	font-weight: bold;
+	font-size: 20px;
+	color: #000;
+}
 .subc{
 	list-style-type: none;
 	display: block;
@@ -179,13 +198,8 @@
 	padding: 0.7em;
 	background-color: rgb(214, 214, 214);
 }
-table
-{
-	width: 100%;
-}
-.content table .items{
-	font-weight: lighter;
-}
+
+
 .tr
 {
 	width: 8%;
@@ -201,6 +215,74 @@ table
 	padding: 3ex;
 	margin-left: 0%;
 	overflow: hidden;
+}
+
+/* Chi Tiet Hoa Don*/
+.wrapper{
+	width: 80%;
+	margin:0 10%;
+}
+
+.detail-order-table .wrapper .order_summary tr>td, 
+.detail-order-table .wrapper .order_summary tr>th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    font-weight: normal;
+}
+.order_avail {
+    text-align: center;
+}
+.img_order {
+    vertical-align: top;
+    max-width: 100%;
+}
+.detail-order-table .wrapper .order_summary{
+	border: 1px solid #555;
+}
+.detail-order-table .wrapper .order_summary > thead, 
+.detail-order-table .wrapper .order_summary > tfoot {
+    background: #f7f7f7;
+    font-size: 16px;
+}
+.detail-order-table .wrapper .order_summary td.order_product {
+    width: 120px;
+    padding: 15px;
+}
+.page-order .order_description {
+    font-size: 14px;
+}
+.page-order .product-name {
+    font-size: 16px;
+}
+.detail-order-table .wrapper .order_summary td {
+    vertical-align: middle!important;
+    padding: 20px;
+}
+.detail-order-table .wrapper .order_summary a {
+    color: #666;
+    text-decoration: none;
+	outline: none !important;
+}
+
+.detail-order-table .wrapper .order_summary .price {
+    text-align: right;
+}
+.detail-order-table .wrapper .order_summary .action {
+    text-align: center;
+}
+.detail-order-table .wrapper .order_summary .action a {
+    background: url(https://i.imgur.com/wBgtljO.png) no-repeat center center;
+    font-size: 0;
+    height: 9px;
+    width: 9px;
+    display: inline-block;
+    line-height: 24px;
+}
+.detail-order-table .wrapper .order_summary tfoot {
+    text-align: right;
 }
 
 
