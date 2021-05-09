@@ -71,8 +71,59 @@ function getresult(url) {
 					?>");
 				</script>
 				<!-- product left -->
+<<<<<<< HEAD
 				<div id="pagination-result" class="col-md-9 col-sm-12 row product ">
                 	<input type="hidden" name="rowcount" id="rowcount" />
+=======
+				<div class="col-md-9 col-sm-12 row product ">
+                    <?php
+                        while($row_all_product=mysqli_fetch_array($getAllProduct)) {
+							$MA_SP=$row_all_product['MA_SP'];
+							$nameproduct=$row_all_product['TEN_SP'];
+                            $price=$row_all_product['DON_GIA'];
+                            $url=$row_all_product['HINH_ANH_URL'];
+								//Kiem tra cac san pham co giam gia hay ko
+							$getSale=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * FROM `chitietgiamgia` WHERE MA_SP='$MA_SP'"));
+							$idsale="";$notificationfoot="";$notificationhead="";$notificationpercent="";
+							if($getSale!=null){
+								$getpercentSale=mysqli_fetch_assoc(mysqli_query($connect,"SELECT PHAN_TRAM_GIAM_GIA FROM chuongtrinhgiamgia WHERE MA_CTGG= '".$getSale['MA_CTGG']."' "));
+								$price=$price - $price* $getpercentSale['PHAN_TRAM_GIAM_GIA'];
+								$idsale=$getSale['MA_CTGG'];
+								//Hien BadGe thong bao % giam gia
+								$notificationhead= '  <div class="percent-sale">-';
+								 $notificationfoot='%</div> ';
+								 $notificationpercent=$getpercentSale['PHAN_TRAM_GIAM_GIA']*100;
+
+							}
+                            
+                    ?>
+                    <div class="col-md-4 col-sm-12 text-center product-content ">
+                    <div class="  product-about">
+						<?php  echo $notificationhead; echo $notificationpercent; echo $notificationfoot; ?>
+                        <img src="images/product-items/<?php echo $url ?>" class="img-fluid img-top-sold">
+                        <div class="overlay">
+                        <a class="info" href="index.php?quanly=detail&id=<?php echo $row_all_product['MA_SP'] ?>&sale=<?php echo $idsale ?>">Chi Tiết</a>
+                        </div>
+                                                                
+                    </div>
+                    <div class="product-infor">
+                        <?php echo $nameproduct ?>
+                            <p style="margin-bottom: 1ex;">
+							
+                            <b class="price " style="color: red"><?php echo number_format($price) ?> VNĐ</b>
+                        </p>			
+                        <div class=" product-button">
+                            <button type="button" class="btn btn-outline-primary col-md-7 " style="float: left;">Thêm Vào Giỏ Hàng</button>
+                            <button type="button" class="btn btn-outline-warning col-md-4 ml-4" style="float: right;">Mua Ngay</button>
+                        </div>
+                        
+                    </div>	
+			        </div>
+                    <?php
+                        }
+
+                    ?>
+>>>>>>> 6bcf28f1e932c529ac29d6a13ca3d6e05bbe1714
                 </div>
      
 				<!-- product right -->
