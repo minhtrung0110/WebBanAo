@@ -73,8 +73,8 @@ function getresult(url) {
 				<!-- product left -->
 
 				<div id="pagination-result" class="col-md-9 col-sm-12 row product ">
-                	<input type="hidden" name="rowcount" id="rowcount" />
-                </div>
+                			<input type="hidden" name="rowcount" id="rowcount" />
+                		</div>
      
 				<!-- product right -->
 				<div class="col-md-3 mt-lg-0 mt-4 p-lg-0">
