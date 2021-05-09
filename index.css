@@ -398,8 +398,8 @@ i{
 	color: #fff;
 
 }
-.container-fluid  .footer  .footer-content .link{
-display: block;
+.container-fluid  .footer  .footer-content .link-shortcut{
+	display: block;
   margin-bottom: 2%;
   color: #dddddd;
   text-decoration: none;
