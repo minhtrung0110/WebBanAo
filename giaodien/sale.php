@@ -1,3 +1,44 @@
+<style>
+html{
+	scroll-behavior: smooth;
+}
+.link{
+	padding: 10px 15px;
+	background: transparent;
+	border:#bccfd8 1px solid;
+	border-left:0px;
+	cursor:pointer;
+	color:#607d8b
+}
+.disabled{
+	cursor:not-allowed;
+	color: #bccfd8;
+}
+.current{
+	background: #bccfd8;
+}
+.first{
+	border-left:#bccfd8 1px solid;
+}
+#pagination{
+	margin-top: 20px;
+
+	padding-top: 30px;
+	border-top: #F0F0F0 1px solid;
+}
+#pagination a{
+	text-decoration:none;
+}
+#paginationWrapper{
+	width:100%;
+	text-align:center
+}
+.dotSign{
+	padding:10px 13px;
+	background:none;
+	border-right: #bccfd8 1px solid;
+}
+</style>
 <?php
     //Lấy tất cả sản phẩm trong sale
     if(!isset($_GET['type']) && empty($_GET['type'])){
@@ -9,48 +50,31 @@
     }
     $result =mysqli_query($connect,$query1);
 ?>
+<script>
+function getresult(url) {
+	$.ajax({
+		url: url,
+		type: "GET",
+		data:  {rowcount:$("#rowcount").val()},
+		success: function(data){
+			$("#pagination-result").html(data);
+		}        
+   });
+}
+</script>
 	<!-- top Products -->
     <div class="ads-grid py-sm-5 py-4 all-product ">
-    <div class="col-md-12 col-sm-12 row product  " >
-			<?php 
-                while( $row_all_product_sale=mysqli_fetch_array($result) ){
-                    $MA_CTGG=$row_all_product_sale['MA_CTGG'];
-                    $MA_SP=$row_all_product_sale['MA_SP'];
-                    $TEN_SP=$row_all_product_sale['TEN_SP'];
-                    $URL=$row_all_product_sale['HINH_ANH_URL'];
-                    $giamoi=$row_all_product_sale['DON_GIA'] - $row_all_product_sale['DON_GIA']*$row_all_product_sale['PHAN_TRAM_GIAM_GIA'];             
-
-            ?>
-            <div class="col-md-4 col-sm-12 text-center product-content">
-                
-                  
-                    <div class="  product-about">
-                        <div class="percent-sale">-<?php echo $row_all_product_sale['PHAN_TRAM_GIAM_GIA']*100; ?>%</div>
-                        <img src="images/product-items/<?php echo  $URL ?>" class="img-fluid img-top-sold">
-                        <div class="overlay">
-                        <a class="info" href="index.php?quanly=detail&id=<?php echo $product_sale['MA_SP'] ?>&sale=<?php echo $MA_CTGG ?>">Chi Tiết</a>
-                        </div>
-                                                                
-                    </div> 
-                    <div class="product-infor">
-                        <?php echo $TEN_SP; ?>
-                            <p style="margin-bottom: 1ex; color: red;font-weight:bold">
-                            <?php echo number_format($giamoi) ?>VNĐ
-                            <em  style="margin-left:2ex;font-weight:bold">Giá gốc: <span style="text-decoration: line-through;color: #aaa;font-size: 18px; ">
-                            <?php echo number_format($row_all_product_sale['DON_GIA']); ?>VNĐ</span></em>
-                             </p>			
-                        <div class=" product-button">
-                            <button type="button" class="btn btn-outline-primary col-md-7 " style="float: left;">Thêm Vào Giỏ Hàng</button>
-                            <button type="button" class="btn btn-outline-warning col-md-4 ml-4" style="float: right;">Mua Ngay</button>
-                        </div>                       
-                    </div>	
-            </div>           
-     
-        <?php
-                }
-        ?>
-
-        
-     </div>
-            </div>	
+    	<script>
+			getresult("giaodien/getresult_sale.php<?php 
+				$check=isset($_GET['type']);
+				if($check){
+					$type=$_GET['type'];
+					echo "?type=$type";
+				}
+			?>");
+		</script>
+        <div id="pagination-result" class="col-md-12 col-sm-12 row product">
+                <input type="hidden" name="rowcount" id="rowcount" /> 
+        </div>
+	</div>	
     
