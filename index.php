@@ -79,7 +79,6 @@ include("db/MySQLConnect.php");
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="js/slide.js"></script>
 <script src="main.js"></script>
-
 </body>
 
 </html>

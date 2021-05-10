@@ -63,12 +63,9 @@
 		  <button class="btn btn-outline-success my-2 my-sm-0 openBtn  " id="navbarDropdown" type="submit" onclick="openSearch()"><i class="fa fa-search"></i></button>
 		  <div class="nav-item icon" style="margin-right: 5ex;">
 			  <a  class="icon-button" href="#"><i class="fas fa-cart-plus"></i></a>
-			  
 		  </div>
-			  </div>
-		  
-
-	</nav>
+	</div>
+</nav>
       <!--Search-->
       <div id="myOverlay" class="overlaysearch">
 			<span class="closebtn" onclick="closeSearch()" title="Đóng Tìm Kiếm">×</span>

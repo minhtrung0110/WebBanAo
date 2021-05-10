@@ -1,4 +1,7 @@
 <?php
+$checkLogin=0;
+if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login']))
+	$checkLogin=1;
 $connect =new mysqli("localhost","root","","doanweb2");
 $connect -> set_charset("utf8");
 require_once("pagination.class.php");
@@ -48,6 +51,17 @@ while($row_all_product=mysqli_fetch_array($getLimitProduct)) {
         $notificationfoot='%</div> ';
 		$notificationpercent=$getpercentSale['PHAN_TRAM_GIAM_GIA']*100;
 	}
+	$quanlity=mysqli_query($connect, "SELECT SO_LUONG FROM sanpham WHERE TEN_SP='".$nameproduct."'");		//Kiem tra so luong san pham
+	$totalQuanlity=0;
+	while($eachQuanlity=mysqli_fetch_array($quanlity)){
+    	$totalQuanlity+=$eachQuanlity['SO_LUONG'];
+	}
+	$notice='';
+	$disable='';
+	if($totalQuanlity==0){
+		$notice='<p style="color:red"><b>SẢN PHẨM ĐÃ HẾT HÀNG</b></p>';
+		$disable='style="display:none"';
+	}
 	$numPrice=number_format($price);
 	$output .= "<div class=\"col-md-3 col-sm-12 text-center product-content \">
                         <div class=\"product-about\">
@@ -61,10 +75,11 @@ while($row_all_product=mysqli_fetch_array($getLimitProduct)) {
                             $nameproduct
                             <p style=\"margin-bottom: 1ex;\">
                             <b class=\"price\" style=\"color: red\">$numPrice VNĐ</b>
-                            </p>			
-                            <div class=\"product-button\">
+                            </p>
+							$notice			
+                            <div $disable class=\"product-button\">
                                 <button type=\"button\" class=\"btn btn-outline-primary col-md-7\" style=\"float: left;\">Thêm Vào Giỏ Hàng</button>
-                                <button type=\"button\" class=\"btn btn-outline-warning col-md-4 ml-4\" style=\"float: right;\">Mua Ngay</button>
+                                <button type=\"button\" class=\"btn btn-outline-warning col-md-4 ml-4\" style=\"float: right;\" onclick=\"checkLogin()\">Mua Ngay</button>
                             </div>
                     	</div>	
 			        </div>";
@@ -73,4 +88,9 @@ while($row_all_product=mysqli_fetch_array($getLimitProduct)) {
 	$output .= '<div id="paginationWrapper"><div id="pagination">' . $perpageresult . '</div></div>';
 print $output;
 ?>
-
+<script>
+	function checkLogin(){
+		if(<?php echo "$checkLogin" ?> == 0)
+			alert("Vui lòng đăng nhập");
+	}
+</script>
