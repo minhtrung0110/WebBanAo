@@ -1,3 +1,21 @@
+<script>
+	function adjustQuanlity(obj){
+		var op=obj.value;
+		var txQuanlity=document.getElementById("txQuanlity_detail");
+		if(op=='+')
+			if(txQuanlity.value<20)
+				txQuanlity.value++;
+		else
+			if(txQuanlity>1)
+				txQuanlity.value--;
+	}
+	function validateQuanlity(obj){
+		if(obj.value>20)
+			obj.value=20;
+		if(obj.value<1)
+			obj.value=1;				
+	}
+</script>
 <?php
 if(isset($_GET['id']) ) $id=$_GET['id'];
 $getdetail="SELECT * FROM sanpham WHERE MA_SP=$id ";
@@ -71,9 +89,9 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 				<div class="qty-chitiet">
 					<label class="qty-name font-weight-bold">SỐ LƯỢNG: </label>
 					<div  class="buttons_added">
-						<input style="cursor: pointer;" class="minus is-form" type="button" value="-">
-						<input aria-label="quantity" class="input-qty" max="20" min="1" name="" type="number" value="1">
-						<input style="cursor: pointer;" class="plus is-form" type="button" value="+">
+						<input style="cursor: pointer;" class="minus is-form" type="button" value="-" onclick="adjustQuanlity(this)">
+						<input aria-label="quantity" id="txQuanlity_detail" class="input-qty" min="1" max="20" name="" type="number" value="1" onchange="validateQuanlity(this)">
+						<input style="cursor: pointer;" class="plus is-form" type="button" value="+" onclick="adjustQuanlity(this)">
 					</div>
 				</div>
 				<div class=" button-chitiet row">
