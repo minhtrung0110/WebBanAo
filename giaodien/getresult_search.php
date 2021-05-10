@@ -1,4 +1,7 @@
 <?php
+$checkLogin=0;
+if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login']))
+	$checkLogin=1;
 $connect =new mysqli("localhost","root","","doanweb2");
 $connect -> set_charset("utf8");
 require_once("pagination.class.php");
@@ -76,7 +79,7 @@ while($row_all_product=mysqli_fetch_array($getLimitProduct)) {
 							$notice			
                             <div $disable class=\"product-button\">
                                 <button type=\"button\" class=\"btn btn-outline-primary col-md-7\" style=\"float: left;\">Thêm Vào Giỏ Hàng</button>
-                                <button type=\"button\" class=\"btn btn-outline-warning col-md-4 ml-4\" style=\"float: right;\">Mua Ngay</button>
+                                <button type=\"button\" class=\"btn btn-outline-warning col-md-4 ml-4\" style=\"float: right;\" onclick=\"checkLogin()\">Mua Ngay</button>
                             </div>
                     	</div>	
 			        </div>";
@@ -85,4 +88,9 @@ while($row_all_product=mysqli_fetch_array($getLimitProduct)) {
 	$output .= '<div id="paginationWrapper"><div id="pagination">' . $perpageresult . '</div></div>';
 print $output;
 ?>
-
+<script>
+	function checkLogin(){
+		if(<?php echo "$checkLogin" ?> == 0)
+			alert("Vui lòng đăng nhập");
+	}
+</script>

@@ -1,4 +1,7 @@
 <?php
+	$checkLogin=0;
+	if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login']))
+		$checkLogin=1;
 	// Thiet Lap muoi Gio
 	date_default_timezone_set('Asia/Ho_Chi_Minh');	
 	$datemax=date_create(date('d-m-Y'));
@@ -24,7 +27,12 @@
 	$query3="SELECT DISTINCT TEN_SP FROM sanpham WHERE   MA_SP BETWEEN '".$ArrayMaSP['0']."' AND '".$ArrayMaSP[$i-1]."' ORDER BY  MA_SP DESC LIMIT 4 ";*/
    $result =mysqli_query($connect,$query1);
 ?>
-
+<script>
+	function checkLogin(){
+		if(<?php echo "$checkLogin" ?> == 0)
+			alert("Vui lòng đăng nhập");
+	}
+</script>
 <div class="container-fluid content-product">
 
 <div class="container-fluid new-arrival">
@@ -77,7 +85,7 @@
                     <?php echo $notice_new ?>		
 					<div <?php echo $disable_new ?> class= "row"   >	
 					<button type="button" class="btn btn-outline-success col-md-7 col-sm-7" >Thêm Vào Giỏ </button>
-					<button type="button" class="btn btn-outline-warning col-md-4 col-sm-4"  >Mua Ngay</button>
+					<button type="button" class="btn btn-outline-warning col-md-4 col-sm-4" onclick="checkLogin()"  >Mua Ngay</button>
 					</div>
 				</div>	
 				
@@ -156,7 +164,7 @@
                     <?php echo $notice_hot ?>
 					<div <?php echo $disable_hot ?> class=" button">
 						<button type="button" class="btn btn-outline-primary col-md-7 " style="float: left;"><a href="">Thêm Vào Giỏ Hàng</a> </button>
-						<button type="button" class="btn btn-outline-warning col-md-4 ml-4" style="float: right;"><a href="">Mua Ngay</a> </button>
+						<button type="button" class="btn btn-outline-warning col-md-4 ml-4" style="float: right;" onclick="checkLogin()"><a href="">Mua Ngay</a> </button>
 					</div>
 					
 				</div>	
