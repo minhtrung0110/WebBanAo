@@ -15,6 +15,10 @@
 		if(obj.value<1)
 			obj.value=1;				
 	}
+	var selectedSize;
+	function selectSize(obj){
+		alert(obj.value);
+	}
 </script>
 <?php
 if(isset($_GET['id']) ) $id=$_GET['id'];
@@ -35,6 +39,11 @@ $resultTbSize=mysqli_query($connect,$getTbSize);
 $sum=0;
 $resultTbGia=mysqli_query($connect,$getTbSize);
 while($array_Gia=mysqli_fetch_array($resultTbGia)){
+	$size=$array_Gia['KICH_THUOC'];
+	$quanlityOfSize["$size"]=$array_Gia['SO_LUONG'];
+	$disableSize["$size"]="";
+	if($quanlityOfSize["$size"]==0)
+		$disableSize["$size"]="disabled";
     $sum+=$array_Gia['SO_LUONG'];
 }
 $disable="";$notification="";
@@ -80,8 +89,11 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
                        
                         <?php
                         while($array_Size=mysqli_fetch_array($resultTbSize)){
+							$size=$array_Size['KICH_THUOC']
                         ?>
-                        <button type="button" class="btn-chitiet btn-outline-dark"><?php  echo $array_Size['KICH_THUOC']?></button>
+                        <button type="button" <?php echo $disableSize["$size"] ?> class="btn-chitiet btn-outline-dark" onclick="selectSize(this)" value="<?php echo $size ?>" >
+							<?php  echo $array_Size['KICH_THUOC']?>
+                        </button>
                         <?php } ?>
 							
 						</div>
