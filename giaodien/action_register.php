@@ -1,10 +1,9 @@
 <?php
      session_start();
-     $_SESSION['a']=3;   
      function register() { 
          if(!empty($_POST)){
             $username =$_POST['username'];
-            $password =$_POST['pwd'];
+            $password =$_POST['password'];
             $password=md5($password);
             $email =$_POST['email'];
            // $status=1;
@@ -20,25 +19,17 @@
         $data=array();
         $data= mysqli_fetch_array(mysqli_query($connect,$checkemail));
          if($data == null){          
-             mysqli_query($connect,$query);
-             $MA_TK = mysqli_fetch_assoc(mysqli_query($connect,$getMaTK)); 
+            mysqli_query($connect,$query);
+            $MA_TK = mysqli_fetch_assoc(mysqli_query($connect,$getMaTK)); 
              $query1= "INSERT INTO khachhang (TEN_KH,EMAIL,MA_TK) VALUE('".$username."','".$email."','".$MA_TK['MA_TK']."')";      
-             $result=mysqli_query($connect,$query1);       
-             echo $query1;
-             echo $query;
-             $_SESSION['mail_error']=true;
-             header("Location:login.php");
+            $result=mysqli_query($connect,$query1);       
+             echo 1;
+             exit() ;
          }
          else { 
-             $_SESSION['mail_error']=false;
-            header("Location:register.php");
-             /*'<div class="container ">
-            <p style="font-size: 25px;font-weight: bold;color: #ff0000; margin: 20% 25%;" ></p>
-        </div>"' ;*/
-            /// bắt sự kiện JS hiện thông báo như thế nào  ???
-
+             echo 0;
+             exit() ;
          }
-
 
         //dong kêt nối
          $connect->close();        

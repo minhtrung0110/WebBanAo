@@ -111,9 +111,9 @@ span.icon1 {
 span.icon2 {
     top: 34%;
 }
-.sub-main-w3 input[type="submit"] {
+.sub-main-w3 input[type="button"] {
     color: white;
-    background: #ea2858;
+    background: #f30943;
     border: none;
     padding: .7em 0;
     outline: none;
@@ -130,7 +130,7 @@ span.icon2 {
     -ms-transition: 0.5s all;
     border-radius: 30px;
 }
-.sub-main-w3 input[type="submit"]:hover {
+yy.sub-main-w3 input[type="button"] {
     background: #fff;
     color: black;
 	transition:0.5s all;
@@ -241,7 +241,7 @@ span.icon2 {
 	.sub-main-w3 input[type="text"], .sub-main-w3 input[type="password"] {
 		padding: .9em 3em .9em 1em;
 	}
-	.sub-main-w3 input[type="submit"] {
+	.sub-main-w3 input[type="button"] {
 		font-size: .95em;
 	}
 	.footer p {
@@ -306,7 +306,7 @@ span.icon2 {
 	.header-w3l h1 {
 		font-size: 2em;
 	}
-	.sub-main-w3 input[type="submit"] {
+	.sub-main-w3 input[type="button"] {
 		font-size: .9em;
 	}
 	.wthree-pro h2 {
@@ -335,7 +335,7 @@ span.icon2 {
 		font-size: .9em;
 		letter-spacing: 2px;
 	}
-	.sub-main-w3 input[type="submit"] {
+	.sub-main-w3 input[type="button"] {
 		font-size: .8em;
 	}
 	.footer p {

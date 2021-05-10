@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("db/MySQLConnect.php");
-if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login'])) $checklogin =  $_SESSION['alert_login'];
 
 ?>
 <!DOCTYPE html>
@@ -18,6 +17,7 @@ if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login'])) $check
     <link rel="stylesheet" type="text/css" href="css/user.css">
     <link rel="stylesheet" type="text/css" href="css/allproduct.css">
     <link rel="stylesheet" type="text/css" href="css/detail.css">
+
     <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
 	<style>
     html{
@@ -73,15 +73,7 @@ if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login'])) $check
 
 </div>
 
-<!-- thong bao trang thai dang nhap-->
-<script>
-var login = "<?php echo $checklogin; ?>" ;
-if(login==0){
-    alert("Đăng Nhập Thất Bại!Vui lòng nhập đúng Mật Khẩu. Nếu bạn chưa có Tài Khoản Vui Lòng Đăng Ký Tài Khoản?");
-<?php   $_SESSION['alert_login']="" ?>
-}else{
-    alert("Đăng Nhập Thành Công !!!") <?php   $_SESSION['alert_login']=""?> }; 
-</script>
+
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>

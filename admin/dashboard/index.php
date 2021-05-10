@@ -111,11 +111,5 @@ if(isset( $_SESSION['admin_login']) ) $checklogin=$_SESSION['admin_login'];
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-	<script>
-    var login = "<?php echo $checklogin; ?>" ;
-    if(login==true){
-        alert("Đăng Nhập Thành Công !!! Chúc Một Ngày Làm Việc Tốt Lành ❤️") <?php   $_SESSION['admin_login']=""?> };
-        
-    </script>
   </body>
 </html>

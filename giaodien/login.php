@@ -1,8 +1,4 @@
-<?php
-//session_start();
-//if(isset($_SESSION['login'])) $checklogin = $_SESSION['login'];
-//var_dump($checklogin);
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,58 +10,13 @@
     <title>Đăng Nhập Tài Khoản </title>
     <link rel="stylesheet" type="text/css" href="../css/register.css">
     <script src="../js/validate.js"> </script>
-</body>
-<?php
-      session_start();
-      $checklogin;
-      $mess_error="";
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script> 
+</head>
+<body>
 
-      if(!empty($_POST) &&isset($_POST)){
-            $password =$_POST['pwd'];
-            $password=md5($password);
-            $email =$_POST['email'];
-         
-        $connect =new mysqli("localhost","root","","doanweb2");
-        $connect -> set_charset("utf8");
-        //kiem tra ket noi
-        if($connect->connect_error){
-            #var_dump($connect->connect_error);
-            die();
-        }
-
-        //thuc hien truy van du lieu - chen du lieu vao database
-        $query="SELECT  EMAIL, MAT_KHAU,TEN_DANG_NHAP FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
-        $checkname ="SELECT TEN_DANG_NHAP FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
-        $result=mysqli_query($connect,$query);
-        $resultname =mysqli_query($connect,$checkname);
-        #var_dump($result);
-        $data=array();
-        while($row = mysqli_fetch_array($result,1)){
-            $data[] =$row;
-        }
-       
-        //dong kêt nối
-         $connect->close();
-        if($data!=null && count($data)>0){
-           //Lấy Tên Người Dùng
-          $username = mysqli_fetch_assoc($resultname);
-          $name=$username['TEN_DANG_NHAP'];
-            $_SESSION['customer_name'] = $name;//lay tên người dùng
-            $_SESSION['login']=true;
-            $_SESSION['alert_login']=true;
-            header("Location: ../index.php");// có thể bỏ dn= true vì người dùng có thể sữa dn thành false hoặc true 
-        }
-        else{        
-            $_SESSION['login']=false;
-            //header("Location: ../index.php");
-            $mess_error="TÊN ĐĂNG NHẬP HOẶC MẬT KHẨU SAI !!!";
-            }
-        }
-
-?>
 <div class="main">
 
-       <form action="" method="POST" class="form" id="form-2">
+       <form action="#" method="POST" class="form" id="form-2">
         <h3 class="heading">ĐĂNG NHẬP</h3>
         <p class="desc">Chúc quý khách mua hàng vui vẻ ❤️</p>
 
@@ -74,18 +25,18 @@
         <div class="form-group">
           <label for="email" class="form-label">Email:</label>
           <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-          <span class="form-message"></span>
+          <span class="form-message" id="email-error"></span>
         </div>
 
         <div class="form-group">
           <label for="pwd" class="form-label">Mật Khẩu:</label>
-          <input id="password" name="pwd" type="password" placeholder="Nhập mật khẩu" class="form-control">
-          <span class="form-message"></span>
+          <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+          <span class="form-message" id="pass-error"></span>
         </div>
 
-        <button type="submit" class="form-submit2">Đăng Nhập</button>
+        <button type="button" id="login_submit" name="login_submit"  class="form-submit2">Đăng Nhập</button>
         <br>
-        <span class="error"><?php echo $mess_error ?></span>
+        <span id='error' class="error"></span>
       </form>
       
     </div>
@@ -105,11 +56,54 @@
       });
 
     </script>
-    <!--<script type="text/javascript">
-var check = "<?php echo $checklogin; ?>" ; 
-  if(check==false)
-    alert("Đăng Nhập Thất Bại!Vui lòng nhập đúng Mật Khẩu. Nếu bạn chưa có Tài Khoản Vui Lòng Đăng Ký Tài Khoản?");
-</script>-->
+    <!--Kiem Tra Dang Nhap Bang Ajax-->
+  <script type="text/javascript">
+    $(document).ready(function(){
+	  $("#login_submit").click( function(){
+    var error = $("#error");
+    var email = $("#email").val();
+		var password = $("#password").val();
+		var pass_error = $("#pass-error");
+		var email_error = $("#email-error");
+
+		// resert 2 thẻ div thông báo trở về rỗng mỗi khi click nút đăng nhập
+    error.html("");
+		email_error.html("");
+		pass_error.html("");
+
+		// Kiểm tra nếu email rỗng thì báo lỗi
+		if (email == "") {
+			email_error.html("Email không được để trống");
+			return false;
+		}
+		// Kiểm tra nếu password rỗng thì báo lỗi
+		if (password == "") {
+			pass_error.html("Mật khẩu không được để trống");
+			return false;
+		}
+		// Chạy ajax gửi thông tin username và password về server check_dang_nhap.php
+		// để kiểm tra thông tin đăng nhập hợp lệ hay chưa
+		$.ajax({
+		  url: 'action_login.php',
+		  method: 'POST',
+		  data: $('#form-2').serialize(),
+		  success : function(response){
+		  	if (response == 1 ) {
+		  		alert("Đăng Nhập Thành Công!  Chúc Quý Khách Mua Hàng Thật Vui Vẻ    ❤️ ✨✨✨✨✨✨✨✨❤❤️❤✨✨✨✨✨✨✨✨ ❤️");
+          window.location="../index.php";
+		  	}else{
+		  		error.html("Email hoặc mật khẩu không chính xác !");
+		  	}//alert(response);
+      
+            }
+
+          })
+
+        });
+
+      });
+
+</script>
 
 </body>
 

@@ -72,7 +72,7 @@ $name=$_SESSION['customer_name'];
 								<td class="items"><?php echo $NGAY_DAT ?></td>
 								<td class="items name-product">
 								<?php
-								$getDSSP="SELECT p.MA_SP,p.TEN_SP,SUM(od.SO_LUONG) AS TotalQuantity ,p.DON_GIA,p.KICH_THUOC from sanpham as p inner join chitiethoadon as od on p.MA_SP = od.MA_SP WHERE od.MA_HD='$MA_HD' GROUP BY p.TEN_SP ORDER BY SUM(od.SO_LUONG)";
+								$getDSSP="SELECT p.MA_SP,p.TEN_SP,SUM(od.SO_LUONG) AS TotalQuantity ,p.DON_GIA,p.KICH_THUOC from sanpham as p inner join chitiethoadon as od on p.MA_SP = od.MA_SP WHERE od.MA_HD='$MA_HD' GROUP BY p.MA_SP ORDER BY SUM(od.SO_LUONG)";
 								$resultchitietTenSP=mysqli_query($connect,$getDSSP);
 								while ($row_TEN_SP=mysqli_fetch_array($resultchitietTenSP)){
 										$TEN_SP=$row_TEN_SP['TEN_SP'];
