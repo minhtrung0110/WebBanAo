@@ -32,6 +32,10 @@
 		if(<?php echo "$checkLogin" ?> == 0)
 			alert("Vui lòng đăng nhập");
 	}
+	function selectPro(obj){
+		
+		
+	}
 </script>
 <div class="container-fluid content-product">
 
@@ -55,18 +59,8 @@
 					 $notificationpercent=$getpercentSale['PHAN_TRAM_GIAM_GIA']*100;
 
 				}
-				$quanlity_new=mysqli_query($connect, "SELECT SO_LUONG FROM sanpham WHERE TEN_SP='".$row_new_product['TEN_SP']."'");		//Kiem tra so luong san pham
-				$totalQuanlity_new=0;
-				while($eachQuanlity_new=mysqli_fetch_array($quanlity_new)){
-					$totalQuanlity_new+=$eachQuanlity_new['SO_LUONG'];
-				}
-				$notice_new='';
-				$disable_new='';
-				if($totalQuanlity_new==0){
-					$notice_new='<p style="color:red"><b>SẢN PHẨM ĐÃ HẾT HÀNG</b></p>';
-					$disable_new='style="display:none"';
-				}
-		?>	
+		?>
+        		
 			<div class="col-md-3 col-sm-12   text-center new-arrival-product" >		
 
 				<div class="  new-arrival-items">
@@ -82,11 +76,6 @@
 						<p>
 						<b class="price " style="color: red"><?php  echo number_format($price) ;?> VNĐ </b>
 					</p>
-                    <?php echo $notice_new ?>		
-					<div <?php echo $disable_new ?> class= "row"   >	
-					<button type="button" class="btn btn-outline-success col-md-7 col-sm-7" >Thêm Vào Giỏ </button>
-					<button type="button" class="btn btn-outline-warning col-md-4 col-sm-4" onclick="checkLogin()"  >Mua Ngay</button>
-					</div>
 				</div>	
 				
 			</div>
@@ -133,17 +122,6 @@
 					 $notificationpercent=$getpercentSale['PHAN_TRAM_GIAM_GIA']*100;
 
 				}
-				$quanlity_hot=mysqli_query($connect, "SELECT SO_LUONG FROM sanpham WHERE TEN_SP='".$name_product_best_sell."'");		//Kiem tra so luong san pham
-				$totalQuanlity_hot=0;
-				while($eachQuanlity_hot=mysqli_fetch_array($quanlity_hot)){
-					$totalQuanlity_hot+=$eachQuanlity_hot['SO_LUONG'];
-				}
-				$notice_hot='';
-				$disable_hot='';
-				if($totalQuanlity_hot==0){
-					$notice_hot='<p style="color:red"><b>SẢN PHẨM ĐÃ HẾT HÀNG</b></p>';
-					$disable_hot='style="display:none"';
-				}
 
 		?>	
 			<div class="col-md-4 col-sm-12 text-center top-sold-product">
@@ -152,21 +130,14 @@
 					<img src="images/product-items/<?php echo $url_product_best_sell?>" class="img-fluid img-top-sold">
 					<div class="overlay">
 					<a class="info" href="index.php?quanly=detail&id=<?php echo $id_product_best_sell ?>&sale=<?php echo $idsale ?>">Chi Tiết</a>
-					</div>
-															
+					</div>										
 				</div>
 				<div class="top-sold-infor">
 					<?php echo $name_product_best_sell ?>
 						<p style="margin-bottom: 1ex;">
 					
 						<b class="price " style="color: red"><?php echo number_format($price_product_best_sell )?> VNĐ </b>
-					</p>			
-                    <?php echo $notice_hot ?>
-					<div <?php echo $disable_hot ?> class=" button">
-						<button type="button" class="btn btn-outline-primary col-md-7 " style="float: left;"><a href="">Thêm Vào Giỏ Hàng</a> </button>
-						<button type="button" class="btn btn-outline-warning col-md-4 ml-4" style="float: right;" onclick="checkLogin()"><a href="">Mua Ngay</a> </button>
-					</div>
-					
+					</p>
 				</div>	
 			</div>
 			<?php

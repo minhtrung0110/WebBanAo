@@ -2,11 +2,12 @@
 	function adjustQuanlity(obj){
 		var op=obj.value;
 		var txQuanlity=document.getElementById("txQuanlity_detail");
-		if(op=='+')
+		if(op=='+'){
 			if(txQuanlity.value<20)
 				txQuanlity.value++;
+		}
 		else
-			if(txQuanlity>1)
+			if(txQuanlity.value>1)
 				txQuanlity.value--;
 	}
 	function validateQuanlity(obj){
