@@ -44,7 +44,7 @@ $name=$_SESSION['customer_name'];
 		
 			<div class="container-fluid table-order  " >		
 					<br>			
-					<div class="table-responsive-md" id="donhang"  style="display: none; margin 0 8%">
+					<div class="table-responsive-md" id="donhang"  style="display: none; margin 0 5%">
 					<p class="font"  style="font-weight: bold; font-size: large;">Các Đơn Hàng Đã Đặt:</p>
 						<table  class="table table-hover  table-bordered" >
 							<thead class="thead-dark">
@@ -54,17 +54,39 @@ $name=$_SESSION['customer_name'];
 								<th class="tr">Tên Sản Phẩm</th>
 								<th class="tr">Tổng Tiền</th>
 								<th class="tr" style="width: 10%;">Trạng Thái Đơn Hàng</th>
+								<th class="tr" >Thao Tác</th>
 							</tr>
     						</thead>
 							
 							<?php 
-							
+							$huy="";
+							$getIDhuy="";$id_huy="";
 							while($row_hoadon=mysqli_fetch_array($resultHD)){
 								$MA_HD=$row_hoadon['MA_HD'];
 								$NGAY_DAT=$row_hoadon['NGAY_LAP'];
 								$TIEN=$row_hoadon['TONG_TIEN'];
-								$TRANG_THAI="Đang Xử Lý";
-								if($row_hoadon['TINH_TRANG']==1) $TRANG_THAI="Đã Hoàn Thành";
+								$TRANG_THAI="Chưa Xử Lý";
+								if($row_hoadon['TINH_TRANG']==0) $TRANG_THAI="Đang Xử Lý";
+								else if($row_hoadon['TINH_TRANG']==1) $TRANG_THAI="Đã Hoàn Thành";
+								if($row_hoadon['TINH_TRANG']==-1) {
+									$huy='<button  type="button" class="btn btn-danger">
+									<a style="color:#000" href="index.php?quanly=user&delete_id_order=';
+									$getIDhuy='">									Huỷ</a></button>';
+									$id_huy=$MA_HD;
+									if(isset($_GET['delete_id_order'])   ){
+										$MA_HD_DELETE=$_GET['delete_id_order'];
+										$deleteHD="DELETE FROM `hoadon` WHERE MA_HD='$MA_HD_DELET'";
+										$deleteCTHD="DELETE FROM `chitiethoadon` WHERE MA_HD='$MA_HD_DELET'";
+										mysqli_query($connect,$deleteHD);
+										mysqli_query($connect,$deleteCTHD);
+
+									}
+
+
+
+
+								}
+
 							?>
 							<tr>
 								
@@ -89,6 +111,9 @@ $name=$_SESSION['customer_name'];
 								</td>
 								<td class="items"><?php echo number_format($TIEN) ?> VNĐ</td>
 								<td class="items"><?php echo $TRANG_THAI ?></td>
+								<td class="items">
+								<?php echo "$huy$id_huy$getIDhuy" ?>
+								</td>
 							</tr>
 							<?php
 							}

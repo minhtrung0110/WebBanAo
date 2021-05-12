@@ -239,7 +239,7 @@
   .table-size{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 6; /* Sit on top */
+    z-index: 12; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -270,6 +270,15 @@
     width: 90%;
     margin: auto;
     border: 2px solid #0E1C22;
+  }
+  .container-fluid .table-size-content  .close-table-size{
+    position: absolute;
+    top: 18%;
+    right: 24%;
+    color: rgb(228, 36, 36);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
   }
   .container-fluid .table-size-content .table-bordered tr.header{
     font-weight: bold;

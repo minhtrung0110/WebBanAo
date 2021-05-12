@@ -44,7 +44,7 @@
   .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
+	z-index: 12; /* Sit on top */
 	left: 0;
 	top: 0;
 	width: 100%; /* Full width */
@@ -65,7 +65,7 @@
   }
   
   /* The Close Button (x) */
-  .close {
+ .modal .modal-content .close {
 	position: absolute;
 	right: 25px;
 	top: 0;
@@ -74,8 +74,8 @@
 	font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  .modal .modal-content .close:hover,
+  .modal .modal-content .close:focus {
 	color: red;
 	cursor: pointer;
   }
