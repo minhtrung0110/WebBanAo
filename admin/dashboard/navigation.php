@@ -29,8 +29,10 @@
                   <li><a><i class="fa fa-home"></i> Trang Chủ <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?manage=orders">Quản Lý Đơn Hàng</a></li>
+                      <li><a href="index.php?manage=import">Quản Lý Nhập Hàng</a></li>
                       <li><a href="index.php?manage=products">Quản Lý Sản Phẩm</a></li>
                       <li><a href="index.php?manage=accounts">Quản Lý Tài Khoản</a></li>
+                      <li><a href="index.php?manage=sale">Quản Lý Giảm Giá</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Bố Cục <span class="fa fa-chevron-down"></span></a>

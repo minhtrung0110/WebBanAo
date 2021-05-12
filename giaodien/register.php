@@ -54,7 +54,7 @@ if(isset( $_SESSION['mail_error']) && !empty( $_SESSION['mail_error']) ) $checkm
 
     </div>
    
-    <script>
+<script>
       /* document.addEventListener('DOMContentLoaded', function () {
         Validator({
           form: '#form-1',
@@ -89,7 +89,34 @@ if(isset( $_SESSION['mail_error']) && !empty( $_SESSION['mail_error']) ) $checkm
         });
       });
 
-    </script>
+</script>
+    <!-- check mail -->
+ <script type="text/javascript">
+    $(document).ready(function(){
+	  $("#email").change( function(){
+		var email_error = $("#email-error");   
+		// resert 2 thẻ div thông báo trở về rỗng mỗi khi click nút đăng nhập
+    email_error.html("");
+		//  kiểm tra email đăng ký hợp lệ hay chưa
+		$.ajax({
+		  url: './check_mail_register.php',
+		  method: 'POST',
+		  data: $('#form-1').serialize(),
+		  success : function(response){
+		  	if (response == 0 ) {
+		  		email_error.html("Email đã được đăng ký.Vui lòng chọn Email khác");
+		  	}else 	email_error.html("");//alert(response);
+      
+            }
+
+          })
+
+        });
+
+      });
+
+</script>
+
     <script type="text/javascript">
     $(document).ready(function(){
 	  $("#register_submit").click( function(){

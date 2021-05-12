@@ -12,6 +12,7 @@
 
         //thuc hien truy van du lieu - chen du lieu vao database 2 bang taikhoan va khachhang
         $checkemail="SELECT * from taikhoan WHERE EMAIL='".$email."'  ";
+        //echo $checkemail
         $query="INSERT INTO taikhoan (TEN_DANG_NHAP,MAT_KHAU,EMAIL,MA_GROUP_QUYEN)
                 VALUE('".$username."','".$password."','".$email."','".$quyen."')";
         $getMaTK="SELECT MA_TK FROM `taikhoan` WHERE TEN_DANG_NHAP ='$username'";       
@@ -21,7 +22,7 @@
          if($data == null){          
             mysqli_query($connect,$query);
             $MA_TK = mysqli_fetch_assoc(mysqli_query($connect,$getMaTK)); 
-             $query1= "INSERT INTO khachhang (TEN_KH,EMAIL,MA_TK) VALUE('".$username."','".$email."','".$MA_TK['MA_TK']."')";      
+            $query1= "INSERT INTO khachhang (TEN_KH,EMAIL,MA_TK) VALUE('".$username."','".$email."','".$MA_TK['MA_TK']."')";      
             $result=mysqli_query($connect,$query1);       
              echo 1;
              exit() ;

@@ -48,17 +48,6 @@ while($row_all_product_sale=mysqli_fetch_array($getLimitProduct)) {
 	$PTGG=$row_all_product_sale['PHAN_TRAM_GIAM_GIA']*100;
 	$num_giamoi=number_format($giamoi);
 	$dongia=number_format($row_all_product_sale['DON_GIA']);
-	$quanlity=mysqli_query($connect, "SELECT SO_LUONG FROM sanpham WHERE TEN_SP='".$TEN_SP."'");		//Kiem tra so luong san pham
-	$totalQuanlity=0;
-	while($eachQuanlity=mysqli_fetch_array($quanlity)){
-    	$totalQuanlity+=$eachQuanlity['SO_LUONG'];
-	}
-	$notice='';
-	$disable='';
-	if($totalQuanlity==0){
-		$notice='<p style="color:red"><b>SẢN PHẨM ĐÃ HẾT HÀNG</b></p>';
-		$disable='style="display:none"';
-	}
 	$output .= "<div class=\"col-md-3 col-sm-12 text-center product-content\">
                		<div class=\"  product-about\">
                         <div class=\"percent-sale\">-$PTGG%</div>
@@ -76,12 +65,7 @@ while($row_all_product_sale=mysqli_fetch_array($getLimitProduct)) {
 								$dongia VNĐ
 								</span>
                             </em>
-                        </p>
-						$notice			
-                        <div $disable class=\"product-button\">
-                            <button type=\"button\" class=\"btn btn-outline-primary col-md-7\" style=\"float: left;\">Thêm Vào Giỏ Hàng</button>
-                            <button type=\"button\" class=\"btn btn-outline-warning col-md-4 ml-4\" style=\"float: right;\" onclick=\"checkLogin()\">Mua Ngay</button>
-                        </div>                       
+                        </p>                       
                     </div>	
             </div>";
 }
