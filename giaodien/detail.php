@@ -1,4 +1,5 @@
 <script>
+	var selectedSize=null
 	function adjustQuanlity(obj){
 		var op=obj.value;
 		var txQuanlity=document.getElementById("txQuanlity_detail");
@@ -18,32 +19,32 @@
 	}
 	var selectedSize;
 	function selectSize(obj){
-		alert(obj.value);
+		selectedSize=obj.value;
 	}
 	function changeFocus(size){
 		if(size.value=='S'){
-			document.getElementById("btSizeS").style.backgroundColor="#343a40";
-			document.getElementById("btSizeS").style.color="#FFF"
-			document.getElementById("btSizeM").style.backgroundColor="";
-			document.getElementById("btSizeM").style.color="#343a40"
-			document.getElementById("btSizeL").style.backgroundColor="";
-			document.getElementById("btSizeL").style.color="#343a40"
+			document.getElementById("btSizeS_detail").style.backgroundColor="#343a40";
+			document.getElementById("btSizeS_detail").style.color="#FFF"
+			document.getElementById("btSizeM_detail").style.backgroundColor="";
+			document.getElementById("btSizeM_detail").style.color="#343a40"
+			document.getElementById("btSizeL_detail").style.backgroundColor="";
+			document.getElementById("btSizeL_detail").style.color="#343a40"
 		}
 		if(size.value=='M'){
-			document.getElementById("btSizeS").style.backgroundColor="";
-			document.getElementById("btSizeS").style.color="#343a40"
-			document.getElementById("btSizeM").style.backgroundColor="#343a40";
-			document.getElementById("btSizeM").style.color="#FFF"
-			document.getElementById("btSizeL").style.backgroundColor="";
-			document.getElementById("btSizeL").style.color="#343a40"
+			document.getElementById("btSizeS_detail").style.backgroundColor="";
+			document.getElementById("btSizeS_detail").style.color="#343a40"
+			document.getElementById("btSizeM_detail").style.backgroundColor="#343a40";
+			document.getElementById("btSizeM_detail").style.color="#FFF"
+			document.getElementById("btSizeL_detail").style.backgroundColor="";
+			document.getElementById("btSizeL_detail").style.color="#343a40"
 		}
 		if(size.value=="L"){
-		document.getElementById("btSizeS").style.backgroundColor="";
-		document.getElementById("btSizeS").style.color="#343a40"
-		document.getElementById("btSizeM").style.backgroundColor="";
-		document.getElementById("btSizeM").style.color="#343a40"
-		document.getElementById("btSizeL").style.backgroundColor="#343a40";
-		document.getElementById("btSizeL").style.color="#FFF"
+		document.getElementById("btSizeS_detail").style.backgroundColor="";
+		document.getElementById("btSizeS_detail").style.color="#343a40"
+		document.getElementById("btSizeM_detail").style.backgroundColor="";
+		document.getElementById("btSizeM_detail").style.color="#343a40"
+		document.getElementById("btSizeL_detail").style.backgroundColor="#343a40";
+		document.getElementById("btSizeL_detail").style.color="#FFF"
 		}
 	}
 </script>
@@ -77,6 +78,29 @@ $disable="";$notification="";
 if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$disable="disabled"; $notification="Sản Phẩm Đã Hết! Xin Quý Khách Vui Lòng Chọn Sản Phẩm Khác !";}
 
 ?>
+<script>
+	function checkQuanlity(){
+		if(selectedSize==null){
+			alert("Vui lòng chọn size");
+			return 0;
+		}
+		var quanlityInput=document.getElementById("txQuanlity_detail").value;
+		switch(selectedSize){
+			case 'S':
+				if(quanlityInput><?php echo $quanlityOfSize["S"] ?>)
+					alert("Size này chỉ còn <?php echo $quanlityOfSize["S"] ?> sản phẩm");
+				break;
+			case 'M':
+				if(quanlityInput><?php echo $quanlityOfSize["M"] ?>)
+					alert("Size này chỉ còn <?php echo $quanlityOfSize["M"] ?> sản phẩm");
+				break;
+			case 'L':
+				if(quanlityInput><?php echo $quanlityOfSize["L"] ?>)
+					alert("Size này chỉ còn <?php echo $quanlityOfSize["L"] ?> sản phẩm");
+				break;
+		}
+	}
+</script>
 <div  class="detail">
 	<div style="margin: 30px 0;" class="row chitiet">
 		<div class="col-md-6 col-sm-12 images" style="padding-right: 5ex;">
@@ -109,33 +133,34 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 						<button class="select-size btn btn-outline-success"  onclick="document.getElementById('table-size').style.display='block'" style="width:auto;font-weight: bold;">Bảng Hướng Dẫn Chọn Size</button>
 					
 				</div>
-				
-					<div class="btn-size_chitiet">
-						<h4 class="ega-swatch__heading font-weight-bold">KÍCH THƯỚC</h4>
-						<div class="size-chitiet">
-                       
-                        <?php
-                        while($array_Size=mysqli_fetch_array($resultTbSize)){
-							$size=$array_Size['KICH_THUOC']
-                        ?>
-                        <button type="button" <?php echo $disableSize["$size"] ?> class="btn-chitiet btn-outline-dark" id="btSize<?php echo $size ?>" onclick="changeFocus(this); selectSize(this)" value="<?php echo $size ?>" >
-							<?php  echo $array_Size['KICH_THUOC']?>
-                        </button>
-                        <?php } ?>
-							
-						</div>
-					</div>
-				<div class="qty-chitiet">
-					<label class="qty-name font-weight-bold">SỐ LƯỢNG: </label>
-					<div  class="buttons_added">
-						<input style="cursor: pointer;" class="minus is-form" type="button" value="-" onclick="adjustQuanlity(this)">
-						<input aria-label="quantity" id="txQuanlity_detail" class="input-qty" min="1" max="20" name="" type="number" value="1" onchange="validateQuanlity(this)">
-						<input style="cursor: pointer;" class="plus is-form" type="button" value="+" onclick="adjustQuanlity(this)">
-					</div>
-				</div>
+				<form id="detailForm">
+                    <div class="btn-size_chitiet">
+                            <h4 class="ega-swatch__heading font-weight-bold">KÍCH THƯỚC</h4>
+                            <div class="size-chitiet">
+                           
+                            <?php
+                            while($array_Size=mysqli_fetch_array($resultTbSize)){
+                                $size=$array_Size['KICH_THUOC']
+                            ?>
+                            <button type="button" <?php echo $disableSize["$size"] ?> class="btn-chitiet btn-outline-dark" id="btSize<?php echo $size ?>_detail" onclick="changeFocus(this); selectSize(this)" value="<?php echo $size ?>" >
+                                <?php  echo $array_Size['KICH_THUOC']?>
+                            </button>
+                            <?php } ?>
+                                
+                            </div>
+                        </div>
+                    <div class="qty-chitiet">
+                        <label class="qty-name font-weight-bold">SỐ LƯỢNG: </label>
+                        <div  class="buttons_added">
+                            <input style="cursor: pointer;" class="minus is-form" type="button" value="-" onclick="adjustQuanlity(this)">
+                            <input aria-label="quantity" id="txQuanlity_detail" class="input-qty" min="1" max="20" name="" type="number" value="1" onchange="validateQuanlity(this)">
+                            <input style="cursor: pointer;" class="plus is-form" type="button" value="+" onclick="adjustQuanlity(this)">
+                        </div>
+                    </div>
+                </form>
 				<div class=" button-chitiet row">
-					<button type="button" <?php echo $disable ?> class="btn btn-outline-primary col-md-4  col-sm-12" style="float: left;"><a  style="    font-weight: bold;text-decoration: none;color: #3B0B39" onclick="themgiohang()"> Thêm Vào Giỏ Hàng</a> </button>
-					<button type="button" <?php echo $disable ?> class="btn btn-outline-warning col-md-4 col-sm-12 ml-4"  style=""><a  style="    font-weight: bold;text-decoration: none;color: #3B0B39">Mua Ngay</a> </button>
+					<button type="button" <?php echo $disable ?> class="btn btn-outline-primary col-md-4  col-sm-12" value="add" style="float: left;" onclick="checkQuanlity()"><a  style="    font-weight: bold;text-decoration: none;color: #3B0B39"> Thêm Vào Giỏ Hàng</a> </button>
+					<button type="button" <?php echo $disable ?> class="btn btn-outline-warning col-md-4 col-sm-12 ml-4" value="buy" onclick="checkQuanlity()"><a  style="    font-weight: bold;text-decoration: none;color: #3B0B39">Mua Ngay</a> </button>
 				</div>
                         </br></br>
                 <span class="sold-out" ><?php echo $notification ?> </span>
