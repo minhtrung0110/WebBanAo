@@ -2,6 +2,7 @@
 session_start();
 include("../../db/MySQLConnect.php");
 if(isset( $_SESSION['admin_login']) ) $checklogin=$_SESSION['admin_login'];
+if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +61,9 @@ if(isset( $_SESSION['admin_login']) ) $checklogin=$_SESSION['admin_login'];
          else if($_GET['manage']=='accounts' ) {
              require("manage_account.php");
          }
+         else if($_GET['manage']=='import' ) {
+          require("manage_import.php");
+      }
 
 
 
@@ -71,6 +75,9 @@ if(isset( $_SESSION['admin_login']) ) $checklogin=$_SESSION['admin_login'];
      ?>   
     </div>
 </div>
+
+
+<script src="../js/main.js"></script>
  <!-- jQuery -->
  <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -111,11 +118,5 @@ if(isset( $_SESSION['admin_login']) ) $checklogin=$_SESSION['admin_login'];
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-	<script>
-    var login = "<?php echo $checklogin; ?>" ;
-    if(login==true){
-        alert("Đăng Nhập Thành Công !!! Chúc Một Ngày Làm Việc Tốt Lành ❤️") <?php   $_SESSION['admin_login']=""?> };
-        
-    </script>
   </body>
 </html>

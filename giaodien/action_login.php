@@ -4,18 +4,16 @@
       $checklogin;
      function login() { 
          if(!empty($_POST) &&isset($_POST)){
-            $password =$_POST['pwd'];
+            $password =$_POST['password'];
             $password=md5($password);
             $email =$_POST['email'];
 
-            echo $email;
-            echo $password;
-         
+          
         $connect =new mysqli("localhost","root","","doanweb2");
         $connect -> set_charset("utf8");
         //kiem tra ket noi
         if($connect->connect_error){
-            var_dump($connect->connect_error);
+            //var_dump($connect->connect_error);
             die();
         }
 
@@ -24,7 +22,7 @@
         $checkname ="SELECT TEN_DANG_NHAP FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
         $result=mysqli_query($connect,$query);
         $resultname =mysqli_query($connect,$checkname);
-        var_dump($result);
+        //var_dump($result);
         $data=array();
         while($row = mysqli_fetch_array($result,1)){
             $data[] =$row;
@@ -37,13 +35,14 @@
         if($data!=null && count($data)>0){
             $_SESSION['customer_name'] = $name;//lay tên người dùng
             $_SESSION['login']=true;
-            $_SESSION['check']='hello ';
-            header("Location: ../index.php");// có thể bỏ dn= true vì người dùng có thể sữa dn thành false hoặc true 
+            echo 1;
+            exit() ;
+            //header("Location: ../index.php");// có thể bỏ dn= true vì người dùng có thể sữa dn thành false hoặc true 
         }
         else{
-            
+            echo 0;
+            exit() ;
             $_SESSION['login']=false;
-            header("Location: ../index.php");
             }
         }
            

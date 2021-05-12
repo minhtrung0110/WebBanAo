@@ -108,8 +108,8 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 					</div>
 				</div>
 				<div class=" button-chitiet row">
-					<button type="button" <?php echo $disable ?> class="btn btn-outline-primary col-md-4  col-sm-12" style="float: left;"><a href="" style="    font-weight: bold;text-decoration: none;color: #3B0B39" onclick="themgiohang()"> Thêm Vào Giỏ Hàng</a> </button>
-					<button type="button" <?php echo $disable ?> class="btn btn-outline-warning col-md-4 col-sm-12 ml-4"  style=""><a href="checkout.html" style="    font-weight: bold;text-decoration: none;color: #3B0B39">Mua Ngay</a> </button>
+					<button type="button" <?php echo $disable ?> class="btn btn-outline-primary col-md-4  col-sm-12" style="float: left;"><a  style="    font-weight: bold;text-decoration: none;color: #3B0B39" onclick="themgiohang()"> Thêm Vào Giỏ Hàng</a> </button>
+					<button type="button" <?php echo $disable ?> class="btn btn-outline-warning col-md-4 col-sm-12 ml-4"  style=""><a  style="    font-weight: bold;text-decoration: none;color: #3B0B39">Mua Ngay</a> </button>
 				</div>
                         </br></br>
                 <span class="sold-out" ><?php echo $notification ?> </span>
@@ -119,8 +119,8 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 			 
 		</div>
 		<div class="table-size" id="table-size" style="display: none;">
-			<div  class="table-size-content">
-				<span onclick="document.getElementById('table-size').style.display='none'" class="close" title="Đóng">&times;</span>
+			<div  class="table-size-content table-responsive-lg">
+				<span onclick="document.getElementById('table-size').style.display='none'" class=" close-table-size" title="Đóng">&times;</span>
 				<h4>BẢNG HƯỚNG DẪN CHỌN SIZE</h4>
 		
 			<table class="table table-bordered ">
