@@ -139,10 +139,10 @@
                   </div>
                   <div class="x_content" >
                          
-                <form action="<?php echo $actionPN ?>" method="get">
+                <form action="<?php echo $actionPN ?>" method="get" id="form-PN">
                     <div class="form-group">
                     <label for="email">MÃ PHIẾU NHẬP:</label>
-                    <input type="text" class="form-control" id="maphieunhap" placeholder="Không Được Phép Nhập" name="maphieunhap"  value="<?php echo $showMaPN ?>">
+                    <input type="text" class="form-control" id="maphieunhap" placeholder="Không Được Phép Nhập" name="maphieunhap"   value="<?php echo $showMaPN ?>">
                     </div>
                     <div class="form-group">
 
@@ -156,11 +156,13 @@
                     </div>
                     <div class="form-group">
                     <label for="email">NGÀY NHẬP</label>
-                    <input  type="text" class="form-control" id="ngaynhap" placeholder="yyyy-mm-dd" name="ngaynhap" value="<?php echo $date?>">
+                    <input  type="date" class="form-control" id="ngaynhap" placeholder="" name="ngaynhap" value="<?php echo $date?>">
+                    <span class="form-message" style="color:red"></span>
                     </div>
                     <div class="form-group">
                     <label for="pwd">TỔNG TIỀN</label>
                     <input type="text" class="form-control" id="tongtien" placeholder="Nhập Tổng Tiền" name="tongtien" value="<?php echo $showTien ?>">
+                    <span class="form-message" id="" style="color:red"></span>
                     </div>
 
                     <div id="button-add-PN" style="display:<?php echo $displayadd ?>">
@@ -249,6 +251,7 @@
                     <div class="form-group">
                     <label for="tensanpham">TÊN SẢN PHẨM</label>
                     <input type="text" class="form-control" id="tensanpham" placeholder="Nhập tên sản phẩm" name="tensanpham" value="">
+                    <span class="form-message" id="" style="color:red"></span>
                     </div>
                     <label for="loai">LOẠI</label>
                     <select class="form-control" id="loai" placeholder="Nhập loại sản phẩm" name="loai">
@@ -271,22 +274,26 @@
 
                     <div class="form-group">
                     <label for="mota">MÔ TẢ</label>
-                    <input type="text" class="form-control" id="mota" placeholder="Mô tả sản phẩm" name="mota" value="">
+                    <input type="text" class="form-control" id="mota" placeholder="Mô tả sản phẩm" name="mota" value="" require>
+                    <span class="form-message" id="" style="color:red"></span>
                     </div>
 
                     <div class="form-group">
                     <label for="dongia">ĐƠN GIÁ</label>
-                    <input  type="text" class="form-control" id="dongia" placeholder="Nhập đơn giá" name="dongia" value="">
+                    <input  type="text" class="form-control" id="dongia" placeholder="Nhập đơn giá" name="dongia" value=""require>
+                    <span class="form-message" id="" style="color:red"></span>
                     </div>
                     
                     <div class="form-group">
                     <label for="soluong">SỐ LƯỢNG</label>
-                    <input type="text" class="form-control" id="soluong" placeholder="Nhập số lượng" name="soluong" value="">
+                    <input type="text" class="form-control" id="soluong" placeholder="Nhập số lượng" name="soluong" value=""require>
+                    <span class="form-message" id="" style="color:red"></span>
                     </div>
                     
                     <div class="form-group">
                     <label for="url">HÌNH ẢNH</label>
                     <input type="file" class="form-control" id="url" placeholder="Nhập Tổng Tiền" name="url" value="<?php echo $showTien ?>">
+                    <span class="form-message" style="color:red"></span>
                     </div>
                   
                     <button type="submit"  class="btn btn-success">Thêm</button>
@@ -341,7 +348,7 @@
 
                     ?>   
                                  
-                <form action="./action/update_detail_reciept.php" method="post">
+                <form action="./action/update_detail_reciept.php" method="post" id='form-update-CTPN'>
                     <div class="form-group">
                     <label for="sua_machitietphieunhap">MÃ CHI TIẾT PHIẾU NHẬP:</label>
                     <input type="text" class="form-control" id="sua_machitietphieunhap"  placeholder="Không Được Phép Nhập" name="sua_machitietphieunhap" value="<?php echo $showMaCTPN ?> "  >
@@ -366,11 +373,13 @@
                     <div class="form-group">
                     <label for="sua_dongia">ĐƠN GIÁ</label>
                     <input  type="text" class="form-control" id="sua_dongia" placeholder="Nhập đơn giá" name="sua_dongia" value="<?php echo $showDongia?>">
+                    <span class="form-message" style="color:red"></span>
                     </div>
                     
                     <div class="form-group">
                     <label for="sua_soluong">SỐ LƯỢNG</label>
                     <input type="text" class="form-control" id="sua_soluong" placeholder="Nhập số lượng" name="sua_soluong" value="<?php echo $showSoLuong ?>">
+                    <span class="form-message" style="color:red"></span>
                     </div>                                     
 
                     <div id="button-update-PN" >
@@ -654,7 +663,50 @@
           </div>
         </div>
         <!-- /page content -->
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#form-PN',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+           Validator.isRequired('#tongtien'),
+           Validator.isRequired('#ngaynhap'),
+            Validator.isNumber('#tongtien'),
+          ],
+        });
+      });
 
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#them-chi-tiet-phieu-nhap',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+           Validator.isRequired('#tensanpham'),
+           Validator.isRequired('#mota'),
+           Validator.isRequired('#dongia'),
+           Validator.isRequired('#soluong'),
+           Validator.isRequired('#url'),
+            Validator.isNumber('#dongia'),
+            Validator.isNumber('#soluong'),
+          ],
+        });
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#form-update-CTPN',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isNumber('#sua_dongia'),
+            Validator.isNumber('#sua_soluong'),
+          ],
+        });
+      });
+
+</script>
 
  <script>
 function askDeleteReciept() {

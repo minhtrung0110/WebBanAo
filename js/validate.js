@@ -146,7 +146,24 @@ Validator.isRequired = function (selector, message) {
         }
     };
 }
-
+Validator.isNumber = function (selector, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+            var regex = /^\d+$/;
+            return regex.test(value) ? undefined :  message || 'Trường này phải là số nguyên dương';
+        }
+    };
+}
+Validator.isRealNumber = function (selector, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+            var regex = /^(\+|-)?((\d+(\.\d+)?)|(\[0].\d+))$/;
+            return regex.test(value) ? undefined :  message || 'Trường này phải là số thực';
+        }
+    };
+}
 Validator.isEmail = function (selector, message) {
     return {
         selector: selector,
@@ -156,7 +173,15 @@ Validator.isEmail = function (selector, message) {
         }
     };
 }
-
+Validator.isPhoneNumber = function (selector, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+            var regex = /^0[3|7|8|9|5]\d{7,8}$/;
+            return regex.test(value) ? undefined :  message || 'Trường này phải là số điện thoại';
+        }
+    };
+}
 Validator.minLength = function (selector, min, message) {
     return {
         selector: selector,

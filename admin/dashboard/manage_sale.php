@@ -80,36 +80,42 @@
                     </div>
                     <div class="x_content" >
                           
-                      <form method="get" action ="<?php echo $actionPN ?>">
+                      <form method="get" action ="<?php echo $actionPN ?>" id='form-add-chuong-trinh-giam-gia'>
                         <div class="form-row">
-                            <div class="col-md-4 col-sm-12">
+                            <div class="col-md-4 col-sm-12 form-group ">
                             <label for="ID_CTGG">MÃ CHƯƠNG TRÌNH GIẢM GIÁ</label>
                             <input type="text" class="form-control" id="ID_CTGG" placeholder="Không được nhập" name="ID_CTGG" value="<?php echo $showMaCTGG ?>">
                             </div>
-                            <div class="col-md-4 col-sm-12">
+                            <div class="col-md-4 col-sm-12 form-group">
                             <label for="Name_CTGG">TÊN TRÌNH GIẢM GIÁ</label>
                             <input type="text" class="form-control" id="Name_CTGG" placeholder="Nhập Tên Chương Trình" name="Name_CTGG" value="<?php echo $showTenCTGG?>">
+                            <span class="form-message" style="color:red"></span>
                             </div>
-                            <div class="col-md-4 col-sm-12">
+                            <div class="col-md-4 col-sm-12 form-group">
                             <label for="Type_CTGG">LOẠI CHƯƠNG TRÌNH GIẢM GIÁ</label>
                             <input type="text" class="form-control" id="Type_CTGG" placeholder="Nhập Loại Chương trình" name="Type_CTGG" value="<?php echo $showLoaiCTGG ?>">
+                            <span class="form-message" style="color:red"></span>
                             </div>
                           
-                            <div class="col-md-4 col-sm-12">
+                            <div class="col-md-4 col-sm-12 form-group ">
                             <label for="Percent_CTGG">PHẦN TRĂM CHƯƠNG TRÌNH GIẢM GIÁ</label>
                             <input type="text" class="form-control" id="Percent_CTGG" placeholder="Nhập phần trăm giảm giá" name="Percent_CTGG" value="<?php echo $showPhanTramCTGG ?>">
+                            <span class="form-message" style="color:red"></span>
                             </div>
-                            <div class="col-md-4 col-sm-12">
+                            <div class="col-md-4 col-sm-12 form-group">
                             <label for="Day_Start_CTGG">NGÀY BẮT ĐẦU CHƯƠNG TRÌNH GIẢM GIÁ</label>
-                            <input type="text" class="form-control" id="Day_Start_CTGG" placeholder="yyyy-mm-dd" name="Day_Start_CTGG" value="<?php echo $datemin ?>">
+                            <input type="date" class="form-control" id="Day_Start_CTGG" placeholder="yyyy-mm-dd" name="Day_Start_CTGG" value="<?php echo $datemin ?>">
+                            <span class="form-message" style="color:red"></span>
                             </div>
-                            <div class="col-md-4 col-sm-12">
+                            <div class="col-md-4 col-sm-12 form-group">
                             <label for="Day_End_CTGG">NGÀY KẾT THÚC CHƯƠNG TRÌNH GIẢM GIÁ</label>
-                            <input type="text" class="form-control" id="Day_End_CTGG" placeholder="yyyy-mm-dd" name="Day_End_CTGG" value="<?php echo $datemax ?>">
+                            <input type="date" class="form-control" id="Day_End_CTGG" placeholder="yyyy-mm-dd" name="Day_End_CTGG" value="<?php echo $datemax ?>">
+                            <span class="form-message" style="color:red"></span>
                             </div>
-                            <div class="col-md-12 col-sm-12">
+                            <div class="col-md-12 col-sm-12 form-group">
                             <label for="Content_CTGG">NỘI DUNG CHƯƠNG TRÌNH GIẢM GIÁ</label>
                             <input type="text" class="form-control" id="Content_CTGG" placeholder="Nội Dung" name="Content_CTGG" value="<?php echo $showNDCTGG?>">
+                            <span class="form-message" style="color:red"></span>
                             </div>
                             <div class="col-md-5 col-sm-0"></div>
                             <div class="col-md-2 col-sm-12">
@@ -355,17 +361,19 @@
                     ?>   
                                  
            <form action="./action/update_detail_sale.php" method="post" id="them-chi-tiet-phieu-nhap">
-                <div class="form-group">
+                    <div class="form-group">
                     <label for="machitietgiamgia">MÃ CHI TIẾT GIẢM GIÁ:</label>
                     <input type="text" class="form-control" id="sua_machitietphieunhap"  placeholder="Không Được Phép Nhập" name="machitietgiamgia" disable value="<?php echo $showMaCTGG?>"  >
                     </div>
-                    <label for="machuongtrinhgiamgia">MÃ CHƯƠNG TRÌNH GIẢM GIÁ:</label>
-                    <select class="form-control" id="sua_maphieunhap" placeholder="Nhập mã tài khoản" name="machuongtrinhgiamgia">
-                    <?php $getMA_PN=mysqli_query($connect,"SELECT MA_CTGG from chuongtrinhgiamgia ");
-                      while($row_PN= mysqli_fetch_array($getMA_PN)) {       ?>
-                      <option value="<?php echo $row_PN['MA_CTGG']?>"><?php echo $row_PN['MA_CTGG']?></option>
-                    <?php  } ?>
-                    </select>
+                    <div class="form-group">
+                      <label for="machuongtrinhgiamgia">MÃ CHƯƠNG TRÌNH GIẢM GIÁ:</label>
+                      <select class="form-control" id="sua_maphieunhap" placeholder="Nhập mã tài khoản" name="machuongtrinhgiamgia">
+                      <?php $getMA_PN=mysqli_query($connect,"SELECT MA_CTGG from chuongtrinhgiamgia ");
+                        while($row_PN= mysqli_fetch_array($getMA_PN)) {       ?>
+                        <option value="<?php echo $row_PN['MA_CTGG']?>"><?php echo $row_PN['MA_CTGG']?></option>
+                      <?php  } ?>
+                      </select>
+                    </div>
                     <div class="form-group">
                     <label for="masanpham">MÃ SẢN PHẨM:</label>
                     <select class="form-control" id="sua_maphieunhap" placeholder="Nhập mã tài khoản" name="masanpham">
@@ -467,7 +475,26 @@
         </div>
     </div>
         <!-- /page content -->
+        <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#form-add-chuong-trinh-giam-gia',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+           Validator.isRequired('#Name_CTGG'),
+           Validator.isRequired('#Type_CTGG'),
+           Validator.isRequired('#Content_CTGG'),
+           Validator.isRequired('#Percent_CTGG'),
+           Validator.isRequired('#Day_Start_CTGG'),
+           Validator.isRequired('#Day_End_CTGG'),
+            Validator.isRealNumber('#Percent_CTGG'),
+          ],
+        });
+      });
 
+
+</script>
 
  <script>
 function askDeleteReciept() {

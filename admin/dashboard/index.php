@@ -34,6 +34,7 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script> 
   </head>
 
 <body class="nav-md">
@@ -80,6 +81,7 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
 
 
 <script src="../js/main.js"></script>
+<script src="../../js/validate.js"></script>
  <!-- jQuery -->
  <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
