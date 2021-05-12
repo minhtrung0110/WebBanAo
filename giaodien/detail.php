@@ -20,6 +20,32 @@
 	function selectSize(obj){
 		alert(obj.value);
 	}
+	function changeFocus(size){
+		if(size.value=='S'){
+			document.getElementById("btSizeS").style.backgroundColor="#343a40";
+			document.getElementById("btSizeS").style.color="#FFF"
+			document.getElementById("btSizeM").style.backgroundColor="";
+			document.getElementById("btSizeM").style.color="#343a40"
+			document.getElementById("btSizeL").style.backgroundColor="";
+			document.getElementById("btSizeL").style.color="#343a40"
+		}
+		if(size.value=='M'){
+			document.getElementById("btSizeS").style.backgroundColor="";
+			document.getElementById("btSizeS").style.color="#343a40"
+			document.getElementById("btSizeM").style.backgroundColor="#343a40";
+			document.getElementById("btSizeM").style.color="#FFF"
+			document.getElementById("btSizeL").style.backgroundColor="";
+			document.getElementById("btSizeL").style.color="#343a40"
+		}
+		if(size.value=="L"){
+		document.getElementById("btSizeS").style.backgroundColor="";
+		document.getElementById("btSizeS").style.color="#343a40"
+		document.getElementById("btSizeM").style.backgroundColor="";
+		document.getElementById("btSizeM").style.color="#343a40"
+		document.getElementById("btSizeL").style.backgroundColor="#343a40";
+		document.getElementById("btSizeL").style.color="#FFF"
+		}
+	}
 </script>
 <?php
 if(isset($_GET['id']) ) $id=$_GET['id'];
@@ -92,7 +118,7 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
                         while($array_Size=mysqli_fetch_array($resultTbSize)){
 							$size=$array_Size['KICH_THUOC']
                         ?>
-                        <button type="button" <?php echo $disableSize["$size"] ?> class="btn-chitiet btn-outline-dark" onclick="selectSize(this)" value="<?php echo $size ?>" >
+                        <button type="button" <?php echo $disableSize["$size"] ?> class="btn-chitiet btn-outline-dark" id="btSize<?php echo $size ?>" onclick="changeFocus(this); selectSize(this)" value="<?php echo $size ?>" >
 							<?php  echo $array_Size['KICH_THUOC']?>
                         </button>
                         <?php } ?>
