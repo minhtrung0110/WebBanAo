@@ -1,4 +1,6 @@
+
 <?php
+
 include("../../../db/MySQLConnect.php");
 /*Thêm Phiếu Nhậ<>*/
 if(isset($_GET) ){
@@ -11,6 +13,8 @@ if(isset($_GET) ){
     header("Location:../index.php?manage=import");
 
 }
+
+
 
 
 
