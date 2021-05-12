@@ -84,11 +84,7 @@
                               <td style="width:30%"> <?php echo $product['MO_TA'] ?> </td>
                               <td style="width:10%"><?php echo $product['HINH_ANH_URL']?></td>
                               <td>
-                                  <a href="./action_update_manage_product.php?id=<?php echo $product['MA_SP'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>
-                                  <form method="post" action="/products/delete" style="display: inline-block">
-                                      <input  type="hidden" name="id" value="<?php echo $product['MA_SP'] ?>"/>
-                                      <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
-                                  </form>
+                                  <a href="./action_update_manage_product.php?id=<?php echo $product['MA_SP'] ?>" class="btn btn-primary">Edit</a>
                               </td>
                             </tr>
                           <?php endforeach; ?>

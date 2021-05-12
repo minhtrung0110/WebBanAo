@@ -20,13 +20,15 @@
   $errors = [];
 
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
+      $Ma_SP = $SP['MA_SP'];
       $Ten_SP = $_POST['ten_sp'];
       $So_luong = $SP['SO_LUONG'];
       $Don_gia = $SP['DON_GIA'];
       $Loai = $_POST['loai'];
       $Kich_thuoc = $_POST['kich_thuoc'];
       $Mo_ta = $_POST['mo_ta'];
-      $Hinh_anh = $_POST['hinh_anh'];
+      $Hinh_anh=empty($_POST['hinh_anh'])?"no_img.jpg ":$_POST['hinh_anh'];
+      // $Hinh_anh = $_POST['hinh_anh'] ?? "";
       
       // if(!$Ten_SP){
       //   $errors = 'Tên sản phẩm không hợp lệ';
@@ -35,8 +37,14 @@
       //   $errors = 'Mô tả không hợp lệ';
       // }
       // exit;
+      $update="UPDATE `sanpham` SET `MA_SP`= $Ma_SP,`TEN_SP`= $Ten_SP,`SO_LUONG`=$So_luong,
+      `DON_GIA`=$Don_gia,`LOAI_SP`=$Loai,`KICH_THUOC`=$Kich_thuoc,`MO_TA`='$Mo_ta',
+      `HINH_ANH_URL`=$Hinh_anh WHERE $Ma_SP"	;
 
-      
+      $updateProduct=mysqli_query($connect,$getLoaiSP);
+      header('Location: ./index.php?manage=products');
+      exit;
+
   }
 
   // echo '<pre>'; 
