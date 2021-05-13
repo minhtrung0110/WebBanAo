@@ -55,6 +55,7 @@ $resultDetail=mysqli_query($connect,$getdetail);
 $row_product_detail=mysqli_fetch_assoc($resultDetail);
 $tensp=$row_product_detail['TEN_SP'];
 $percentSale=0;
+$IDsale="";
 if(isset($_GET['sale']) && !empty($_GET['sale']) ){
 	$IDsale=$_GET['sale'];
 	$getSale=mysqli_fetch_assoc(mysqli_query($connect,"SELECT PHAN_TRAM_GIAM_GIA FROM chuongtrinhgiamgia WHERE MA_CTGG= '$IDsale' "));
@@ -87,18 +88,25 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 		var quanlityInput=document.getElementById("txQuanlity_detail").value;
 		switch(selectedSize){
 			case 'S':
-				if(quanlityInput><?php echo $quanlityOfSize["S"] ?>)
+				if(quanlityInput><?php echo $quanlityOfSize["S"] ?>){
 					alert("Size này chỉ còn <?php echo $quanlityOfSize["S"] ?> sản phẩm");
+					return 0;
+				}
 				break;
 			case 'M':
-				if(quanlityInput><?php echo $quanlityOfSize["M"] ?>)
+				if(quanlityInput><?php echo $quanlityOfSize["M"] ?>){
 					alert("Size này chỉ còn <?php echo $quanlityOfSize["M"] ?> sản phẩm");
+					return 0;
+				}
 				break;
 			case 'L':
-				if(quanlityInput><?php echo $quanlityOfSize["L"] ?>)
+				if(quanlityInput><?php echo $quanlityOfSize["L"] ?>){
 					alert("Size này chỉ còn <?php echo $quanlityOfSize["L"] ?> sản phẩm");
+					return 0;
+				}
 				break;
 		}
+		detailForm.submit();
 	}
 </script>
 <div  class="detail">
@@ -133,7 +141,8 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 						<button class="select-size btn btn-outline-success"  onclick="document.getElementById('table-size').style.display='block'" style="width:auto;font-weight: bold;">Bảng Hướng Dẫn Chọn Size</button>
 					
 				</div>
-				<form id="detailForm">
+				<form id="detailForm" action="index.php?quanly=detail&id=<?php echo $id ?>&sale=<?php echo $IDsale ?>" method="post">
+                    <input type="hidden" id="size_detail" name="size"  />
                     <div class="btn-size_chitiet">
                             <h4 class="ega-swatch__heading font-weight-bold">KÍCH THƯỚC</h4>
                             <div class="size-chitiet">
@@ -153,7 +162,7 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
                         <label class="qty-name font-weight-bold">SỐ LƯỢNG: </label>
                         <div  class="buttons_added">
                             <input style="cursor: pointer;" class="minus is-form" type="button" value="-" onclick="adjustQuanlity(this)">
-                            <input aria-label="quantity" id="txQuanlity_detail" class="input-qty" min="1" max="20" name="" type="number" value="1" onchange="validateQuanlity(this)">
+                            <input aria-label="quantity" id="txQuanlity_detail" class="input-qty" min="1" max="20" name="quanlity" type="number" value="1" onchange="validateQuanlity(this)">
                             <input style="cursor: pointer;" class="plus is-form" type="button" value="+" onclick="adjustQuanlity(this)">
                         </div>
                     </div>

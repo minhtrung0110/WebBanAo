@@ -40,6 +40,7 @@ include("db/MySQLConnect.php");
     <div class="content">
         <!--BANNER-->
         <?php 
+		include("giaodien/cart.php");
         if(!isset($_GET['quanly'])){
          require("giaodien/slideshow_banner.php"); 
         #Product in INDEX.PHP
