@@ -62,10 +62,13 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
              require("manage_account.php");
          }
          else if($_GET['manage']=='import' ) {
-          require("manage_import.php");}
+          require("manage_import.php");
+        }
           else if($_GET['manage']=='sale' ) {
             require("manage_sale.php");
-      }
+        } else if($_GET['manage'] == 'permission'){
+          require("manage_permission.php");
+        }
 
 
 
