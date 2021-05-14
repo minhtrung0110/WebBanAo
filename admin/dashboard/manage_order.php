@@ -61,7 +61,7 @@
                 '&tgg=' . $row["TIEN_GIAM_GIA"] .
                 '&tien=' . $row["TONG_TIEN"] .
                 '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
-                '</a><a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .'">Xóa' .
+                '</a><a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .'&tt=' . $row["TINH_TRANG"] . '">Xóa' .
                 '</a></td><td>' . $row["MA_HD"] .
                 '</td><td>' . $row["MA_NV"] .
                 '</td><td>' . $row["MA_KH"] .
@@ -119,7 +119,7 @@
                 '&tgg=' . $row["TIEN_GIAM_GIA"] .
                 '&tien=' . $row["TONG_TIEN"] .
                 '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
-                '</a><a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .'">Xóa' .
+                '</a><a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .'&tt=' . $row["TINH_TRANG"] . '">Xóa' .
                 '</a></td><td>' . $row["MA_HD"] .
                 '</td><td>' . $row["MA_NV"] .
                 '</td><td>' . $row["MA_KH"] .
@@ -148,7 +148,7 @@
         } else {
         echo "0 results";
         }
-    } else if (!isset($_GET['sort']) && !isset($_GET['stt']) || isset($_GET['show'])) {
+    } else if (!isset($_GET['sort']) && !isset($_GET['stt']) || isset($_GET['show']) || isset($_GET['manage'])) {
         
         $sql = "select * from hoadon";        
         mysqli_query($con, "SET NAMES 'utf8");
@@ -177,7 +177,7 @@
                 '&tgg=' . $row["TIEN_GIAM_GIA"] .
                 '&tien=' . $row["TONG_TIEN"] .
                 '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
-                '</a><a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .'">Xóa' .
+                '</a><a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .'&tt=' . $row["TINH_TRANG"] . '">Xóa' .
                 '</a></td><td>' . $row["MA_HD"] .
                 '</td><td>' . $row["MA_NV"] .
                 '</td><td>' . $row["MA_KH"] .
@@ -207,7 +207,7 @@
     if(isset($_GET['chitiet'])){
         $Them=$_GET['chitiet'];
         if($Them=='true'){
-        require("ShowChiTietHoaDon.php");
+            require("ShowChiTietHoaDon.php");
         }
     }
 
@@ -217,16 +217,28 @@
         include("ThemHoaDon.php");
         }
     }
-    if(isset($_GET['sua'])){
+    if(isset($_GET['sua']) && isset($_GET['tt'])){
         $Them=$_GET['sua'];
-        if($Them=='true'){
-        include("SuaHoaDon.php");
+        $tt=$_GET['tt'];
+        if($Them=='true' && $tt=="-1"){
+            include("SuaHoaDon.php");
+        } else if($Them=='true' && $tt!="-1"){
+            echo '<div id="thongbaoxoa">
+            <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không sửa hóa đơn</h1>
+            <button id="bt3"><a href="index.php?manage=orders">OK</a></button>
+            </div>';
         }
     }
-    if(isset($_GET['xoa'])){
+    if(isset($_GET['xoa']) && isset($_GET['tt'])){
         $Them=$_GET['xoa'];
-        if($Them=='true'){
-        include("XoaHoaDon.php");
+        $tt=$_GET['tt'];
+        if($Them=='true' &&  $tt=="1"){
+            include("XoaHoaDon.php");
+        }else if($Them=='true' && $tt=="-1" || $tt=="0"){
+            echo '<div id="thongbaoxoa">
+            <h1>Đơn hàng này chưa được xử lý xong. Vui lòng không xóa hóa đơn</h1>
+            <button id="bt3"><a href="index.php?manage=orders">OK</a></button>
+            </div>';
         }
     }
     if(isset($_GET['themchitiet']) && isset($_GET['tt'])){
@@ -237,20 +249,32 @@
         } else if($Them=='true' && $tt!="-1"){
             echo '<div id="thongbaoxoa">
             <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không thêm chi tiết hóa đơn</h1>
-            <button><a href="index.php?manage=orders">OK</a></button>
+            <button  id="bt3"><a href="index.php?manage=orders">OK</a></button>
             </div>';
         }
     }
-    if(isset($_GET['suachitiet'])){
+    if(isset($_GET['suachitiet']) && isset($_GET['tt'])){
         $Them=$_GET['suachitiet'];
-        if($Them=='true'){
-        include("SuaChiTietHoaDon.php");
+        $tt=$_GET['tt'];
+        if($Them=='true' && $tt=="-1"){
+            include("SuaChiTietHoaDon.php");
+        }else if($Them=='true' && $tt!="-1"){
+            echo '<div id="thongbaoxoa">
+            <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không sửa chi tiết hóa đơn</h1>
+            <button  id="bt3"><a href="index.php?manage=orders">OK</a></button>
+            </div>';
         }
     }
-    if(isset($_GET['xoachitiet'])){
+    if(isset($_GET['xoachitiet']) && isset($_GET['tt'])){
         $Them=$_GET['xoachitiet'];
-        if($Them=='true'){
-        include("XoaChiTiet.php");
+        $tt=$_GET['tt'];
+        if($Them=='true' && $tt=="-1"){
+            include("XoaChiTiet.php");
+        }else if($Them=='true' && $tt!="-1"){
+            echo '<div id="thongbaoxoa">
+            <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không xóa chi tiết hóa đơn</h1>
+            <button  id="bt3"><a href="index.php?manage=orders">OK</a></button>
+            </div>';
         }
     }
     $page_title='<div class="page-title">'
@@ -334,7 +358,7 @@
         z-index: 200;
         text-align: center;
     }
-    #thongbaoxoa button{
+    #bt3{
         width: 50px;
         height: 50px;
         position: absolute;

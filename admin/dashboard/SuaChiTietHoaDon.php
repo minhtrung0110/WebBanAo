@@ -12,6 +12,15 @@
                 ?>">
         </div>
         <div>
+            <p>Tình Trạng Hóa Đơn</p>
+            <input type="text" readonly="true" name="tt" value="<?php 
+                    if (isset($_GET['tt'])) {
+                        $tt=$_GET['tt'];
+                        echo $tt;
+                    }
+                ?>">
+        </div>
+        <div>
             <p>Mã Sản Phẩm</p>
             <select name="masp">
                 <option value="<?php 

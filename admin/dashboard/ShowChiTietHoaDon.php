@@ -24,6 +24,10 @@
         if (isset($_GET['chitiet']) && isset($_GET['mahd'])) {
             $Chitiet = $_GET['chitiet'];
             $MAHD = $_GET['mahd'];
+            $tt;
+            if (isset($_GET['tt'])) {
+                $tt=$_GET['tt'];
+            }
             if ($Chitiet == 'true') {
                 $sql = "SELECT * FROM chitiethoadon WHERE MA_HD = '$MAHD' ";
         
@@ -39,9 +43,11 @@
                         '&sl=' . $row["SO_LUONG"] .
                         '&tgg=' . $row["TIEN_GIAM_GIA"] .
                         '&dg=' . $row["DON_GIA"] .
-                        '&tt=' . $row["THANH_TIEN"] . '">Sửa' .
+                        '&thanhtien=' . $row["THANH_TIEN"] . 
+                        '&tt=' . $tt .'">Sửa' .
                         '</a><a href="index.php?manage=orders&xoachitiet=true&mahd='. $row["MA_HD"] .
-                        '&masp='. $row["MA_SP"] .'">Xóa' .
+                        '&masp='. $row["MA_SP"] .
+                        '&tt='.$tt.'">Xóa' .
                         '</a>
                         </div><div class="th">' . $row["MA_SP"] .
                         '</div><div class="th">' . $row["SO_LUONG"] . 

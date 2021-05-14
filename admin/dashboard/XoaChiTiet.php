@@ -21,13 +21,23 @@
             $msp=$_GET['masp'];
             echo $msp;
         }
+        ?>&tt=<?php
+        if(isset($_GET['tt'])){
+            $msp=$_GET['tt'];
+            echo $msp;
+        }
         ?>">Có</a></button>
     <button id='bt2' ><a href="index.php?manage=orders&chitiet=true&mahd=
         <?php
             if(isset($_GET['mahd'])){
                 $mhd=$_GET['mahd'];
             echo $mhd;
-        }?>">Hủy</a></button>
+        }?>&tt=<?php
+        if(isset($_GET['tt'])){
+            $msp=$_GET['tt'];
+            echo $msp;
+        }
+        ?>">Hủy</a></button>
 </div>
 <style>
     #thongbaoxoa{
