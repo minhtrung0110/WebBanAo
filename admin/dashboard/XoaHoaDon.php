@@ -10,8 +10,8 @@
             $mhd=$_GET['mahd'];
             echo $mhd;
         }
-    ?>">Có</a>
-    <button id='bt2' ><a href="index.php?manage=orders">Hủy</a>
+    ?>">Có</a></button>
+    <button id='bt2' ><a href="index.php?manage=orders">Hủy</a></button>
 </div>
 <style>
     #thongbaoxoa{

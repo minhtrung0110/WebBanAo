@@ -229,10 +229,16 @@
         include("XoaHoaDon.php");
         }
     }
-    if(isset($_GET['themchitiet'])){
+    if(isset($_GET['themchitiet']) && isset($_GET['tt'])){
         $Them=$_GET['themchitiet'];
-        if($Them=='true'){
-        include("ThemChiTietHoaDon.php");
+        $tt=$_GET['tt'];
+        if($Them=='true' && $tt=="-1"){
+            include("ThemChiTietHoaDon.php");
+        } else if($Them=='true' && $tt!="-1"){
+            echo '<div id="thongbaoxoa">
+            <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không thêm chi tiết hóa đơn</h1>
+            <button><a href="index.php?manage=orders">OK</a></button>
+            </div>';
         }
     }
     if(isset($_GET['suachitiet'])){
@@ -309,3 +315,30 @@
 
     mysqli_close($con);
 ?>
+<script>
+    function dongthongbao(){
+        docutemt.getElementById("thongbaoxoa").style.display="none";
+    }
+</script>
+
+<style>
+    #thongbaoxoa{
+        display: block;
+        width: 500px;
+        height: 200px;
+        position: absolute;
+        top: 150px;
+        left: 35%;
+        color: #73879C;
+        background: rgb(230, 228, 228);
+        z-index: 200;
+        text-align: center;
+    }
+    #thongbaoxoa button{
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        bottom: 20px;
+        left: 225px;
+    }
+</style>

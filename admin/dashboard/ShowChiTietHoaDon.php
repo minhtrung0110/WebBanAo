@@ -83,7 +83,13 @@
         
     ?></p>     
     </div>
-    <button id="btthem"><a href="index.php?manage=orders&themchitiet=true&mahd=<?php echo $MAHD;?>">Thêm</a></button>
+    <button id="btthem"><a href="index.php?manage=orders&themchitiet=true&mahd=<?php echo $MAHD;?>
+    &tt=<?php if (isset($_GET['tt'])) {
+                    $tt=$_GET['tt'];
+                    echo $tt;
+                }
+            ?>
+    ">Thêm</a></button>
 </div>
 
 <style>
