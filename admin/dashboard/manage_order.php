@@ -51,18 +51,28 @@
                 } else {
                     $trangthai = 'Chưa Xử Lý';
                 }
-                $tr .= '<tr><td><a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
-                <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
-                '&manv=' . $row["MA_NV"] .
-                '&makh=' . $row["MA_KH"] .
-                '&mgg=' . $row["MA_MGG"] .
-                '&dc=' . $row["DIA_CHI"] .
-                '&tt=' . $row["TINH_TRANG"] . 
-                '&tgg=' . $row["TIEN_GIAM_GIA"] .
-                '&tien=' . $row["TONG_TIEN"] .
-                '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
-                '</a><a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .'&tt=' . $row["TINH_TRANG"] . '">Xóa' .
-                '</a></td><td>' . $row["MA_HD"] .
+                $tr .= '<tr><td>
+                <button id="open-update-PN" class="btn btn-success">
+                    <a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
+                </button>
+                <button id="open-update-PN" class="btn btn-warning">
+                    <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
+                    '&manv=' . $row["MA_NV"] .
+                    '&makh=' . $row["MA_KH"] .
+                    '&mgg=' . $row["MA_MGG"] .
+                    '&dc=' . $row["DIA_CHI"] .
+                    '&tt=' . $row["TINH_TRANG"] . 
+                    '&tgg=' . $row["TIEN_GIAM_GIA"] .
+                    '&tien=' . $row["TONG_TIEN"] .
+                    '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
+                    '</a>
+                </button>
+                <button id="open-update-PN" class="btn btn-danger">
+                    <a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .
+                    '&tt=' . $row["TINH_TRANG"] . '">Xóa' .
+                    '</a>
+                </button>
+                </td><td>' . $row["MA_HD"] .
                 '</td><td>' . $row["MA_NV"] .
                 '</td><td>' . $row["MA_KH"] .
                 '</td><td>' . $row["MA_MGG"] .
@@ -109,18 +119,28 @@
                 } else {
                     $trangthai = 'Chưa Xử Lý';
                 } 
-                $tr .= '<tr><td><a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'"">Xem</a>
-                <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
-                '&manv=' . $row["MA_NV"] .
-                '&makh=' . $row["MA_KH"] .
-                '&mgg=' . $row["MA_MGG"] .
-                '&dc=' . $row["DIA_CHI"] .
-                '&tt=' . $row["TINH_TRANG"] . 
-                '&tgg=' . $row["TIEN_GIAM_GIA"] .
-                '&tien=' . $row["TONG_TIEN"] .
-                '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
-                '</a><a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .'&tt=' . $row["TINH_TRANG"] . '">Xóa' .
-                '</a></td><td>' . $row["MA_HD"] .
+                $tr .= '<tr><td>
+                <button id="open-update-PN" class="btn btn-success">
+                    <a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
+                </button>
+                <button id="open-update-PN" class="btn btn-warning">
+                    <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
+                    '&manv=' . $row["MA_NV"] .
+                    '&makh=' . $row["MA_KH"] .
+                    '&mgg=' . $row["MA_MGG"] .
+                    '&dc=' . $row["DIA_CHI"] .
+                    '&tt=' . $row["TINH_TRANG"] . 
+                    '&tgg=' . $row["TIEN_GIAM_GIA"] .
+                    '&tien=' . $row["TONG_TIEN"] .
+                    '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
+                    '</a>
+                </button>
+                <button id="open-update-PN" class="btn btn-danger">
+                    <a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .
+                    '&tt=' . $row["TINH_TRANG"] . '">Xóa' .
+                    '</a>
+                </button>
+                </td><td>' . $row["MA_HD"] .
                 '</td><td>' . $row["MA_NV"] .
                 '</td><td>' . $row["MA_KH"] .
                 '</td><td>' . $row["MA_MGG"] .
@@ -165,20 +185,28 @@
                 } else {
                     $trangthai = 'Chưa Xử Lý';
                 }
-                
-
-                $tr .= '<tr><td><a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
-                <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
-                '&manv=' . $row["MA_NV"] .
-                '&makh=' . $row["MA_KH"] .
-                '&mgg=' . $row["MA_MGG"] .
-                '&dc=' . $row["DIA_CHI"] .
-                '&tt=' . $row["TINH_TRANG"] . 
-                '&tgg=' . $row["TIEN_GIAM_GIA"] .
-                '&tien=' . $row["TONG_TIEN"] .
-                '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
-                '</a><a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .'&tt=' . $row["TINH_TRANG"] . '">Xóa' .
-                '</a></td><td>' . $row["MA_HD"] .
+                $tr .= '<tr><td>
+                <button id="open-update-PN" class="btn btn-success">
+                    <a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
+                </button>
+                <button id="open-update-PN" class="btn btn-warning">
+                    <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
+                    '&manv=' . $row["MA_NV"] .
+                    '&makh=' . $row["MA_KH"] .
+                    '&mgg=' . $row["MA_MGG"] .
+                    '&dc=' . $row["DIA_CHI"] .
+                    '&tt=' . $row["TINH_TRANG"] . 
+                    '&tgg=' . $row["TIEN_GIAM_GIA"] .
+                    '&tien=' . $row["TONG_TIEN"] .
+                    '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
+                    '</a>
+                </button>
+                <button id="open-update-PN" class="btn btn-danger">
+                    <a href="index.php?manage=orders&xoa=true&mahd='. $row["MA_HD"] .
+                    '&tt=' . $row["TINH_TRANG"] . '">Xóa' .
+                    '</a>
+                </button>
+                </td><td>' . $row["MA_HD"] .
                 '</td><td>' . $row["MA_NV"] .
                 '</td><td>' . $row["MA_KH"] .
                 '</td><td>' . $row["MA_MGG"] .
@@ -187,6 +215,7 @@
                 '</td><td>' . $row["TIEN_GIAM_GIA"] .
                 '</td><td>' . $row["NGAY_LAP"] .
                 '</td>';
+
                 $sum=0;
                 $MAHD=$row["MA_HD"];
                 $sql2 = "SELECT SUM(THANH_TIEN) AS TONG FROM chitiethoadon WHERE MA_HD='$MAHD'";
