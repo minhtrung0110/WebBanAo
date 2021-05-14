@@ -278,9 +278,9 @@
                         <div class="input-group">
                           <form action="XuLyTimKiemHoaDon.php" method="get">
                             <p>Từ Ngày</p>
-                            <input type="text" class="form-control" placeholder="yyyy-tt-mm" name="ngaybatdau">
+                            <input type="datetime-local" class="form-control" placeholder="yyyy-tt-mm" name="ngaybatdau">
                             <p>Đến Ngày</p>
-                            <input type="text" class="form-control" placeholder="yyyy-tt-mm" name="ngayketthuc">
+                            <input type="datetime-local" class="form-control" placeholder="yyyy-tt-mm" name="ngayketthuc">
                             <button>Tìm</button>
                           </form>
                         </div>

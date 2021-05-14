@@ -75,7 +75,7 @@
 	    </div>
         <div>
   	        <p>Ngày Lập</p>
-            <input type="text" name="ngaylap" id="phone" placeholder="Nhập theo dạng: YYYY-MM-DD hh:mm:ss">
+            <input type="datetime-local" name="ngaylap" id="phone" placeholder="Nhập theo dạng: YYYY-MM-DD hh:mm:ss">
 	    </div>
         <div>
             <input type="submit" name="" id="bt1" value="Thêm">
