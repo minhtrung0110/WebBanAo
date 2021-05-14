@@ -81,6 +81,7 @@
     color: #73879C;
     background: rgb(230, 228, 228);
     z-index: 500;
+    overflow: auto;
 }
 #dangki label{
     font-size: 30px;

@@ -148,7 +148,7 @@
         } else {
         echo "0 results";
         }
-    } else if (!isset($_GET['sort']) && !isset($_GET['stt']) || isset($_GET['show']) || isset($_GET['manage'])) {
+    } else if (!isset($_GET['sort']) && !isset($_GET['stt']) || isset($_GET['show'])) {
         
         $sql = "select * from hoadon";        
         mysqli_query($con, "SET NAMES 'utf8");
@@ -217,17 +217,11 @@
         include("ThemHoaDon.php");
         }
     }
-    if(isset($_GET['sua']) && isset($_GET['tt'])){
+    if(isset($_GET['sua'])){
         $Them=$_GET['sua'];
-        $tt=$_GET['tt'];
-        if($Them=='true' && $tt=="-1"){
+        if($Them=='true'){
             include("SuaHoaDon.php");
-        } else if($Them=='true' && $tt!="-1"){
-            echo '<div id="thongbaoxoa">
-            <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không sửa hóa đơn</h1>
-            <button id="bt3"><a href="index.php?manage=orders">OK</a></button>
-            </div>';
-        }
+        } 
     }
     if(isset($_GET['xoa']) && isset($_GET['tt'])){
         $Them=$_GET['xoa'];
