@@ -61,17 +61,53 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th scope = "col">#</th>
-                                <th scope = "col">Tên Sản Phẩm</th>
-                                <th scope = "col">Số Lượng</th>
-                                <th scope = "col">Đơn Giá</th>
-                                <th scope = "col">Loại</th>
-                                <th scope = "col">Kích Thước</th>
-                                <th scope = "col">Mô tả</th>
-                                <th scope = "col">Hình ảnh</th>
+                                <th scope = "col">#
+                                  <a href="index.php?manage=products&sort=up&stt=MA_SP">^</a>
+                                  <a href="index.php?manage=products&sort=down&stt=MA_SP">v</a>
+                                </th>
+                                <th scope = "col">Tên Sản Phẩm
+                                  <a href="index.php?manage=products&sort=up&stt=TEN_SP">^</a>
+                                  <a href="index.php?manage=products&sort=down&stt=TEN_SP">v</a>
+                                </th>
+                                <th scope = "col">Số Lượng
+                                  <a href="index.php?manage=products&sort=up&stt=SO_LUONG">^</a>
+                                  <a href="index.php?manage=products&sort=down&stt=SO_LUONG">v</a>
+                                </th>
+                                <th scope = "col">Đơn Giá
+                                  <a href="index.php?manage=products&sort=up&stt=DON_GIA">^</a>
+                                  <a href="index.php?manage=products&sort=down&stt=DON_GIA">v</a>
+                                </th>
+                                <th scope = "col">Loại
+                                  <a href="index.php?manage=products&sort=up&stt=LOAI_SP">^</a>
+                                  <a href="index.php?manage=products&sort=down&stt=LOAI_SP">v</a>
+                                </th>
+                                <th scope = "col">Kích Thước
+                                  <a href="index.php?manage=products&sort=up&stt=KICH_THUOC">^</a>
+                                  <a href="index.php?manage=products&sort=down&stt=KICH_THUOC">v</a>
+                                </th>
+                                <th scope = "col">Mô tả
+                                  <a href="index.php?manage=products&sort=up&stt=MO_TA">^</a>
+                                  <a href="index.php?manage=products&sort=down&stt=MO_TA">v</a>
+                                </th>
+                                <th scope = "col">Hình ảnh
+                                  <a href="index.php?manage=products&sort=up&stt=HINH_ANH_URL">^</a>
+                                  <a href="index.php?manage=products&sort=down&stt=HINH_ANH_URL">v</a>
+                                </th>
                                 <th scope = "col">Thao Tác</th>
                             </tr>
                         </thead>
+                        <?php
+                            if (isset($_GET['sort']) && isset($_GET['stt'])) {
+                              $Up = $_GET['sort'];
+                              $Stt = $_GET['stt'];
+                              if ($Up == 'up') {
+                                $query1 = "SELECT * FROM sanpham ORDER BY $Stt ASC";
+                              } else if ($Up == 'down') {
+                                $query1 = "SELECT * FROM sanpham ORDER BY $Stt DESC";
+                              }
+                              $products = mysqli_query($connect, $query1);
+                            }
+                        ?>
                         <tbody>
                           <?php foreach ($products as $product): ?>
                             <tr>
