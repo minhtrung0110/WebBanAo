@@ -13,10 +13,6 @@
   $temp=mysqli_query($connect,$getSP);
   $SP = $temp->fetch_assoc();
 
-  // echo '<pre>'; 
-      // var_dump($_POST);
-      // echo '</pre>';
-      // exit;
   $errors = [];
 
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -37,11 +33,16 @@
       //   $errors = 'Mô tả không hợp lệ';
       // }
       // exit;
-      $update="UPDATE `sanpham` SET `MA_SP`= $Ma_SP,`TEN_SP`= $Ten_SP,`SO_LUONG`=$So_luong,
-      `DON_GIA`=$Don_gia,`LOAI_SP`=$Loai,`KICH_THUOC`=$Kich_thuoc,`MO_TA`='$Mo_ta',
-      `HINH_ANH_URL`=$Hinh_anh WHERE $Ma_SP"	;
+      $update="UPDATE `sanpham` SET `MA_SP`='$Ma_SP',`TEN_SP`= '$Ten_SP',`SO_LUONG`='$So_luong',
+      `DON_GIA`='$Don_gia',`LOAI_SP`='$Loai',`KICH_THUOC`='$Kich_thuoc',`MO_TA`='$Mo_ta',
+      `HINH_ANH_URL`='$Hinh_anh' WHERE `MA_SP`= $Ma_SP"	;
 
-      $updateProduct=mysqli_query($connect,$getLoaiSP);
+      $updateProduct=mysqli_query($connect,$update);
+      // echo '<pre>'; 
+      // var_dump($update);
+      // var_dump($updateProduct);
+      // echo '</pre>';
+      // exit;
       header('Location: ./index.php?manage=products');
       exit;
 
