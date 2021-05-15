@@ -55,6 +55,7 @@
 		position:fixed;
 		z-index:11;
 		display:none;
+		top:150px;
 	}
 	#delInfor_container input[type=text]{
 		width:90%;
