@@ -33,6 +33,7 @@
 		$dateBuy=date("Y-m-d h:i:s");
 		$queryHD="INSERT INTO hoadon(MA_KH, DIA_CHI, SODIENTHOAI, TINH_TRANG, TONG_TIEN, NGAY_LAP)";
 		$queryHD.=" VALUES('" .$idUser. "', '" .$_POST["address_delInfor"]. "', '" .$_POST["phone_delInfor"]. "', 0, '" .$total_price. "', '" .$dateBuy. "')"; 
+		$checkPay=false;
 		$checkPay=mysqli_query($connect,$queryHD);
 		$getIDnew=$db_handle->runQuery("SELECT MA_HD FROM `hoadon` ORDER BY `hoadon`.`MA_HD` DESC");
 		$IDnew=$getIDnew[0]["MA_HD"];
