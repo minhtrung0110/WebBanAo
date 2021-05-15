@@ -50,7 +50,7 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
 
 
         if(!isset($_GET['manage'])) {
-          require("overview.php"); }
+          require("manage_product.php");}
 
           else if($_GET['manage']=='orders'){
               require("manage_order.php");

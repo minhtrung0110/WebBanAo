@@ -7,14 +7,7 @@
               </div>
 
               <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
+               
               </div>
             </div>
 
@@ -28,17 +21,14 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Table design <small>Custom design</small></h2>
+                    <h2>Thông Tin Sản Phẩm</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
+                         
                         </ul>
                       </li>
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
@@ -48,9 +38,35 @@
                   </div>
 
                   <div class="x_content">
+                  <form class="form-inline" action="" method="" id="form-search-product">
+                      <label for="tensp" class="mr-sm-2">TÊN :</label>
+                      <input type="text" class="form-control mb-2 mr-sm-2"  id="tensp" placeholder="Điền Tên Sản Phẩm" name="tensp" >
 
-                    <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
-                    <p>
+                      <label for="giamin" class="mr-sm-2">GIÁ TỪ:</label>
+                      <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Điền Giá" name="giamin" >
+
+                      <label for="giamax" class="mr-sm-2">GIÁ ĐẾN:</label>
+                      <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Điền Giá" name="giamax" >
+
+                      <label for="loai" class="mr-sm-2">LOẠI:</label>                    
+                      <select class=" form-control mb-2 mr-sm-2" id="loai"  name="loai">
+                      <option value="Không">Không</option>
+                        <?php $get_Loai=mysqli_query($connect,"SELECT DISTINCT LOAI_SP from sanpham  ");
+                        while($row_Loai= mysqli_fetch_array($get_Loai)) {       ?>
+                        <option value="<?php echo $row_Loai['LOAI_SP']?>"><?php echo $row_Loai['LOAI_SP']?></option>
+                      <?php  } ?>
+                      </select>
+
+                      <label for="size" class="mr-sm-2">KÍCH THƯỚC:</label>
+                      <select class=" form-control mb-2 mr-sm-2" id="size"  name="size">
+                      <option value="Không">Không</option>
+                        <?php $get_Size=mysqli_query($connect,"SELECT DISTINCT KICH_THUOC from sanpham  ");
+                        while($row_Size= mysqli_fetch_array($get_Size)) {       ?>
+                        <option value="<?php echo $row_Size['KICH_THUOC']?>"><?php echo $row_Size['KICH_THUOC']?></option>
+                      <?php  } ?>
+                      </select>
+                      <input type="button" id='search-submit' class=" btn btn-warning form-control mb-2 mr-sm-2"value="Tìm" >
+                  </form>
                       <a href = "action_update_manage_product.php" class="btn btn-success">Thêm mới</a>
                     </p>
                     <!-- <div class="table-responsive"> -->
@@ -61,55 +77,20 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th scope = "col">#
-                                  <a href="index.php?manage=products&sort=up&stt=MA_SP">^</a>
-                                  <a href="index.php?manage=products&sort=down&stt=MA_SP">v</a>
-                                </th>
-                                <th scope = "col">Tên Sản Phẩm
-                                  <a href="index.php?manage=products&sort=up&stt=TEN_SP">^</a>
-                                  <a href="index.php?manage=products&sort=down&stt=TEN_SP">v</a>
-                                </th>
-                                <th scope = "col">Số Lượng
-                                  <a href="index.php?manage=products&sort=up&stt=SO_LUONG">^</a>
-                                  <a href="index.php?manage=products&sort=down&stt=SO_LUONG">v</a>
-                                </th>
-                                <th scope = "col">Đơn Giá
-                                  <a href="index.php?manage=products&sort=up&stt=DON_GIA">^</a>
-                                  <a href="index.php?manage=products&sort=down&stt=DON_GIA">v</a>
-                                </th>
-                                <th scope = "col">Loại
-                                  <a href="index.php?manage=products&sort=up&stt=LOAI_SP">^</a>
-                                  <a href="index.php?manage=products&sort=down&stt=LOAI_SP">v</a>
-                                </th>
-                                <th scope = "col">Kích Thước
-                                  <a href="index.php?manage=products&sort=up&stt=KICH_THUOC">^</a>
-                                  <a href="index.php?manage=products&sort=down&stt=KICH_THUOC">v</a>
-                                </th>
-                                <th scope = "col">Mô tả
-                                  <a href="index.php?manage=products&sort=up&stt=MO_TA">^</a>
-                                  <a href="index.php?manage=products&sort=down&stt=MO_TA">v</a>
-                                </th>
-                                <th scope = "col">Hình ảnh
-                                  <a href="index.php?manage=products&sort=up&stt=HINH_ANH_URL">^</a>
-                                  <a href="index.php?manage=products&sort=down&stt=HINH_ANH_URL">v</a>
-                                </th>
+
+                                <th scope = "col">STT</th>
+                                <th scope = "col">Tên Sản Phẩm</th>
+                                <th scope = "col">Số Lượng</th>
+                                <th scope = "col">Đơn Giá</th>
+                                <th scope = "col">Loại</th>
+                                <th scope = "col">Kích Thước</th>
+                                <th scope = "col">Mô Tả</th>
+                                <th scope = "col">Hình Ảnh</th>
                                 <th scope = "col">Thao Tác</th>
                             </tr>
                         </thead>
-                        <?php
-                            if (isset($_GET['sort']) && isset($_GET['stt'])) {
-                              $Up = $_GET['sort'];
-                              $Stt = $_GET['stt'];
-                              if ($Up == 'up') {
-                                $query1 = "SELECT * FROM sanpham ORDER BY $Stt ASC";
-                              } else if ($Up == 'down') {
-                                $query1 = "SELECT * FROM sanpham ORDER BY $Stt DESC";
-                              }
-                              $products = mysqli_query($connect, $query1);
-                            }
-                        ?>
-                        <tbody>
-                          <?php foreach ($products as $product): ?>
+                        <tbody class="search_content">
+                        <?php foreach ($products as $product): ?>
                             <tr>
                               <td><?php echo $product['MA_SP']?></td>
                               <td><?php echo $product['TEN_SP']?></td>
@@ -120,7 +101,7 @@
                               <td style="width:30%"> <?php echo $product['MO_TA'] ?> </td>
                               <td style="width:10%"><?php echo $product['HINH_ANH_URL']?></td>
                               <td>
-                                  <a href="./action_update_manage_product.php?id=<?php echo $product['MA_SP'] ?>" class="btn btn-primary">Edit</a>
+                                  <a href="./action_update_manage_product.php?id=<?php echo $product['MA_SP'] ?>" class="btn btn-primary">Sửa</a>
                               </td>
                             </tr>
                           <?php endforeach; ?>
@@ -137,3 +118,26 @@
           </div>
         </div>
         <!-- /page content -->
+
+        <script type="text/javascript">
+    $(document).ready(function(){
+	  $("#search-submit").click( function(){
+
+		//  kiểm tra thông tin đăng ký hợp lệ hay chưa
+		$.ajax({
+		  url: './action/action_search_manage_product.php',
+		  method: 'get',
+		  data: $('#form-search-product').serialize(),
+		  success : function(response){
+          $('.search_content').html(response);
+		  	//alert(response);
+      
+            }
+
+          })
+
+        });
+
+      });
+
+</script>

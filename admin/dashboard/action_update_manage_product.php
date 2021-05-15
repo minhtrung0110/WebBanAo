@@ -82,6 +82,7 @@
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script> 
   </head>
 
 <body class="nav-md">
@@ -122,14 +123,7 @@
               </div>
 
                <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
+              
               </div>
             </div>
             <div class="clearfix"></div>
@@ -140,7 +134,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Thông tin sản phẩm <small>Custom design</small></h2>
+                    <h2>Thông tin sản phẩm </h2>
                     
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -148,10 +142,7 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
+                      
                         </ul>
                       </li>
                       
@@ -163,12 +154,13 @@
 
                   <div class="x_content">
 
-                    <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
-                    <form action= "" method = "post">
+             
+                    <form action= "" method = "post" id="update-form">
                       <div class = "form-group">
                         <label>Tên Sản Phẩm</label>
                         <br>
-                        <input type = "text" name ="ten_sp" clas = "form-control" value ="<?php echo $SP['TEN_SP']?>">
+                        <input type = "text" name="ten_sp" id="tensp" clas = "form-control" value ="<?php echo $SP['TEN_SP']?>">
+                        <span class="form-message" id="pass-confir-error" style="color:red"></span>
                       </div>
                       <div class = "form-group">
                         <label>Số lượng</label>
@@ -207,7 +199,8 @@
                       <div class = "form-group">
                         <label>Mô tả</label>
                         <br>
-                        <textarea name = "mo_ta" clas = "form-control"><?php echo $SP['MO_TA'] ?></textarea>
+                        <textarea id="mota" name = "mo_ta" clas = "form-control"><?php echo $SP['MO_TA'] ?></textarea>
+                        <span class="form-message" id="pass-confir-error" style="color:red"></span>
                       </div>
                       <div class = "form-group">
                         <label>Hình ảnh</label>
@@ -234,6 +227,21 @@
         </div>
 </div>
  <!-- jQuery -->
+ <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#update-form',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+           Validator.isRequired('#tensp'),
+           Validator.isRequired('#mota'),
+          ],
+        });
+      });
+
+</script>
+<script src="../../js/validate.js"></script>
  <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
