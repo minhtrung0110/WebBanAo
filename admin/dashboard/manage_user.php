@@ -233,7 +233,6 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                   <input type="text" class="form-control" id="dc" placeholder="Nhập địa chỉ" name="dc" value="<?php echo  $DIACHI ?>" require>
                   <span class="form-message" id="" style="color:red"></span>
                 </div>
-
                 <input type="hidden" name="oldName" value="<?php echo $TEN_DM ?>">
                 <div id="button-add-PN" style="display:<?php echo $displayadd ?>">
                   <button type="submit" class="btn btn-success">Thêm</button>

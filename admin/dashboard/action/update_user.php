@@ -20,7 +20,6 @@ if (isset($_GET)) {
                                       `DIA_CHI`='$DIACHI'
     WHERE MA_KH = '$MA_KH' ";
     mysqli_query($connect, $updateQ);
-    echo $updateQ;
     header("Location:../index.php?manage=user");
 }
 ?>

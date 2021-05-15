@@ -14,7 +14,6 @@ if(isset($_GET) ){
     $addQ="INSERT INTO `khachhang`(`MA_KH`, `MA_TK`, `TEN_KH`, `EMAIL`, `PHONE`, `GIOI_TINH`, `DIA_CHI`) 
     VALUES ('$MA_KH','$MA_TK','$TEN_KH','$EMAIL','$PHONE','$GIOITINH','$DIACHI') ";
     mysqli_query($connect,$addQ);
-    echo $addQ;
     header("Location:../index.php?manage=user");
 
 }
