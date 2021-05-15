@@ -54,25 +54,20 @@
                 </select>
                 <span class="form-message" style="color:red"></span>
         </div>
-        <div class="form-group" >
-  	        <label>Mã Giảm Giá</label>
-            <input type="text" name="mgg" id='magg' placeholder="Nhập Mã giảm giá. . .">
-            <span class="form-message" style="color:red"></span>
-        </div>
 	    <div class="form-group" >
   	        <label>Địa Chỉ</label>
             <input type="text" name="dc" id='diachi' placeholder="Nhập địa chỉ . . .">
             <span class="form-message" style="color:red"></span>
         </div>
         <div class="form-group" >
-  	        <label>Tình Trạng</label>
-            <input type="radio" class="form-control" id="trangthai" name="tt" value="1" require>Đã Xử Lý
-            <input type="radio" class="form-control" id="trangthai" name="tt" value="0" require>Chưa Xử Lý
+  	        <label>Số Điện Thoại</label>
+            <input type="text" name="sdt" id='sdt' placeholder="Nhập số điện thoại . . .">
             <span class="form-message" style="color:red"></span>
         </div>
         <div class="form-group" >
-  	        <p>Tiền Giảm GIá</p>
-            <input type="text" name="tgg" id='tiengiamgia' placeholder="Nhập tiền giảm giá...">
+  	        <label>Tình Trạng</label>
+            <input type="radio" class="form-control" id="trangthai" name="tt" value="1" require>Đã Xử Lý
+            <input type="radio" class="form-control" id="trangthai" name="tt" value="0" require>Chưa Xử Lý
             <span class="form-message" style="color:red"></span>
         </div>
         <div class="form-group" >

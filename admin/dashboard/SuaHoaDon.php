@@ -66,18 +66,17 @@
             </select>
         </div>
         <div class="form-group">
-            <p>Mã Giảm Giá</p>
-            <input type="text" id="mgg" name="mgg" value="<?php
-                                                    $MAGG = $_GET['mgg'];
-                                                    echo $MAGG;
-                                                    ?>">
-                                                      <span class="form-message" style="color:red"></span>
-
-        </div>
-        <div class="form-group">
             <p>Địa Chỉ</p>
             <input type="text" id="dc" name="dc" value="<?php
                                                 $DC = $_GET['dc'];
+                                                echo $DC;
+                                                ?>">
+            <span class="form-message" style="color:red"></span>
+        </div>
+        <div class="form-group">
+            <p>Số Điện Thoại</p>
+            <input type="text" id="sdt" name="sdt" value="<?php
+                                                $DC = $_GET['sdt'];
                                                 echo $DC;
                                                 ?>">
             <span class="form-message" style="color:red"></span>
@@ -103,14 +102,6 @@
             ?>
             <input type="radio" <?php echo $checked; ?> class="form-control" id="trangthai" name="tt" value="1" require>Đã Xử Lý
             <input type="radio" <?php echo $unchecked; ?> class="form-control" id="trangthai" name="tt" value="0" require>Chưa Xử Lý
-        </div>
-        <div class="form-group">
-            <p>Tiền Giảm GIá</p>
-            <input type="text" id="tgg" name="tgg" value="<?php
-                                                    $TGG = $_GET['tgg'];
-                                                    echo $TGG;
-                                                    ?>">
-                                                      <span class="form-message" style="color:red"></span>
         </div>
         <div class="form-group">
             <p>Ngày Lập</p>

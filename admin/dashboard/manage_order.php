@@ -17,10 +17,9 @@
                   <th>Mã Hóa Đơn<a  class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_HD"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_HD"></a></th>
                   <th>Mã Nhân Viên<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_NV"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_NV"></a></th>
                   <th>Mã khách hàng<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_KH"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_KH"></a></th>
-                  <th>Mã Giảm Giá<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_MGG"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_MGG"></a></th>
                   <th>Địa Chỉ<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=DIA_CHI"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=DIA_CHI"></a></th>
+                  <th>Số Điện Thoại<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=SODIENTHOAI"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=SODIENTHOAI"></a></th>
                   <th>Tình Trạng<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=TINH_TRANG"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=TINH_TRANG"></a></th>
-                  <th>Tiền Giảm Giá<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=TIEN_GIAM_GIA"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=TIEN_GIAM_GIA"></a></th>
                   <th>Ngày Lập<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=NGAY_LAP"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=NGAY_LAP"></a></th>
                   <th>Tổng Tiền<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=TONG_TIEN"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=TONG_TIEN"></a></th>
                 </tr>
@@ -57,10 +56,9 @@
                     <a href="SuaHoaDon.php?mahd=' . $row["MA_HD"] . 
                     '&manv=' . $row["MA_NV"] .
                     '&makh=' . $row["MA_KH"] .
-                    '&mgg=' . $row["MA_MGG"] .
                     '&dc=' . $row["DIA_CHI"] .
+                    '&sdt=' . $row["SODIENTHOAI"] .
                     '&tt=' . $row["TINH_TRANG"] . 
-                    '&tgg=' . $row["TIEN_GIAM_GIA"] .
                     '&tien=' . $row["TONG_TIEN"] .
                     '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
                     '</a>
@@ -73,10 +71,9 @@
                 </td><td>' . $row["MA_HD"] .
                 '</td><td>' . $row["MA_NV"] .
                 '</td><td>' . $row["MA_KH"] .
-                '</td><td>' . $row["MA_MGG"] .
                 '</td><td>' . $row["DIA_CHI"] .
+                '</td><td>' . $row["SODIENTHOAI"] .
                 '</td><td>' . $trangthai .
-                '</td><td>' . $row["TIEN_GIAM_GIA"] .
                 '</td><td>' . $row["NGAY_LAP"] .
                 '</td>';
 
@@ -123,10 +120,9 @@
                     <a href="SuaHoaDon.php?mahd=' . $row["MA_HD"] . 
                     '&manv=' . $row["MA_NV"] .
                     '&makh=' . $row["MA_KH"] .
-                    '&mgg=' . $row["MA_MGG"] .
                     '&dc=' . $row["DIA_CHI"] .
+                    '&sdt=' . $row["SODIENTHOAI"] .
                     '&tt=' . $row["TINH_TRANG"] . 
-                    '&tgg=' . $row["TIEN_GIAM_GIA"] .
                     '&tien=' . $row["TONG_TIEN"] .
                     '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
                     '</a>
@@ -139,10 +135,9 @@
                 </td><td>' . $row["MA_HD"] .
                 '</td><td>' . $row["MA_NV"] .
                 '</td><td>' . $row["MA_KH"] .
-                '</td><td>' . $row["MA_MGG"] .
                 '</td><td>' . $row["DIA_CHI"] .
+                '</td><td>' . $row["SODIENTHOAI"] .
                 '</td><td>' . $trangthai .
-                '</td><td>' . $row["TIEN_GIAM_GIA"] .
                 '</td><td>' . $row["NGAY_LAP"] .
                 '</td>';
 
@@ -164,7 +159,7 @@
         } else {
         echo "0 results";
         }
-    } else if (!isset($_GET['sort']) && !isset($_GET['stt']) || isset($_GET['show'])) {
+    } else if (!isset($_GET['sort']) && !isset($_GET['stt']) || isset($_GET['show']) || isset($_GET['manage']) ) {
         
         $sql = "select * from hoadon";        
         mysqli_query($con, "SET NAMES 'utf8");
@@ -187,10 +182,9 @@
                     <a href="SuaHoaDon.php?mahd=' . $row["MA_HD"] . 
                     '&manv=' . $row["MA_NV"] .
                     '&makh=' . $row["MA_KH"] .
-                    '&mgg=' . $row["MA_MGG"] .
                     '&dc=' . $row["DIA_CHI"] .
+                    '&sdt=' . $row["SODIENTHOAI"] .
                     '&tt=' . $row["TINH_TRANG"] . 
-                    '&tgg=' . $row["TIEN_GIAM_GIA"] .
                     '&tien=' . $row["TONG_TIEN"] .
                     '&ngaylap=' . $row["NGAY_LAP"] .'">Sửa' .
                     '</a>
@@ -203,10 +197,9 @@
                 </td><td>' . $row["MA_HD"] .
                 '</td><td>' . $row["MA_NV"] .
                 '</td><td>' . $row["MA_KH"] .
-                '</td><td>' . $row["MA_MGG"] .
                 '</td><td>' . $row["DIA_CHI"] .
+                '</td><td>' . $row["SODIENTHOAI"] .
                 '</td><td>' . $trangthai .
-                '</td><td>' . $row["TIEN_GIAM_GIA"] .
                 '</td><td>' . $row["NGAY_LAP"] .
                 '</td>';
 
@@ -240,18 +233,24 @@
         include("ThemHoaDon.php");
         }
     }
-    if(isset($_GET['sua'])){
+    if(isset($_GET['sua']) && isset($_GET['tt'])){
         $Them=$_GET['sua'];
-        if($Them=='true'){
+        $tt=$_GET['tt'];
+        if($Them=='true' &&  $tt=="0"){
             include("SuaHoaDon.php");
-        } 
+        } else if($Them=='true' &&  $tt=="1"){
+            echo '<div id="thongbaoxoa">
+            <h1>Đơn hàng này đã xử lý xong. Vui lòng không sửa hóa đơn</h1>
+            <button id="bt3"><a href="index.php?manage=orders">OK</a></button>
+            </div>';
+        }
     }
     if(isset($_GET['xoa']) && isset($_GET['tt'])){
         $Them=$_GET['xoa'];
         $tt=$_GET['tt'];
         if($Them=='true' &&  $tt=="1"){
             include("XoaHoaDon.php");
-        }else if($Them=='true' && $tt=="-1" || $tt=="0"){
+        }else if($Them=='true' &&  $tt=="0"){
             echo '<div id="thongbaoxoa">
             <h1>Đơn hàng này chưa được xử lý xong. Vui lòng không xóa hóa đơn</h1>
             <button id="bt3"><a href="index.php?manage=orders">OK</a></button>
@@ -261,9 +260,9 @@
     if(isset($_GET['themchitiet']) && isset($_GET['tt'])){
         $Them=$_GET['themchitiet'];
         $tt=$_GET['tt'];
-        if($Them=='true' && $tt=="-1"){
+        if($Them=='true' && $tt=="0"){
             include("ThemChiTietHoaDon.php");
-        } else if($Them=='true' && $tt!="-1"){
+        } else if($Them=='true' && $tt!="1"){
             echo '<div id="thongbaoxoa">
             <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không thêm chi tiết hóa đơn</h1>
             <button  id="bt3"><a href="index.php?manage=orders">OK</a></button>
@@ -273,9 +272,9 @@
     if(isset($_GET['suachitiet']) && isset($_GET['tt'])){
         $Them=$_GET['suachitiet'];
         $tt=$_GET['tt'];
-        if($Them=='true' && $tt=="-1"){
+        if($Them=='true' && $tt=="0"){
             include("SuaChiTietHoaDon.php");
-        }else if($Them=='true' && $tt!="-1"){
+        }else if($Them=='true' && $tt!="1"){
             echo '<div id="thongbaoxoa">
             <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không sửa chi tiết hóa đơn</h1>
             <button  id="bt3"><a href="index.php?manage=orders">OK</a></button>
@@ -285,9 +284,9 @@
     if(isset($_GET['xoachitiet']) && isset($_GET['tt'])){
         $Them=$_GET['xoachitiet'];
         $tt=$_GET['tt'];
-        if($Them=='true' && $tt=="-1"){
+        if($Them=='true' && $tt=="0"){
             include("XoaChiTiet.php");
-        }else if($Them=='true' && $tt!="-1"){
+        }else if($Them=='true' && $tt!="1"){
             echo '<div id="thongbaoxoa">
             <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không xóa chi tiết hóa đơn</h1>
             <button  id="bt3"><a href="index.php?manage=orders">OK</a></button>
