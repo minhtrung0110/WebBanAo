@@ -15,7 +15,7 @@
 		foreach($_SESSION["cart_item"] as $k => $v){
 			$getPercent=$db_handle->runQuery("SELECT c.PHAN_TRAM_GIAM_GIA, c.MA_CTGG FROM chuongtrinhgiamgia as c INNER JOIN chitietgiamgia as t ON c.MA_CTGG=t.MA_CTGG AND t.MA_SP=$k");
 			if($getPercent!=NULL){
-				$percent=$getPercent[0]["PHAN_TRAM_GIAM_GIA"]*100;
+				$percent=$getPercent[0]["PHAN_TRAM_GIAM_GIA"];
 				$idDiscount=$getPercent[0]["MA_CTGG"];
 			}
 			else{
@@ -24,7 +24,7 @@
 			}
 			$getPrice=$db_handle->runQuery("SELECT DON_GIA FROM sanpham WHERE MA_SP=$k");
 			$price=$getPrice[0]["DON_GIA"];
-			$total=($price*$percent)/100;
+			$total=$price*$percent;
 			$discount+=array("$k"=>array('id'=>$idDiscount, 'price'=>$total));
 		}
 	}
@@ -32,9 +32,17 @@
 		date_default_timezone_set('Asia/Ho_Chi_Minh');	
 		$dateBuy=date("Y-m-d h:i:s");
 		$queryHD="INSERT INTO hoadon(MA_KH, DIA_CHI, SODIENTHOAI, TINH_TRANG, TONG_TIEN, NGAY_LAP)";
-		$queryHD.=" VALUES('" .$idUser. "', '" .$_POST["address_delInfor"]. "', '" .$_POST["phone_delInfor"]. "', 0, '" .$total_price. "', '" .$dateBuy. "'"; 
-		if(mysqli_query($connect,$queryHD)==true)
-			unset($_SESSION["cart_item"]);
+		$queryHD.=" VALUES('" .$idUser. "', '" .$_POST["address_delInfor"]. "', '" .$_POST["phone_delInfor"]. "', 0, '" .$total_price. "', '" .$dateBuy. "')"; 
+		$checkPay=mysqli_query($connect,$queryHD);
+		$getIDnew=$db_handle->runQuery("SELECT MA_HD FROM `hoadon` ORDER BY `hoadon`.`MA_HD` DESC");
+		$IDnew=$getIDnew[0]["MA_HD"];
+		foreach($_SESSION["cart_item"] as $k=>$v){
+			$totalprice=($_SESSION["cart_item"][$k]["price"]+$discount[$k]["price"])*$_SESSION["cart_item"][$k]["quanlity"];
+			$queryCT="INSERT INTO chitiethoadon(MA_HD, MA_SP, SO_LUONG, TIEN_GIAM_GIA, DON_GIA, THANH_TIEN)";
+			$queryCT.=" VALUES('" .$IDnew. "', '" .$k. "', '" .$_SESSION["cart_item"][$k]["quanlity"]. "', '" .$discount[$k]["price"]. "', '" 
+			.$_SESSION["cart_item"][$k]["price"]. "', '" .$totalprice. "')";
+			$checkPay=mysqli_query($connect,$queryCT);
+		}
 	}
 ?>
 <style>
@@ -131,4 +139,6 @@
 		document.getElementById("txPhone_delInfor").value=phone;
 	}
 	loadInfor();
+	if(<?php if(isset($checkPay)) echo $checkPay; else echo false?>)
+		alert("Cảm ơn quý khách đã mua hàng");
 </script>
