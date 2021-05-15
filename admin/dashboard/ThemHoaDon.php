@@ -130,9 +130,10 @@
            Validator.isRequired('#tiengiamgia'),
            Validator.isRequired('#diachi'),
            Validator.isRequired('#tinhtrang'),
-           Validator.isRequired('#ngaynhap'),
+           Validator.isRequired('#ngaylap'),
            Validator.isRequired('#tongtien'),
             Validator.isNumber('#tongtien'),
+            Validator.isNumber('#tiengiamgia'),
           ],
         });
       });

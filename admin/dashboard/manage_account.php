@@ -143,7 +143,6 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                     <td><?php echo $Account['EMAIL'] ?></td>
                     <td>
                       <button id="open-update-PN" type="button" class="btn btn-warning" onclick=''><a style="color: white;" href="index.php?manage=accounts&updatetk=<?php echo $Account['MA_TK'] ?>">Sửa</a></button>
-                      <button id="open-delete-PN" type="button" class="btn btn-danger"><a style="color: white;" href="index.php?manage=accounts&deletetk=<?php echo $Account['MA_TK'] ?>">Xoá</a></button>
                       <button type="submit" style="display:<?php echo $displayblock ?>" class="btn btn-success">
                         <a style="color: white;" href="index.php?manage=accounts&blockstt=<?php echo $Account['STATUS']?>&matk=<?php echo $Account['MA_TK'] ?>">Khóa</a>
                       </button>

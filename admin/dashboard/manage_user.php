@@ -176,8 +176,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
 
             <form action="<?php echo $action_permission ?>" method="get" id="form-customer">
               <div class="form-group">
-                <label for="makh">MÃ KHÁCH HÀNG:</label>
-                <input type="text" class="form-control" id="makh" placeholder="Nhập mã khách hàng" name="makh" value="<?php echo  $MA_KH?>" require>
+                <input type="hidden" class="form-control" id="makh" placeholder="Nhập mã khách hàng" name="makh" value="<?php echo  $MA_KH?>" require>
                 <span class="form-message" id="" style="color:red"></span>
               </div>
               <div class="form-group">
