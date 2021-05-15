@@ -55,9 +55,7 @@
                 ?>
                 </div>
                 </li>
-                <li class="nav-item <?php echo $news ?>">
-                <a class="nav-link" href="index.php?quanly=news">TIN TỨC</a>
-                </li>
+             
 		    </ul>
 			  
 		  <button class="btn btn-outline-success my-2 my-sm-0 openBtn  " id="navbarDropdown" type="submit" onclick="openSearch()"><i class="fa fa-search"></i></button>

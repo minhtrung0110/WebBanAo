@@ -127,7 +127,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                         $sex = "Nữ";
                       } else if($User['GIOI_TINH']=='-1'){
                         $sex = "Khác";
-                      }
+                      }else $sex = $User['GIOI_TINH'];
                 ?>
                   <tr>
                     <th scope="row"><?php echo $User['MA_KH']  ?></th>
@@ -139,7 +139,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                     <td><?php echo $User['DIA_CHI'] ?></td>
                     <td>
                       <button id="open-update-PN" type="button" class="btn btn-warning" onclick=''><a style="color: white;" href="index.php?manage=user&updatekh=<?php echo $User['MA_KH'] ?>">Sửa</a></button>
-                      <button id="open-delete-PN" type="button" class="btn btn-danger"><a style="color: white;" href="index.php?manage=user&deletekh=<?php echo $User['MA_KH'] ?>">Xoá</a></button>
+  
                     </td>
                   </tr>
                 <?php
@@ -174,7 +174,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
           </div>
           <div class="x_content">
 
-            <form action="<?php echo $action_permission ?>" method="get">
+            <form action="<?php echo $action_permission ?>" method="get" id="form-customer">
               <div class="form-group">
                 <label for="makh">MÃ KHÁCH HÀNG:</label>
                 <input type="text" class="form-control" id="makh" placeholder="Nhập mã khách hàng" name="makh" value="<?php echo  $MA_KH?>" require>
@@ -184,7 +184,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                 <div class="form-group">
                   <label for="matk">MÃ TÀI KHOẢN:</label>
                   <select class="form-control" id="matk" name="matk">
-                    <option value="<?php echo  $MA_TK ?>" selected><?php echo  $MA_TK ?></option>
+                    <option hidden value="<?php echo  $MA_TK ?>" selected><?php echo  $MA_TK ?></option>
                     <?php $getMA_TK = mysqli_query($connect, "SELECT MA_TK from taikhoan WHERE MA_GROUP_QUYEN=3");
                     while ($row_MA_TK = mysqli_fetch_array($getMA_TK)) {       ?>
                       <?php if ($row_MA_TK['MA_TK'] !== $MA_TK) : ?>
@@ -211,17 +211,6 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                 <div class="form-group">
                   <label for="sex">GIỚI TÍNH:</label>
                   <select class="form-control" id="sex" name="sex">
-                    <option value="<?php echo  $GIOITINH ?>" selected>
-                        <?php 
-                            if($GIOITINH == 1){
-                                echo 'Nam';
-                            } else if ($GIOITINH == 0){
-                                echo 'Nữ';
-                            } else if ($GIOITINH == -1){
-                                echo 'Khác';
-                            }
-                        ?>
-                    </option>
                     <option value="1">Nam</option>
                     <option value="0">Nữ</option>
                     <option value="-1">Khác</option>
@@ -248,6 +237,26 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
     </div>
   </div>
 </div>
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  Validator({
+    form: '#form-customer',
+    formGroupSelector: '.form-group',
+    errorSelector: '.form-message',
+    rules: [
+      Validator.isRequired('#tenkh'),  
+      Validator.isRequired('#email'),  
+      Validator.isRequired('#phone'),  
+      Validator.isRequired('#dc'),  
+      Validator.isEmail('#email'),  
+      Validator.isPhoneNumber('#phone'),  
+        
+
+    ],
+  });
+});
+</script>
 <style>
   #thongbaoxoa {
     display: block;

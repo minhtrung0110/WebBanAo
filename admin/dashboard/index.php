@@ -73,7 +73,7 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
           require("manage_user.php");
         }
 
-        if(!isset($_GET['thongke'])) {
+        else if($_GET['manage'] == 'thongke') {
           require("thongke.php");
         }
 

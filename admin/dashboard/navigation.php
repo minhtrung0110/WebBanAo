@@ -39,7 +39,7 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> Thống Kê <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.php?thongke">Thống Kê</a></li>
+                      <li><a href="index.php?manage=thongke">Bảng Thống Kê</a></li>
                     </ul>
                   </li>
                 </ul>
