@@ -67,7 +67,7 @@
                       </select>
                       <input type="button" id='search-submit' class=" btn btn-warning form-control mb-2 mr-sm-2"value="Tìm" >
                   </form>
-                      <a href = "action_update_manage_product.php" class="btn btn-success">Thêm mới</a>
+                      <a href = "index.php?manage=import#them-chi-tiet-phieu-nhap" class="btn btn-success">Thêm mới</a>
                     </p>
                     <!-- <div class="table-responsive"> -->
                     <?php 

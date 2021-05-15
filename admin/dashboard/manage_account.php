@@ -181,7 +181,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
           </div>
           <div class="x_content">
 
-            <form action="<?php echo $action_permission ?>" method="get">
+            <form action="<?php echo $action_permission ?>" method="get" id='form-account' >
               <div class="form-group">
                 <label for="matk">MÃ TÀI KHOẢN:</label>
                 <input type="text" class="form-control" id="matk" placeholder="Nhập mã tài khoản" name="matk" value="<?php echo  $MA_TK ?>" require>
@@ -199,6 +199,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                       <?php endif; ?>
                     <?php  } ?>
                   </select>
+                  <span class="form-message" id="" style="color:red"></span>
                 </div>
                 <div class="form-group">
                   <label for="tendn">TÊN ĐĂNG NHẬP:</label>
@@ -236,6 +237,25 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
     </div>
   </div>
 </div>
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#form-account',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+           Validator.isRequired('#matk'),
+           Validator.isRequired('#manhomquyen'),
+           Validator.isRequired('#tendn'),
+           Validator.isRequired('#mk'),
+           Validator.isRequired('#trangthai'),
+           Validator.isRequired('#email'),
+           Validator.isEmail('#email'),
+            Validator.minLength('#mk', 5),
+          ],
+        });
+      });
+</script>
 <style>
   #thongbaoxoa {
     display: block;

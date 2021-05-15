@@ -5,7 +5,7 @@
 
   $getLoaiSP="SELECT DISTINCT sanpham.LOAI_SP FROM `sanpham`"	;
   $LoaiSP=mysqli_query($connect,$getLoaiSP);
-
+  
   $id = $_GET['id'];
   
 

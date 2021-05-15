@@ -177,11 +177,10 @@
                   </div>
                   <div class="x_content" >
                          
-                <form action="<?php echo $action_permission ?>" method="get">
+                <form action="<?php echo $action_permission ?>" method="get" id='form-nhomquyen'>
                     <div class="form-group">
                     <label for="manhomquyen">MÃ NHÓM QUYỀN:</label>
                     <select class="form-control" id="manhomquyen" name="manhomquyen">
-                    <option value= <?php echo  $MA_GQ ?> selected><?php echo  $TEN_GQ ?></option>
                     <?php $getMA_GROUP_QUYEN = mysqli_query($connect,"SELECT MA_GROUP_QUYEN,TEN_GROUP_QUYEN from groupquyen");
                       while($row_GQ= mysqli_fetch_array($getMA_GROUP_QUYEN)) {       ?>
                       <?php if($row_GQ['MA_GROUP_QUYEN'] !== $MA_GQ): ?>
@@ -189,12 +188,12 @@
                       <?php endif; ?>
                     <?php  } ?>
                     </select>
+                    <span class="form-message" id="" style="color:red"></span>
                     </div>
                     <div class="form-group">
 
                     <label for="maquyen">MÃ QUYỀN:</label>
                     <select class="form-control" id="maquyen" name="maquyen">
-                    <option value= <?php echo  $MA_DM ?> selected><?php echo  $TEN_DM ?></option>
                     <?php $getMA_QUYEN=mysqli_query($connect,"SELECT MA_DANH_MUC,TEN_DANH_MUC from danhmuc");
                       while($row_Quyen= mysqli_fetch_array($getMA_QUYEN)) {       ?>
                       <?php if($row_Quyen['MA_DANH_MUC'] !== $MA_DM): ?>
@@ -202,8 +201,8 @@
                       <?php endif; ?>
                     <?php  } ?>
                     </select>
+                    <span class="form-message" id="" style="color:red"></span>
                     </div>
-                    <input  type="hidden" name="oldName" value="<?php echo $TEN_DM?>">
                     <div id="button-add-PN" style="display:<?php echo $displayadd ?>">
                     <button type="submit"  class="btn btn-success">Thêm</button>
                     </div>
@@ -281,7 +280,7 @@
                <div class="col-md-4 col-sm-6 col-xs-12" >
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Cập Nhật Nhóm Quyền</h2>
+                    <h2>Cập Nhật Danh Mục Quyền</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -301,11 +300,12 @@
                   </div>
                   <div class="x_content" >
                          
-                <form action="<?php echo $action_danhmuc ?>" method="get">
+                <form action="<?php echo $action_danhmuc ?>" method="get" id="form-danh-muc">
 
                     <div class="form-group">
                     <label for="pwd">TÊN DANH MỤC: </label>
                     <input type="text" class="form-control" id="Ten_danh_muc" name="Ten_danh_muc" value="<?php echo $Ten_DanhMuc ?>">
+                    <span class="form-message" id="" style="color:red"></span>
                     </div>
 
                     <div class="form-group">
@@ -324,4 +324,17 @@
                 </div>
               </div>
               
-              
+              <script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#form-danh-muc',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+           Validator.isRequired('#Ten_danh_muc'),    
+
+          ],
+        });
+      });
+</script>
