@@ -85,7 +85,7 @@
                             $getDoanhThu="SELECT p.MA_SP, p.TEN_SP,SUM(od.SO_LUONG) AS TotalQuantity,SUM(od.THANH_TIEN) AS THANHTIEN
                             from(( sanpham as p inner join chitiethoadon as od on p.MA_SP = od.MA_SP 
                                  INNER JOIN hoadon as hd on hd.MA_HD = od.MA_HD))
-                                 where  '$StartDay' <= hd.NGAY_LAP <= '$EndDay'
+                                 where  '$StartDay' <= hd.NGAY_LAP AND hd.NGAY_LAP <= '$EndDay'
                                  GROUP BY p.TEN_SP ORDER BY SUM(od.SO_LUONG) , SUM(od.DON_GIA) LIMIT $Count";
                             $Bestsaler = mysqli_query($connect,$getDoanhThu);
                             while($BS=mysqli_fetch_array($Bestsaler)){
@@ -146,7 +146,7 @@
                             $getTinhhinhKinhDoanh="SELECT p.LOAI_SP, p.TEN_SP,SUM(od.SO_LUONG) AS TotalQuantity,SUM(od.THANH_TIEN) AS THANHTIEN
                             from(( sanpham as p inner join chitiethoadon as od on p.MA_SP = od.MA_SP 
                                  INNER JOIN hoadon as hd on hd.MA_HD = od.MA_HD))
-                                 where  '$StartDay' <= hd.NGAY_LAP <= '$EndDay'
+                                 where  '$StartDay' <= hd.NGAY_LAP AND hd.NGAY_LAP <= '$EndDay'
                                  GROUP BY p.LOAI_SP ORDER BY SUM(od.SO_LUONG) , SUM(od.DON_GIA) LIMIT $Count";
                             $TinhhinhKinhDoanh = mysqli_query($connect,$getTinhhinhKinhDoanh);
                             while($THKD=mysqli_fetch_array($TinhhinhKinhDoanh)){
