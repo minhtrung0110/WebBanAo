@@ -71,7 +71,9 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
           require("manage_permission.php");
         }
 
-
+        if(!isset($_GET['thongke'])) {
+          require("thongke.php");
+        }
 
 
 
