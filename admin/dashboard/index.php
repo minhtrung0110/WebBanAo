@@ -69,6 +69,8 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
             require("manage_sale.php");
         } else if($_GET['manage'] == 'permission'){
           require("manage_permission.php");
+        } else if($_GET['manage'] == 'user'){
+          require("manage_user.php");
         }
 
 

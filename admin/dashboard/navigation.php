@@ -32,6 +32,7 @@
                       <li><a href="index.php?manage=import">Quản Lý Nhập Hàng</a></li>
                       <li><a href="index.php?manage=products">Quản Lý Sản Phẩm</a></li>
                       <li><a href="index.php?manage=accounts">Quản Lý Tài Khoản</a></li>
+                      <li><a href="index.php?manage=user">Quản Lý Khách Hàng</a></li>
                       <li><a href="index.php?manage=sale">Quản Lý Giảm Giá</a></li>
                       <li><a href="index.php?manage=permission">Quản Lý Phân Quyền</a></li>
                     </ul>
@@ -44,7 +45,6 @@
                   </li>
                 </ul>
               </div>
-             
             </div>
             <!-- /sidebar menu -->
 
