@@ -213,6 +213,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                 </div>
                 <div class="form-group">
                   <label for="trangthai">TRẠNG THÁI:</label>
+                  
                   <?php
                     $checked="";
                     $unchecked="";
@@ -229,6 +230,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                       }
                     }
                   ?>
+
                   <input type="radio" <?php echo $checked;?> class="form-control" id="trangthai" name="trangthai" value="1" require>Bình Thường
                   <input type="radio" <?php echo $unchecked;?> class="form-control" id="trangthai" name="trangthai" value="0" require> Khóa
                   <span class="form-message" id="" style="color:red"></span>
