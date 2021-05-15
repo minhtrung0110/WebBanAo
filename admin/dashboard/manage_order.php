@@ -14,15 +14,15 @@
     $thead = '<thead>
                 <tr>
                   <th></th>
-                  <th>Mã Hóa Đơn<a href="index.php?manage=orders&sort=up&stt=MA_HD">^</a><a href="index.php?manage=orders&sort=down&stt=MA_HD">v</a></th>
-                  <th>Mã Nhân Viên<a href="index.php?manage=orders&sort=up&stt=MA_NV">^</a><a href="index.php?manage=orders&sort=down&stt=MA_NV">v</a></th>
-                  <th>Mã khách hàng<a href="index.php?manage=orders&sort=up&stt=MA_KH">^</a><a href="index.php?manage=orders&sort=down&stt=MA_KH">v</a></th>
-                  <th>Mã Giảm Giá<a href="index.php?manage=orders&sort=up&stt=MA_MGG">^</a><a href="index.php?manage=orders&sort=down&stt=MA_MGG">v</a></th>
-                  <th>Địa Chỉ<a href="index.php?manage=orders&sort=up&stt=DIA_CHI">^</a><a href="index.php?manage=orders&sort=down&stt=DIA_CHI">v</a></th>
-                  <th>Tình Trạng<a href="index.php?manage=orders&sort=up&stt=TINH_TRANG">^</a><a href="index.php?manage=orders&sort=down&stt=TINH_TRANG">v</a></th>
-                  <th>Tiền Giảm Giá<a href="index.php?manage=orders&sort=up&stt=TIEN_GIAM_GIA">^</a><a href="index.php?manage=orders&sort=down&stt=TIEN_GIAM_GIA">v</a></th>
-                  <th>Ngày Lập<a href="index.php?manage=orders&sort=up&stt=NGAY_LAP">^</a><a href="index.php?manage=orders&sort=down&stt=NGAY_LAP">v</a></th>
-                  <th>Tổng Tiền<a href="index.php?manage=orders&sort=up&stt=TONG_TIEN">^</a><a href="index.php?manage=orders&sort=down&stt=TONG_TIEN">v</a></th>
+                  <th>Mã Hóa Đơn<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_HD"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_HD"></a></th>
+                  <th>Mã Nhân Viên<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_NV"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_NV"></a></th>
+                  <th>Mã khách hàng<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_KH"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_KH"></a></th>
+                  <th>Mã Giảm Giá<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_MGG"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_MGG"></a></th>
+                  <th>Địa Chỉ<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=DIA_CHI"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=DIA_CHI"></a></th>
+                  <th>Tình Trạng<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=TINH_TRANG"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=TINH_TRANG"></a></th>
+                  <th>Tiền Giảm Giá<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=TIEN_GIAM_GIA"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=TIEN_GIAM_GIA"></a></th>
+                  <th>Ngày Lập<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=NGAY_LAP"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=NGAY_LAP"></a></th>
+                  <th>Tổng Tiền<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=TONG_TIEN"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=TONG_TIEN"></a></th>
                 </tr>
               </thead>';
 
