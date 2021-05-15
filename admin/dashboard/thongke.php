@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-12 form-group">
-      <form action="" method="get">
+      <form action="./action/pushdata.php" method="get">
             <label for="Day_Start">NGÀY BẮT ĐẦU</label>
             <input type="date" class="form-control" id="Day_Start" placeholder="yyyy-mm-dd" name="Day_Start">
             <span class="form-message" style="color:red"></span>
