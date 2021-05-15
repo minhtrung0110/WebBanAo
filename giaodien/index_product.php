@@ -1,7 +1,4 @@
 <?php
-	$checkLogin=0;
-	if(isset( $_SESSION['alert_login']) && !empty( $_SESSION['alert_login']))
-		$checkLogin=1;
 	// Thiet Lap muoi Gio
 	date_default_timezone_set('Asia/Ho_Chi_Minh');	
 	$datemax=date_create(date('d-m-Y'));
@@ -27,16 +24,7 @@
 	$query3="SELECT DISTINCT TEN_SP FROM sanpham WHERE   MA_SP BETWEEN '".$ArrayMaSP['0']."' AND '".$ArrayMaSP[$i-1]."' ORDER BY  MA_SP DESC LIMIT 4 ";*/
    $result =mysqli_query($connect,$query1);
 ?>
-<script>
-	function checkLogin(){
-		if(<?php echo "$checkLogin" ?> == 0)
-			alert("Vui lòng đăng nhập");
-	}
-	function selectPro(obj){
-		
-		
-	}
-</script>
+
 <div class="container-fluid content-product">
 
 <div class="container-fluid new-arrival">

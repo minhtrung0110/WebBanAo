@@ -27,12 +27,10 @@
                 </a>
 				        <div class="dropdown-content" id="product">
                 <?php
-                  $i=1;
                   while ($row_category= mysqli_fetch_array($getLoaiSP)){
                 ?>
                     <a class="dropdown-item " href="index.php?quanly=product&type=<?php echo $row_category['LOAI_SP']  ?>"><i class="fas fa-circle"></i><?php echo $row_category['LOAI_SP'] ?></a> 
                 <?php
-                $i++;
                   }
                 ?>
                 </div>
@@ -45,12 +43,10 @@
                 </a>
                 <div class="dropdown-content" id="sale">
                 <?php
-                  $i=1;
                   while ($sale_category= mysqli_fetch_array($getLoaiSPSale)){
                 ?>
                     <a class="dropdown-item " href="index.php?quanly=sale&type=<?php echo $sale_category['MA_CTGG']  ?>"><i class="fas fa-circle"></i><?php echo $sale_category['TEN_CHUONG_TRINH'] ?></a> 
                 <?php
-                $i++;
                   }
                 ?>
                 </div>
@@ -61,8 +57,8 @@
 		    </ul>
 			  
 		  <button class="btn btn-outline-success my-2 my-sm-0 openBtn  " id="navbarDropdown" type="submit" onclick="openSearch()"><i class="fa fa-search"></i></button>
-		  <div class="nav-item icon" style="margin-right: 5ex;">
-			  <a  class="icon-button" href="#"><i class="fas fa-cart-plus"></i></a>
+		  <div class="nav-item icon" style="margin-right: 5ex;" onclick="showCartContainer()">
+			  <a  class="icon-button"><i class="fas fa-cart-plus"></i></a>
 		  </div>
 	</div>
 </nav>
