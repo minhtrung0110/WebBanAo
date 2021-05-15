@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 13, 2021 lúc 10:16 AM
+-- Thời gian đã tạo: Th5 15, 2021 lúc 10:52 AM
 -- Phiên bản máy phục vụ: 10.4.17-MariaDB
 -- Phiên bản PHP: 8.0.1
 
@@ -315,11 +315,9 @@ CREATE TABLE `hoadon` (
   `MA_HD` int(10) UNSIGNED NOT NULL,
   `MA_NV` int(10) UNSIGNED DEFAULT NULL,
   `MA_KH` int(10) UNSIGNED NOT NULL,
-  `MA_MGG` int(10) UNSIGNED DEFAULT NULL,
   `DIA_CHI` text COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `SODIENTHOAI` varchar(10) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `TINH_TRANG` tinyint(1) DEFAULT NULL,
-  `TIEN_GIAM_GIA` float DEFAULT NULL,
   `TONG_TIEN` float NOT NULL,
   `NGAY_LAP` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
@@ -328,9 +326,9 @@ CREATE TABLE `hoadon` (
 -- Đang đổ dữ liệu cho bảng `hoadon`
 --
 
-INSERT INTO `hoadon` (`MA_HD`, `MA_NV`, `MA_KH`, `MA_MGG`, `DIA_CHI`, `SODIENTHOAI`, `TINH_TRANG`, `TIEN_GIAM_GIA`, `TONG_TIEN`, `NGAY_LAP`) VALUES
-(1, 1, 1, NULL, 'Lê Thánh Tôn ,Quận 1 ,Tp Hồ Chí Minh', '', 0, 0, 3550000, '2021-04-20 21:56:21'),
-(4, 1, 3, NULL, 'Quận 6.TP Hồ Chí Minh', '', 1, 0, 3500000, '2021-04-23 22:06:29');
+INSERT INTO `hoadon` (`MA_HD`, `MA_NV`, `MA_KH`, `DIA_CHI`, `SODIENTHOAI`, `TINH_TRANG`, `TONG_TIEN`, `NGAY_LAP`) VALUES
+(1, 1, 1, 'Lê Thánh Tôn ,Quận 1 ,Tp Hồ Chí Minh', '', 0, 3550000, '2021-04-20 21:56:21'),
+(4, 1, 3, 'Quận 6.TP Hồ Chí Minh', '', 1, 3500000, '2021-04-23 22:06:29');
 
 -- --------------------------------------------------------
 
@@ -638,7 +636,6 @@ ALTER TABLE `groupquyen`
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`MA_HD`),
   ADD KEY `MA_KH` (`MA_KH`),
-  ADD KEY `MA_MGG` (`MA_MGG`),
   ADD KEY `MA_NV` (`MA_NV`);
 
 --
@@ -782,7 +779,6 @@ ALTER TABLE `chitietphieunhap`
 --
 ALTER TABLE `hoadon`
   ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`MA_KH`) REFERENCES `khachhang` (`MA_KH`),
-  ADD CONSTRAINT `hoadon_ibfk_3` FOREIGN KEY (`MA_MGG`) REFERENCES `chuongtrinhgiamgia` (`MA_CTGG`),
   ADD CONSTRAINT `hoadon_ibfk_4` FOREIGN KEY (`MA_NV`) REFERENCES `nhanvien` (`MA_NV`);
 
 --
