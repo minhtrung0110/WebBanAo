@@ -213,7 +213,24 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                 </div>
                 <div class="form-group">
                   <label for="trangthai">TRẠNG THÁI:</label>
-                  <input type="text" class="form-control" id="trangthai" placeholder="Nhập mã tài khoản" name="trangthai" value="<?php echo $TRANG_THAI ?>" require>
+                  <?php
+                    $checked="";
+                    $unchecked="";
+                    $gettt = mysqli_query($connect, "SELECT STATUS from taikhoan WHERE MA_TK='$MA_TK'");
+                    if ($gettt->num_rows > 0) {
+                      while ($row = $gettt->fetch_assoc()) {
+                        if ($row["STATUS"] == '1') {
+                          $checked="checked" ;
+                          $unchecked="";
+                        } else if ($row["STATUS"] == '0') {
+                          $unchecked="checked";
+                          $checked="";
+                        }
+                      }
+                    }
+                  ?>
+                  <input type="radio" <?php echo $checked;?> class="form-control" id="trangthai" name="trangthai" value="1" require>Bình Thường
+                  <input type="radio" <?php echo $unchecked;?> class="form-control" id="trangthai" name="trangthai" value="0" require> Khóa
                   <span class="form-message" id="" style="color:red"></span>
                 </div>
                 <div class="form-group">
