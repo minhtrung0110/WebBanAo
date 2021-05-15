@@ -6,9 +6,9 @@
         <div>
             <p>Mã Hóa Đơn</p>
             <input type="text" id="mahd" readonly="true" name="mahd" value="<?php
-                                                                    $MAHD = $_GET['mahd'];
-                                                                    echo $MAHD;
-                                                                    ?>">
+                                                                            $MAHD = $_GET['mahd'];
+                                                                            echo $MAHD;
+                                                                            ?>">
         </div>
         <div>
             <p>Mã Nhân Viên<span style="color: red"></p>
@@ -17,9 +17,9 @@
                                 $MANV = $_GET['manv'];
                                 echo $MANV;
                                 ?>"><?php
-                    $MANV = $_GET['manv'];
-                    echo $MANV;
-                    ?> </option>
+                                    $MANV = $_GET['manv'];
+                                    echo $MANV;
+                                    ?> </option>
                 <?php
                 $option = '';
                 $con = mysqli_connect("localhost", "root", "", "doanweb2");
@@ -43,9 +43,9 @@
                                 $MAKH = $_GET['makh'];
                                 echo $MAKH;
                                 ?>"><?php
-                    $MAKH = $_GET['makh'];
-                    echo $MAKH;
-                    ?></option>
+                                    $MAKH = $_GET['makh'];
+                                    echo $MAKH;
+                                    ?></option>
                 <?php
                 $option = '';
                 $con = mysqli_connect("localhost", "root", "", "doanweb2");
@@ -65,30 +65,46 @@
         <div>
             <p>Mã Giảm Giá</p>
             <input type="text" id="mgg" name="mgg" value="<?php
-                                                    $MAGG = $_GET['mgg'];
-                                                    echo $MAGG;
-                                                    ?>">
+                                                            $MAGG = $_GET['mgg'];
+                                                            echo $MAGG;
+                                                            ?>">
         </div>
         <div>
             <p>Địa Chỉ</p>
             <input type="text" id="dc" name="dc" value="<?php
-                                                $DC = $_GET['dc'];
-                                                echo $DC;
-                                                ?>">
+                                                        $DC = $_GET['dc'];
+                                                        echo $DC;
+                                                        ?>">
         </div>
         <div>
             <p>Tình Trạng</p>
-            <input type="text" id="tt" name="tt" value="<?php
-                                                $TT = $_GET['tt'];
-                                                echo $TT;
-                                                ?>">
+            <?php
+            $checked = "";
+            $unchecked = "";
+            $MA_HD = $_GET['mahd'];
+            $gettt = mysqli_query($connect, "SELECT TINH_TRANG from hoadon WHERE MA_HD='$MA_HD'");
+            if ($gettt->num_rows > 0) {
+                while ($row = $gettt->fetch_assoc()) {
+                    if ($row["TINH_TRANG"] == '1') {
+                        $checked = "checked";
+                        $unchecked = "";
+                    } else if ($row["TINH_TRANG"] == '0') {
+                        $unchecked = "checked";
+                        $checked = "";
+                    }
+                }
+            }
+            ?>
+            <input type="radio" <?php echo $checked; ?> class="form-control" id="trangthai" name="tt" value="1" require>Đã Xử Lý
+            <input type="radio" <?php echo $unchecked; ?> class="form-control" id="trangthai" name="tt" value="0" require>Chưa Xử Lý
+
         </div>
         <div>
             <p>Tiền Giảm GIá</p>
             <input type="text" id="tgg" name="tgg" value="<?php
-                                                    $TGG = $_GET['tgg'];
-                                                    echo $TGG;
-                                                    ?>">
+                                                            $TGG = $_GET['tgg'];
+                                                            echo $TGG;
+                                                            ?>">
         </div>
         <div>
             <p>Ngày Lập</p>

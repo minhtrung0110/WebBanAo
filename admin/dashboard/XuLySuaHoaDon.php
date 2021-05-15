@@ -17,7 +17,6 @@
                 WHERE MA_HD = '$MAHD'";
         mysqli_query($con, $sql);
         echo $sql;
-        header('location: index.php?manage=orders&');
     }
-    mysqli_close($con);
+    header('location: index.php?manage=orders&');
 ?>
