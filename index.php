@@ -31,6 +31,20 @@ include("db/MySQLConnect.php");
      <!--HEADER-->
     <?php require("giaodien/header.php"); ?>
 	 <!--NAVIGATION-->
+    <script>
+		function showCartContainer(){
+			document.getElementById("cart_container").style.display="block";
+			var t=document.getElementById("productCart").childElementCount;
+			if(t>4){
+				document.getElementById("titleCart").style.width="98.7%";
+				document.getElementById("XSign_cart").style.color="black";
+			}
+			else{
+				document.getElementById("titleCart").style.width="100%";	
+				document.getElementById("XSign_cart").style.color="white";
+			}
+		}
+	</script>
 	<?php require("giaodien/Navigation.php"); ?>
 	
 				
@@ -41,6 +55,7 @@ include("db/MySQLConnect.php");
         <!--BANNER-->
         <?php 
 		include("giaodien/cart.php");
+		include("giaodien/deliveryInfor.php");
         if(!isset($_GET['quanly'])){
          require("giaodien/slideshow_banner.php"); 
         #Product in INDEX.PHP
