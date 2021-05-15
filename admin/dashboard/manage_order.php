@@ -300,9 +300,9 @@
                       <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                         <div class="input-group">
                           <form action="XuLyTimKiemHoaDon.php" method="get">
-                            <p>Từ Ngày</p>
+                            <p>Ngày Bắt Đầu</p>
                             <input type="datetime-local" class="form-control" placeholder="yyyy-tt-mm" name="ngaybatdau">
-                            <p>Đến Ngày</p>
+                            <p>Ngày Kết Thúc</p>
                             <input type="datetime-local" class="form-control" placeholder="yyyy-tt-mm" name="ngayketthuc">
                             <button>Tìm</button>
                           </form>
