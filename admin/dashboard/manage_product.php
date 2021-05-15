@@ -77,6 +77,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
+
                                 <th scope = "col">STT</th>
                                 <th scope = "col">Tên Sản Phẩm</th>
                                 <th scope = "col">Số Lượng</th>
