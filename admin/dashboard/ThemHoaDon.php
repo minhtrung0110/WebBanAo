@@ -1,7 +1,8 @@
 
 
-<form action="ThemHoaDon.php" method="get" id='dangki' >
-    <div id="themhoadon">
+
+<div id="themhoadon">
+    <form action="XuLyThemHoaDon.php" method="get" id='dangki' >
         <div style="width: 500px;height:50px;text-align: center;line-height: 50px; ">
             <label>Thêm Hóa Đơn</label>
         </div>
@@ -65,7 +66,8 @@
         </div>
         <div class="form-group" >
   	        <label>Tình Trạng</label>
-            <input type="text" name="tt" id='tinhtrang' placeholder="-1: chưa xử lý; 0: đang xử lý; 1: đã xử lý...">
+            <input type="radio" class="form-control" id="trangthai" name="tt" value="1" require>Đã Xử Lý
+            <input type="radio" class="form-control" id="trangthai" name="tt" value="0" require>Chưa Xử Lý
             <span class="form-message" style="color:red"></span>
         </div>
         <div class="form-group" >
@@ -83,41 +85,19 @@
             <input type="datetime-local" name="ngaylap" id="ngaylap" placeholder="Nhập theo dạng: YYYY-MM-DD hh:mm:ss">
             <span class="form-message" style="color:red"></span>
         </div>
-        <div class="form-group" >
+        <div>
             <input type="submit" name="" id="bt1" value="Thêm">
-            <input type="button" value="Đóng" id="bt2" onclick=dongthemhoadon()>
+            <input type="button" value="Đóng" id="bt2">
         </div>
-    </div>
-</form>
+    </form>    
+</div>
+
 <script>
     function dongthemhoadon(){
-        document.getElementById("dangki").style.display = "none";
+        document.getElementById("themhoadon").style.display = "none";
     }
 </script>
 
-<?php
-    $con = mysqli_connect("localhost", "root", "", "doanweb2");
-    if(isset($_GET['mhd']) && isset($_GET['manv']) && isset($_GET['makh']) && isset($_GET['mgg']) && 
-    isset($_GET['dc']) && isset($_GET['tt']) && isset($_GET['tgg']) && 
-    isset($_GET['tongtien']) && isset($_GET['ngaylap'])){
-        $MAHD=$_GET['mhd'];
-        $MANV=$_GET['manv'];
-        $MKH=$_GET['makh'];
-        $MGG=$_GET['mgg'];
-        $DC=$_GET['dc'];
-        $TT=$_GET['tt'];
-        $TGG=$_GET['tgg'];
-        $TONG=$_GET['tongtien'];
-        $NGAY=$_GET['ngaylap'];
-        $con -> set_charset("utf8");
-        mysqli_query($con, "SET NAMES 'utf8");
-        $sql="INSERT INTO hoadon(MA_NV,MA_KH,MA_MGG,DIA_CHI,TINH_TRANG,TIEN_GIAM_GIA,TONG_TIEN,NGAY_LAP)
-             VALUE('$MANV','$MKH','$MGG','$DC','$TT','$TGG','$TONG','$NGAY')";
-             echo $sql;
-        mysqli_query($con, $sql);
-        header('location: index.php?manage=orders');
-    }
-?>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
         Validator({
@@ -139,7 +119,6 @@
 
     
 </script>
-
 <style>
 #themhoadon {
     display: block;

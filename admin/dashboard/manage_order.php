@@ -47,16 +47,14 @@
                 if ($row["TINH_TRANG"] == '1') {
                     $trangthai = 'Đã Xử Lý';
                 } else if ($row["TINH_TRANG"] == '0') {
-                    $trangthai = 'Đang Xử Lý';
-                } else {
                     $trangthai = 'Chưa Xử Lý';
-                }
+                } 
                 $tr .= '<tr><td>
                 <button id="open-update-PN" class="btn btn-success">
                     <a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
                 </button>
                 <button id="open-update-PN" class="btn btn-warning">
-                    <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
+                    <a href="SuaHoaDon.php?mahd=' . $row["MA_HD"] . 
                     '&manv=' . $row["MA_NV"] .
                     '&makh=' . $row["MA_KH"] .
                     '&mgg=' . $row["MA_MGG"] .
@@ -115,8 +113,6 @@
                 if ($row["TINH_TRANG"] == '1') {
                     $trangthai = 'Đã Xử Lý';
                 } else if ($row["TINH_TRANG"] == '0') {
-                    $trangthai = 'Đang Xử Lý';
-                } else {
                     $trangthai = 'Chưa Xử Lý';
                 } 
                 $tr .= '<tr><td>
@@ -124,7 +120,7 @@
                     <a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
                 </button>
                 <button id="open-update-PN" class="btn btn-warning">
-                    <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
+                    <a href="SuaHoaDon.php?mahd=' . $row["MA_HD"] . 
                     '&manv=' . $row["MA_NV"] .
                     '&makh=' . $row["MA_KH"] .
                     '&mgg=' . $row["MA_MGG"] .
@@ -181,16 +177,14 @@
                 if ($row["TINH_TRANG"] == '1') {
                     $trangthai = 'Đã Xử Lý';
                 } else if ($row["TINH_TRANG"] == '0') {
-                    $trangthai = 'Đang Xử Lý';
-                } else {
                     $trangthai = 'Chưa Xử Lý';
-                }
+                } 
                 $tr .= '<tr><td>
                 <button id="open-update-PN" class="btn btn-success">
                     <a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
                 </button>
                 <button id="open-update-PN" class="btn btn-warning">
-                    <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
+                    <a href="SuaHoaDon.php?mahd=' . $row["MA_HD"] . 
                     '&manv=' . $row["MA_NV"] .
                     '&makh=' . $row["MA_KH"] .
                     '&mgg=' . $row["MA_MGG"] .
@@ -314,7 +308,7 @@
                           </form>
                         </div>
                         <button><a href="index.php?manage=orders&show=all">Tất cả</a></button>
-                        <button><a href="index.php?manage=orders&them=true">Thêm hóa đơn</a></button>
+                        <button><a href="ThemHoaDon.php">Thêm hóa đơn</a></button>
                       </div>
                   </div>
                 </div>';
