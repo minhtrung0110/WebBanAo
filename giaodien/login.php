@@ -91,9 +91,12 @@
 		  	if (response == 1 ) {
 		  		alert("Đăng Nhập Thành Công!  Chúc Quý Khách Mua Hàng Thật Vui Vẻ    ❤️ ✨✨✨✨✨✨✨✨❤❤️❤✨✨✨✨✨✨✨✨ ❤️");
           window.location="../index.php";
-		  	}else{
+		  	}else {
 		  		error.html("Email hoặc mật khẩu không chính xác !");
-		  	}//alert(response);
+		  	}
+        if (response == -1 ) {
+          error.html("Tài Khoản đã bị Khoá");
+        }//alert(response);
       
             }
 

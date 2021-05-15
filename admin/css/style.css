@@ -122,7 +122,7 @@ span.icon2 {
     cursor: pointer;
     letter-spacing: 1px;
     font-weight: 400;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;  
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
     -o-transition: 0.5s all;

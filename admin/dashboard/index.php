@@ -34,6 +34,7 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script> 
   </head>
 
 <body class="nav-md">
@@ -49,7 +50,7 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
 
 
         if(!isset($_GET['manage'])) {
-          require("overview.php"); }
+          require("manage_product.php");}
 
           else if($_GET['manage']=='orders'){
               require("manage_order.php");
@@ -62,12 +63,19 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
              require("manage_account.php");
          }
          else if($_GET['manage']=='import' ) {
-          require("manage_import.php");}
+          require("manage_import.php");
+        }
           else if($_GET['manage']=='sale' ) {
             require("manage_sale.php");
-      }
+        } else if($_GET['manage'] == 'permission'){
+          require("manage_permission.php");
+        } else if($_GET['manage'] == 'user'){
+          require("manage_user.php");
+        }
 
-
+        else if($_GET['manage'] == 'thongke') {
+          require("thongke.php");
+        }
 
 
 
@@ -80,6 +88,7 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
 
 
 <script src="../js/main.js"></script>
+<script src="../../js/validate.js"></script>
  <!-- jQuery -->
  <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

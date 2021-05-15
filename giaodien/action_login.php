@@ -18,21 +18,29 @@
         }
 
         //thuc hien truy van du lieu - chen du lieu vao database
-        $query="SELECT  EMAIL, MAT_KHAU,TEN_DANG_NHAP FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
+        $query="SELECT  EMAIL, MAT_KHAU,TEN_DANG_NHAP FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."' AND STATUS='1'";
+        $query2="SELECT  EMAIL, MAT_KHAU,TEN_DANG_NHAP FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."' AND STATUS='0'";
         $checkname ="SELECT TEN_DANG_NHAP FROM taikhoan WHERE EMAIL= '".$email."' AND MAT_KHAU ='".$password."'";
         $result=mysqli_query($connect,$query);
         $resultname =mysqli_query($connect,$checkname);
         //var_dump($result);
         $data=array();
+        $checkdata=array();
         while($row = mysqli_fetch_array($result,1)){
             $data[] =$row;
         }
+        //kiem tra bi khoa tai khoan
+        $checkdata=mysqli_fetch_assoc(mysqli_query($connect,$query2));
+        
         //Lấy Tên Người Dùng
         $username = mysqli_fetch_assoc($resultname);
         $name=$username['TEN_DANG_NHAP'];
         //dong kêt nối
          $connect->close();
-        if($data!=null && count($data)>0){
+         if($checkdata!=null && count($checkdata) > 0) 
+         {echo -1;exit();
+            }
+         if($data!=null && count($data)>0){
             $_SESSION['customer_name'] = $name;//lay tên người dùng
             $_SESSION['login']=true;
             echo 1;

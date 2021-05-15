@@ -32,34 +32,18 @@
                       <li><a href="index.php?manage=import">Quản Lý Nhập Hàng</a></li>
                       <li><a href="index.php?manage=products">Quản Lý Sản Phẩm</a></li>
                       <li><a href="index.php?manage=accounts">Quản Lý Tài Khoản</a></li>
+                      <li><a href="index.php?manage=user">Quản Lý Khách Hàng</a></li>
                       <li><a href="index.php?manage=sale">Quản Lý Giảm Giá</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Bố Cục <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      <li><a href="form_advanced.html">Advanced Components</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
+                      <li><a href="index.php?manage=permission">Quản Lý Phân Quyền</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> Thống Kê <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="tables.html">Tables</a></li>
-                      <li><a href="tables_dynamic.html">Table Dynamic</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> Biểu Đồ <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
-                      <li><a href="chartjs2.html">Chart JS2</a></li>
-                      <li><a href="morisjs.html">Moris JS</a></li>
-                      <li><a href="echarts.html">ECharts</a></li>
-                      <li><a href="other_charts.html">Other Charts</a></li>
+                      <li><a href="index.php?manage=thongke">Bảng Thống Kê</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
-             
             </div>
             <!-- /sidebar menu -->
 
