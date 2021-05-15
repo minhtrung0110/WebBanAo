@@ -50,7 +50,7 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
 
 
         if(!isset($_GET['manage'])) {
-          require("overview.php"); }
+          require("manage_product.php");}
 
           else if($_GET['manage']=='orders'){
               require("manage_order.php");
@@ -69,6 +69,8 @@ if( $_SESSION['admin_login']==false  ) header("Location: ../index.php");
             require("manage_sale.php");
         } else if($_GET['manage'] == 'permission'){
           require("manage_permission.php");
+        } else if($_GET['manage'] == 'user'){
+          require("manage_user.php");
         }
 
         if(!isset($_GET['thongke'])) {

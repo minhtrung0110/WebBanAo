@@ -23,7 +23,7 @@
                             mysqli_query($connect,$deleteCTPN);}
                     }
                     
-
+                  
                     ?>   
                           
 
@@ -35,14 +35,30 @@
                 <h3>Bảng Phiếu Nhập <small>Chứa thông tin các phiếu nhập</small></h3>
               </div>
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
+              <div class="title_right ">
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right top_search">
+                <form class="input-group" action="./action/sort_MA_TK.php" method=post>
+                    <select class="form-control" id="mataikhoan" placeholder="" name="sortmataikhoan">
+                    <?php $get_sort_MA_TK=mysqli_query($connect,"SELECT MA_TK from taikhoan WHERE MA_TK ='1'  OR MA_TK='2' ORDER BY MA_TK ASC ");
+                      while($row_sort_TK= mysqli_fetch_array($get_sort_MA_TK)) {       ?>
+                      <option value="<?php echo $row_sort_TK['MA_TK']?>"><?php echo "Mã Tài Khoản: ".$row_sort_TK['MA_TK']." "?></option>
+                    <?php  } ?>
+                    </select>
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Tìm!</button>
+                      <button class="btn btn-default" type="submit">Lọc</button>
                     </span>
-                  </div>
+                  </form>
+                  <form class="input-group" action="./action/sort_DatePN.php" method=post style="float:right">
+                        <div class="form-group">
+                            <label for="date_min">TỪ NGÀY:</label>
+                            <input type="date" class="form-control" id="" placeholder="yyyy-mm-dd" name="date_min" >
+                        </div>
+                        <div class="form-group">
+                            <label for="date_max">ĐẾN NGÀY:</label>
+                            <input type="date" class="form-control" id="" placeholder="yyyy-mm-dd" name="date_max">
+                        </div>
+                        <input class="btn btn-default" type="submit" value="Tìm">
+                  </form>
                 </div>
               </div>
             </div>
@@ -86,9 +102,12 @@
                       </thead>
                       <tbody>
                       <?php
-                            $getPN="SELECT * FROM phieunhap";
-                            $result_PN=mysqli_query($connect,$getPN);
-                            while($row_phieu_nhap=mysqli_fetch_array($result_PN)){
+                             $conditionTK=1;
+                             if(!empty($_GET['sortTK'])) $conditionTK="MA_TK='".$_GET['sortTK']."'";
+                             if(!empty($_GET['sortdatemin']) && !empty($_GET['sortdatemax'])) $conditionTK=" NGAY_NHAP BETWEEN '".$_GET['sortdatemin']."' AND '".$_GET['sortdatemax']."'";
+                             $getTK="SELECT * FROM phieunhap WHERE $conditionTK ";
+                            $result_TK=mysqli_query($connect,$getTK);
+                            while($row_phieu_nhap=mysqli_fetch_array($result_TK)){
 
 
                         ?>
@@ -189,7 +208,7 @@
                 <div class="col-md-5 col-sm-5 col-xs-12 mr-3 form-group pull-right top_search">
                   <form class="input-group" action="./action/sort-PN.php" method=post>
                     <select class="form-control" id="maphieunhap" placeholder="" name="sortmaphieunhap">
-                    <?php $get_sort_MA_PN=mysqli_query($connect,"SELECT MA_PN from phieunhap ");
+                    <?php $get_sort_MA_PN=mysqli_query($connect,"SELECT MA_PN from phieunhap ORDER BY MA_PN ASC ");
                       while($row_sort_PN= mysqli_fetch_array($get_sort_MA_PN)) {       ?>
                       <option value="<?php echo $row_sort_PN['MA_PN']?>"><?php echo "Mã Phiếu Nhập: ".$row_sort_PN['MA_PN']." "?></option>
                     <?php  } ?>
@@ -239,7 +258,7 @@
                 <form action="./action/add_detail_reciept.php" method="post" id="them-chi-tiet-phieu-nhap">
                     <label for="maphieunhap">MÃ PHIẾU NHẬP:</label>
                     <select class="form-control" id="maphieunhap" placeholder="" name="maphieunhap">
-                    <?php $getMA_PN=mysqli_query($connect,"SELECT MA_PN from phieunhap ");
+                    <?php $getMA_PN=mysqli_query($connect,"SELECT MA_PN from phieunhap ORDER BY MA_PN ASC ");
                       while($row_PN= mysqli_fetch_array($getMA_PN)) {       ?>
                       <option value="<?php echo $row_PN['MA_PN']?>"><?php echo $row_PN['MA_PN']?></option>
                     <?php  } ?>
@@ -355,7 +374,7 @@
                     </div>
                     <label for="sua_maphieunhap">MÃ PHIẾU NHẬP:</label>
                     <select class="form-control" id="sua_maphieunhap" placeholder="Nhập mã tài khoản" name="sua_maphieunhap">
-                    <?php $getMA_PN=mysqli_query($connect,"SELECT MA_PN from phieunhap ");
+                    <?php $getMA_PN=mysqli_query($connect,"SELECT MA_PN from phieunhap ORDER BY MA_PN ASC ");
                       while($row_PN= mysqli_fetch_array($getMA_PN)) {       ?>
                       <option value="<?php echo $row_PN['MA_PN']?>"><?php echo $row_PN['MA_PN']?></option>
                     <?php  } ?>

@@ -42,14 +42,7 @@
               </div>
 
               <div class="title_right">
-               <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Tìm!</button>
-                    </span>
-                  </div>
-                </div>
+              
               </div>
             </div>
 
@@ -353,9 +346,9 @@
 
                         }
                         if(isset($_GET['deleteCTGG']) && !empty($_GET['deleteCTGG']) ){
-                          $id_CTGG=$_GET['deleteCTGG'];
-                          if($_COOKIE['checkdeleteCTGG']=='true' ) ;
-                          mysqli_query($connect,"DELETE FROM chitietgiamgia WHERE ID_CTGG='$id_CTGG'");
+                          $id_CTGG=$_GET['deleteCTGG']; 
+                          if($_COOKIE['checkdeleteCTGG']=='true' ) 
+                         mysqli_query($connect,"DELETE FROM chitietgiamgia WHERE ID_CTGG='$id_CTGG'");
                   }
 
                     ?>   

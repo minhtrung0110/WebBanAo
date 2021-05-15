@@ -3,6 +3,8 @@
 $action_permission = "./action/add_account.php";
 $displayadd = 'block';
 $displayupdate = 'none';
+$displayblock = 'block';
+$displayunblock = 'none';
 $MA_TK = "";
 $MA_GQ = "";
 $TEN_DN = "";
@@ -37,12 +39,24 @@ if (isset($_GET['updatetk'])) {
 
 }
 if (isset($_GET['deletetk'])) {
-  $matk=$_GET['deletetk'];
+  $matk = $_GET['deletetk'];
   echo '<div id="thongbaoxoa">
-          <h1>Bạn có muốn xóa tài khoản có mã tài khoản là '.$matk.' không</h1>
-          <button id="bt1" ><a href="./action/delete_account.php?deletetk='.$matk.'">Có</a></button>
+          <h1>Bạn có muốn xóa tài khoản có mã tài khoản là ' . $matk . ' không</h1>
+          <button id="bt1" ><a href="./action/delete_account.php?deletetk=' . $matk . '">Có</a></button>
           <button id="bt2" ><a href="index.php?manage=accounts">Hủy</a></button>
         </div>';
+}
+if (isset($_GET['blockstt']) && isset($_GET['matk'])) {
+  $matk = $_GET['matk'];
+
+  $block = "UPDATE `taikhoan` SET `STATUS`=0 WHERE MA_TK = '$matk'";
+  mysqli_query($connect, $block);
+}
+if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
+  $matk = $_GET['matk'];
+
+  $block = "UPDATE `taikhoan` SET `STATUS`=1 WHERE MA_TK = '$matk'";
+  mysqli_query($connect, $block);
 }
 
 ?>
@@ -106,24 +120,38 @@ if (isset($_GET['deletetk'])) {
               </thead>
               <tbody>
                 <?php
+                $trangthai;
                 $getAccount = "SELECT * FROM taikhoan";
                 $Accounts = mysqli_query($connect, $getAccount);
                 while ($Account = mysqli_fetch_array($Accounts)) {
+                  if($Account['STATUS']=='1'){
+                    $trangthai="Bình Thường";
+                    $displayblock = 'block';
+                    $displayunblock = 'none';
+                  } else {
+                    $trangthai = "Đã Khóa";
+                    $displayunblock = 'block';
+                    $displayblock = 'none';
+                  }
                 ?>
                   <tr>
                     <th scope="row"><?php echo $Account['MA_TK']  ?></th>
                     <td><?php echo $Account['MA_GROUP_QUYEN'] ?></td>
                     <td><?php echo $Account['TEN_DANG_NHAP'] ?></td>
                     <td><?php echo $Account['MAT_KHAU'] ?></td>
-                    <td><?php echo $Account['STATUS'] ?></td>
+                    <td><?php echo $trangthai ?></td>
                     <td><?php echo $Account['EMAIL'] ?></td>
                     <td>
-                      <button id="open-update-PN" type="button" class="btn btn-warning" onclick=''><a href="index.php?manage=accounts&updatetk=<?php echo $Account['MA_TK'] ?>">Sửa</a></button>
-                      <button id="open-delete-PN" type="button" class="btn btn-danger" ><a href="index.php?manage=accounts&deletetk=<?php echo $Account['MA_TK'] ?>">Xoá</a></button>
+                      <button id="open-update-PN" type="button" class="btn btn-warning" onclick=''><a style="color: white;" href="index.php?manage=accounts&updatetk=<?php echo $Account['MA_TK'] ?>">Sửa</a></button>
+                      <button id="open-delete-PN" type="button" class="btn btn-danger"><a style="color: white;" href="index.php?manage=accounts&deletetk=<?php echo $Account['MA_TK'] ?>">Xoá</a></button>
+                      <button type="submit" style="display:<?php echo $displayblock ?>" class="btn btn-success">
+                        <a style="color: white;" href="index.php?manage=accounts&blockstt=<?php echo $Account['STATUS']?>&matk=<?php echo $Account['MA_TK'] ?>">Khóa</a>
+                      </button>
+                      <button type="submit" style="display:<?php echo $displayunblock?>; background: rgb(53, 166, 231);" class="btn btn-warning">
+                        <a style="color: white;" href="index.php?manage=accounts&unblockstt=<?php echo $Account['STATUS'] ?>&matk=<?php echo $Account['MA_TK'] ?>">Mở Khóa</a>
+                      </button>
                     </td>
-
                   </tr>
-
                 <?php
                 }
                 ?>
@@ -143,10 +171,7 @@ if (isset($_GET['deletetk'])) {
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Settings 1</a>
-                  </li>
-                  <li><a href="#">Settings 2</a>
-                  </li>
+                
                 </ul>
               </li>
               <li><a class="close-link"><i class="fa fa-close"></i></a>
@@ -156,7 +181,7 @@ if (isset($_GET['deletetk'])) {
           </div>
           <div class="x_content">
 
-            <form action="<?php echo $action_permission ?>" method="get">
+            <form action="<?php echo $action_permission ?>" method="get" id='form-account' >
               <div class="form-group">
                 <label for="matk">MÃ TÀI KHOẢN:</label>
                 <input type="text" class="form-control" id="matk" placeholder="Nhập mã tài khoản" name="matk" value="<?php echo  $MA_TK ?>" require>
@@ -174,6 +199,7 @@ if (isset($_GET['deletetk'])) {
                       <?php endif; ?>
                     <?php  } ?>
                   </select>
+                  <span class="form-message" id="" style="color:red"></span>
                 </div>
                 <div class="form-group">
                   <label for="tendn">TÊN ĐĂNG NHẬP:</label>
@@ -211,31 +237,52 @@ if (isset($_GET['deletetk'])) {
     </div>
   </div>
 </div>
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#form-account',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+           Validator.isRequired('#matk'),
+           Validator.isRequired('#manhomquyen'),
+           Validator.isRequired('#tendn'),
+           Validator.isRequired('#mk'),
+           Validator.isRequired('#trangthai'),
+           Validator.isRequired('#email'),
+           Validator.isEmail('#email'),
+            Validator.minLength('#mk', 5),
+          ],
+        });
+      });
+</script>
 <style>
-    #thongbaoxoa{
-        display: block;
-        width: 500px;
-        height: 200px;
-        position: absolute;
-        top: 150px;
-        left: 35%;
-        color: #73879C;
-        background: rgb(230, 228, 228);
-        z-index: 200;
-        text-align: center;
-    }
-    #bt1{
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        bottom: 20px;
-        left: 50px;
-    }
-    #bt2{
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        bottom: 20px;
-        right: 50px;
-    }
+  #thongbaoxoa {
+    display: block;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 150px;
+    left: 35%;
+    color: #73879C;
+    background: rgb(230, 228, 228);
+    z-index: 200;
+    text-align: center;
+  }
+
+  #bt1 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+  }
+
+  #bt2 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+  }
 </style>

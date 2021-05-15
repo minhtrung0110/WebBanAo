@@ -13,8 +13,8 @@
         //thuc hien truy van du lieu - chen du lieu vao database 2 bang taikhoan va khachhang
         $checkemail="SELECT * from taikhoan WHERE EMAIL='".$email."'  ";
         //echo $checkemail
-        $query="INSERT INTO taikhoan (TEN_DANG_NHAP,MAT_KHAU,EMAIL,MA_GROUP_QUYEN)
-                VALUE('".$username."','".$password."','".$email."','".$quyen."')";
+        $query="INSERT INTO taikhoan (TEN_DANG_NHAP,MAT_KHAU,EMAIL,MA_GROUP_QUYEN,STATUS)
+                VALUE('".$username."','".$password."','".$email."','".$quyen."','1')";
         $getMaTK="SELECT MA_TK FROM `taikhoan` WHERE TEN_DANG_NHAP ='$username'";       
 
         $data=array();

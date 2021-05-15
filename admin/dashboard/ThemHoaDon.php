@@ -1,18 +1,16 @@
 
 
-<form action="ThemHoaDon.php" method="get">
-
-    <div id="dangki">
+<form action="ThemHoaDon.php" method="get" id='dangki' >
         <div style=" width: 500px;height:50px;text-align: center; ">
             <label>Thêm Hóa Đơn</label>
         </div>
-        <div >
-  	        <p>Mã Hóa Đơn</p>
-  	        <input type="text" name="mhd" placeholder="Nhập Mã Hóa Đơn . . ." >
-            <span style="color: red;position: absolute;left: 20px;top: 175px" id="errmssv"></span>
+        <div class="form-group" >
+  	        <label>Mã Hóa Đơn</label>
+  	        <input type="text" name="mhd" id='mahd' placeholder="Nhập Mã Hóa Đơn . . ." >
+              <span class="form-message" style="color:red"></span>
         </div>
-        <div>
-  	        <p>Mã Nhân Viên</p>
+        <div class="form-group" >
+  	        <label>Mã Nhân Viên</label>
             <select name="manv">
                 <option value="">--Chọn--</option>
                 <?php
@@ -31,9 +29,11 @@
                     mysqli_close($con);
                 ?>
             </select>
+            <span class="form-message" style="color:red"></span>
+        </div>
 	    </div>
-        <div>
-  	        <p>Mã Khách Hàng</p>
+        <div class="form-group" >
+  	        <label>Mã Khách Hàng</label>
                 <select name="makh">
                 <option value="">--Chọn--</option>
                 <?php
@@ -52,42 +52,56 @@
                     mysqli_close($con);
                 ?>
                 </select>
+                <span class="form-message" style="color:red"></span>
+        </div>
 	    </div>
-        <div>
-  	        <p>Mã Giảm Giá</p>
-            <input type="text" name="mgg" placeholder="Nhập Mã giảm giá. . .">
+        <div class="form-group" >
+  	        <label>Mã Giảm Giá</label>
+            <input type="text" name="mgg" id='magg' placeholder="Nhập Mã giảm giá. . .">
+            <span class="form-message" style="color:red"></span>
+        </div>
 	    </div>
-	    <div>
-  	        <p>Địa Chỉ</p>
-            <input type="text" name="dc" placeholder="Nhập địa chỉ . . .">
+	    <div class="form-group" >
+  	        <label>Địa Chỉ</label>
+            <input type="text" name="dc" id='diachi' placeholder="Nhập địa chỉ . . .">
+            <span class="form-message" style="color:red"></span>
+        </div>
 	    </div>
-        <div>
-  	        <p>Tình Trạng</p>
-            <input type="text" name="tt" placeholder="-1: chưa xử lý; 0: đang xử lý; 1: đã xử lý...">
+        <div class="form-group" >
+  	        <label>Tình Trạng</label>
+            <input type="text" name="tt" id='tinhtrang' placeholder="-1: chưa xử lý; 0: đang xử lý; 1: đã xử lý...">
+            <span class="form-message" style="color:red"></span>
+        </div>
 	    </div>
-        <div>
+        <div class="form-group" >
   	        <p>Tiền Giảm GIá</p>
-            <input type="text" name="tgg" placeholder="Nhập tiền giảm giá...">
+            <input type="text" name="tgg" id='tiengiamgia' placeholder="Nhập tiền giảm giá...">
+            <span class="form-message" style="color:red"></span>
+        </div>
 	    </div>
-        <div>
-  	        <p>Tổng Tiền</p>
-            <input type="text" readonly="true" name="tongtien" value="0">
+        <div class="form-group" >
+  	        <label>Tổng Tiền</label>
+            <input type="text" readonly="true" id='tongtien' name="tongtien" value="0">
+            <span class="form-message" style="color:red"></span>
+        </div>
 	    </div>
-        <div>
-  	        <p>Ngày Lập</p>
-            <input type="datetime-local" name="ngaylap" id="phone" placeholder="Nhập theo dạng: YYYY-MM-DD hh:mm:ss">
+        <div class="form-group" >
+  	        <label>Ngày Lập</label>
+            <input type="datetime-local" name="ngaylap" id="ngaylap" placeholder="Nhập theo dạng: YYYY-MM-DD hh:mm:ss">
+            <span class="form-message" style="color:red"></span>
+        </div>
 	    </div>
-        <div>
+        <div class="form-group" >
             <input type="submit" name="" id="bt1" value="Thêm">
             <input type="button" value="Đóng" id="bt2" onclick=dongthemhoadon()>
         </div>
-    </div>  
 </form>
 <script>
     function dongthemhoadon(){
         document.getElementById("dangki").style.display = "none";
     }
 </script>
+
 <?php
     $con = mysqli_connect("localhost", "root", "", "doanweb2");
     if(isset($_GET['mhd']) && isset($_GET['manv']) && isset($_GET['makh']) && isset($_GET['mgg']) && 
@@ -110,6 +124,28 @@
         header('location: index.php?manage=orders');
     }
 ?>
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#dangki',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#mahd'),
+           Validator.isRequired('#magg'),
+           Validator.isRequired('#tiengiamgia'),
+           Validator.isRequired('#diachi'),
+           Validator.isRequired('#tinhtrang'),
+           Validator.isRequired('#ngaynhap'),
+           Validator.isRequired('#tongtien'),
+            Validator.isNumber('#tongtien'),
+          ],
+        });
+      });
+
+    
+</script>
+
 <style>
 #dangki {
     display: block;
