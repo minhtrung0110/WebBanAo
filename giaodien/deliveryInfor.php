@@ -1,4 +1,5 @@
 <?php 
+	$checkPay=0;
 	$connect =new mysqli("localhost","root","","doanweb2");
 	$connect -> set_charset("utf8");
 	require_once("dbcontroller.php");
@@ -33,7 +34,6 @@
 		$dateBuy=date("Y-m-d h:i:s");
 		$queryHD="INSERT INTO hoadon(MA_KH, DIA_CHI, SODIENTHOAI, TINH_TRANG, TONG_TIEN, NGAY_LAP)";
 		$queryHD.=" VALUES('" .$idUser. "', '" .$_POST["address_delInfor"]. "', '" .$_POST["phone_delInfor"]. "', 0, '" .$total_price. "', '" .$dateBuy. "')"; 
-		$checkPay=false;
 		$checkPay=mysqli_query($connect,$queryHD);
 		$getIDnew=$db_handle->runQuery("SELECT MA_HD FROM `hoadon` ORDER BY `hoadon`.`MA_HD` DESC");
 		$IDnew=$getIDnew[0]["MA_HD"];
@@ -141,6 +141,6 @@
 		document.getElementById("txPhone_delInfor").value=phone;
 	}
 	loadInfor();
-	if(<?php if(isset($checkPay)) echo $checkPay; else echo false?>)
+	if(<?php echo "$checkPay"?>)
 		alert("Cảm ơn quý khách đã mua hàng");
 </script>
