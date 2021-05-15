@@ -144,6 +144,32 @@
         header('location: index.php?manage=orders');
     }
 ?>
+<<<<<<< HEAD
+=======
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#dangki',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#mahd'),
+           Validator.isRequired('#magg'),
+           Validator.isRequired('#tiengiamgia'),
+           Validator.isRequired('#diachi'),
+           Validator.isRequired('#tinhtrang'),
+           Validator.isRequired('#ngaylap'),
+           Validator.isRequired('#tongtien'),
+            Validator.isNumber('#tongtien'),
+            Validator.isNumber('#tiengiamgia'),
+          ],
+        });
+      });
+
+    
+</script>
+
+>>>>>>> 4577208ff2f3eaefcdbb3d7920e270622c6d9a02
 <style>
 #themhoadon {
     display: block;

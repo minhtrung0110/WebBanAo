@@ -160,8 +160,7 @@
                          
                 <form action="<?php echo $actionPN ?>" method="get" id="form-PN">
                     <div class="form-group">
-                    <label for="email">MÃ PHIẾU NHẬP:</label>
-                    <input type="text" class="form-control" id="maphieunhap" placeholder="Không Được Phép Nhập" name="maphieunhap"   value="<?php echo $showMaPN ?>">
+                    <input type="hidden" class="form-control" id="maphieunhap" placeholder="Không Được Phép Nhập" name="maphieunhap"   value="<?php echo $showMaPN ?>">
                     </div>
                     <div class="form-group">
 
@@ -369,8 +368,7 @@
                                  
                 <form action="./action/update_detail_reciept.php" method="post" id='form-update-CTPN'>
                     <div class="form-group">
-                    <label for="sua_machitietphieunhap">MÃ CHI TIẾT PHIẾU NHẬP:</label>
-                    <input type="text" class="form-control" id="sua_machitietphieunhap"  placeholder="Không Được Phép Nhập" name="sua_machitietphieunhap" value="<?php echo $showMaCTPN ?> "  >
+                    <input type="hidden" class="form-control" id="sua_machitietphieunhap"  placeholder="Không Được Phép Nhập" name="sua_machitietphieunhap" value="<?php echo $showMaCTPN ?> "  >
                     </div>
                     <label for="sua_maphieunhap">MÃ PHIẾU NHẬP:</label>
                     <select class="form-control" id="sua_maphieunhap" placeholder="Nhập mã tài khoản" name="sua_maphieunhap">
