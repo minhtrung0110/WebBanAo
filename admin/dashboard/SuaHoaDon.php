@@ -6,12 +6,12 @@
         <div style="width: 500px;height:50px;text-align: center; ">
             <label>Sửa Hóa Đơn</label>
         </div>
-        <div class="form-group">
-            <p>Mã Hóa Đơn</p>
-            <input type="text" id="mahd" readonly="true" name="mahd" value="<?php
-                                                                            $MAHD = $_GET['mahd'];
-                                                                            echo $MAHD;
-                                                                            ?>">
+        <div class="form-group">           
+            <input type="hidden" id="mahd" readonly="true" name="mahd" value="<?php
+                                                                    $MAHD = $_GET['mahd'];
+                                                                    echo $MAHD;
+                                                                    ?>">
+
         </div>
         <div class="form-group">
             <p>Mã Nhân Viên<span style="color: red"></p>
@@ -134,8 +134,6 @@
           formGroupSelector: '.form-group',
           errorSelector: '.form-message',
           rules: [
-            Validator.isRequired('#mahd'),
-           Validator.isRequired('#mgg'),
            Validator.isRequired('#tgg'),
            Validator.isRequired('#dc'),
            Validator.isRequired('#tt'),

@@ -12,7 +12,8 @@
 		position:fixed;
 		z-index:10;
 		overflow:auto;
-		display:none
+		display:none;
+		top:150px
 	}
 	#titleCart{
 		width:100%;	/*98.7%*/ 
@@ -223,7 +224,7 @@
     <div id="titleCart">
         <div style="width:40%; float:left; text-align:center"><b>Sản phẩm</b></div>
         <div style="width:10%; float:left; text-align:center"><b>Size</b></div>
-        <div style="width:12.5%; float:left; text-align:center"><b>Giá</b></div>
+        <div style="width:12.5%; float:left; text-align:center"><b>Đơn giá</b></div>
         <div style="width:15%; float:left; text-align:center"><b>Số lượng</b></div>
         <div style="width:12.5%; float:left; text-align:center"><b>Thành tiền</b></div>
         <div style="width:10%; float:left"><b></b></div>

@@ -1,4 +1,5 @@
 <?php 
+	$checkPay=0;
 	$connect =new mysqli("localhost","root","","doanweb2");
 	$connect -> set_charset("utf8");
 	require_once("dbcontroller.php");
@@ -55,6 +56,7 @@
 		position:fixed;
 		z-index:11;
 		display:none;
+		top:150px;
 	}
 	#delInfor_container input[type=text]{
 		width:90%;
@@ -139,6 +141,6 @@
 		document.getElementById("txPhone_delInfor").value=phone;
 	}
 	loadInfor();
-	if(<?php if(isset($checkPay)) echo $checkPay; else echo false?>)
+	if(<?php echo "$checkPay"?>)
 		alert("Cảm ơn quý khách đã mua hàng");
 </script>

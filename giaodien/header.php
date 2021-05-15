@@ -1,14 +1,14 @@
 <header id="header">
 		<div class="row">
 			<div class=" col-md-5 col-sm-0" >
-				<h5 style="font-style: italic;font-weight: bold;color: #ff0000;">Hotline: 0707624367</h5>
+				<h5 style="font-style: italic;font-weight: bold;color: #fff;">Hotline: 0707624367</h5>
 			</div>
 			<div class="Logo-Brand col-md-2 col-sm-5" >
 				<img src="images/logo.png " style="width:100%">
 			</div>
 			<div class=" col-md-1 col-sm-0" ></div>
 			<div class="Account col-md-4 col-sm-5" >
-			<button class="login btn btn-outline-success"   ><a  class="login" style="text-decoration: none; color: green;font-weight:bold;"href=
+			<button class="login btn btn-outline-success"   ><a   style="text-decoration: none; color: green;font-weight:bold;"href=
 				'<?php
 						if (isset($_SESSION['login']) ) {
 							if($_SESSION['login']) echo "index.php?quanly=user";

@@ -17,13 +17,17 @@ header{
 	width: 100%;
 	height: 30%;
 	padding: 3ex;
-	background: -webkit-linear-gradient(left, #b1f9fc, #fcd2f6, #ffd3f4, #c0f3fa);
-    background: -o-linear-gradient(left, #7dccff, #9cccff, #d9ccff, #ffccff);
-    background: -moz-linear-gradient(left, #7dccff, #9cccff, #d9ccff, #ffccff);
-	background: linear-gradient(left, #7dccff, #9cccff, #d9ccff, #ffccff);
+	/*background-color: #eeeeee;;*/
+	background: -webkit-linear-gradient(left, #a0a0a0, #eff1ef, #eff1ef, #a0a0a0);
+    background: -o-linear-gradient(left, #a0a0a0, #eff1ef, #eff1ef, #a0a0a0);
+    background: -moz-linear-gradient(left, #a0a0a0, #eff1ef, #eff1ef, #a0a0a0);
+	background: linear-gradient(left, #a0a0a0, #eff1ef, #eff1ef, #a0a0a0);
 }
 header .row .Account {
 	padding-left: 8%;
+}
+header .row .Account .login a:hover{
+color:#fff;
 }
 header .row .Account .btn{
 	font-weight: bold;
@@ -31,7 +35,7 @@ header .row .Account .btn{
 }
 
 header .row .Account .Say-Hello{
-	color: #000080;
+	color: #0c0cf0;
 	display: inline;
 	margin: 0 1ex;
 	font-weight: bold;
@@ -471,3 +475,11 @@ i{
 	}
   }
 
+/*respondsive*/
+@media only screen and (max-width: 900px) {
+	.repondsive{
+		font-size:17px ;
+	}
+	
+	
+  }

@@ -7,9 +7,8 @@
             <label>Thêm Hóa Đơn</label>
         </div>
         <div class="form-group" >
-  	        <label>Mã Hóa Đơn</label>
-  	        <input type="text" name="mhd" id='mahd' placeholder="Nhập Mã Hóa Đơn . . ." >
-              <span class="form-message" style="color:red"></span>
+  	        <input type="hidden" name="mhd" id='mahd' placeholder="Nhập Mã Hóa Đơn . . ." >
+            
         </div>
         <div class="form-group" >
   	        <label>Mã Nhân Viên</label>
@@ -106,8 +105,7 @@
           formGroupSelector: '.form-group',
           errorSelector: '.form-message',
           rules: [
-            Validator.isRequired('#mahd'),
-           Validator.isRequired('#magg'),
+         
            Validator.isRequired('#tiengiamgia'),
            Validator.isRequired('#diachi'),
            Validator.isRequired('#tinhtrang'),

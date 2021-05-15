@@ -14,7 +14,7 @@
     $thead = '<thead>
                 <tr>
                   <th></th>
-                  <th>Mã Hóa Đơn<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_HD"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_HD"></a></th>
+                  <th>Mã Hóa Đơn<a  class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_HD"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_HD"></a></th>
                   <th>Mã Nhân Viên<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_NV"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_NV"></a></th>
                   <th>Mã khách hàng<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_KH"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_KH"></a></th>
                   <th>Mã Giảm Giá<a class="fa fa-chevron-up" aria-hidden="true" href="index.php?manage=orders&sort=up&stt=MA_MGG"></a><a class="fa fa-chevron-down" aria-hidden="true" href="index.php?manage=orders&sort=down&stt=MA_MGG"></a></th>
