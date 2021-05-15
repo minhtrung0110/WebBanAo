@@ -2,7 +2,7 @@
 
 
 <div id="themhoadon">
-    <form action="ThemHoaDon.php" method="get" id='dangki' >
+    <form action="XuLyThemHoaDon.php" method="get" id='dangki' >
         <div style="width: 500px;height:50px;text-align: center;line-height: 50px; ">
             <label>Thêm Hóa Đơn</label>
         </div>
@@ -88,7 +88,7 @@
         </div>
         <div>
             <input type="submit" name="" id="bt1" value="Thêm">
-            <input type="button" value="Đóng" id="bt2" onclick=dongthemhoadon()>
+            <input type="button" value="Đóng" id="bt2">
         </div>
     </form>    
 </div>
@@ -99,53 +99,6 @@
     }
 </script>
 
-
-<script>
-      document.addEventListener('DOMContentLoaded', function () {
-        Validator({
-          form: '#dangki',
-          formGroupSelector: '.form-group',
-          errorSelector: '.form-message',
-          rules: [
-            Validator.isRequired('#mahd'),
-           Validator.isRequired('#magg'),
-           Validator.isRequired('#tiengiamgia'),
-           Validator.isRequired('#diachi'),
-           Validator.isRequired('#tinhtrang'),
-           Validator.isRequired('#ngaynhap'),
-           Validator.isRequired('#tongtien'),
-            Validator.isNumber('#tongtien'),
-          ],
-        });
-      });
-
-    
-</script>
-<?php
-    $con = mysqli_connect("localhost", "root", "", "doanweb2");
-    if(isset($_GET['mhd']) && isset($_GET['manv']) && isset($_GET['makh']) && isset($_GET['mgg']) && 
-    isset($_GET['dc']) && isset($_GET['tt']) && isset($_GET['tgg']) && 
-    isset($_GET['tongtien']) && isset($_GET['ngaylap'])){
-        $MAHD=$_GET['mhd'];
-        $MANV=$_GET['manv'];
-        $MKH=$_GET['makh'];
-        $MGG=$_GET['mgg'];
-        $DC=$_GET['dc'];
-        $TT=$_GET['tt'];
-        $TGG=$_GET['tgg'];
-        $TONG=$_GET['tongtien'];
-        $NGAY=$_GET['ngaylap'];
-        $con -> set_charset("utf8");
-        mysqli_query($con, "SET NAMES 'utf8");
-        $sql="INSERT INTO hoadon(MA_HD,MA_NV,MA_KH,MA_MGG,DIA_CHI,TINH_TRANG,TIEN_GIAM_GIA,TONG_TIEN,NGAY_LAP)
-             VALUE('$MAHD','$MANV','$MKH','$MGG','$DC','$TT','$TGG','$TONG','$NGAY')";
-        mysqli_query($con, $sql);
-        echo $sql;
-        header('location: index.php?manage=orders');
-    }
-?>
-<<<<<<< HEAD
-=======
 <script>
       document.addEventListener('DOMContentLoaded', function () {
         Validator({
@@ -168,8 +121,6 @@
 
     
 </script>
-
->>>>>>> 4577208ff2f3eaefcdbb3d7920e270622c6d9a02
 <style>
 #themhoadon {
     display: block;

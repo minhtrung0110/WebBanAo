@@ -1,3 +1,6 @@
+<?php
+    $connect = mysqli_connect("localhost", "root", "", "doanweb2");
+?>
 <div id="dangki">
     <form action="XuLySuaHoaDon.php" method="get">
         <div style="width: 500px;height:50px;text-align: center; ">
@@ -65,34 +68,22 @@
         <div class="form-group">
             <p>Mã Giảm Giá</p>
             <input type="text" id="mgg" name="mgg" value="<?php
-<<<<<<< HEAD
-                                                            $MAGG = $_GET['mgg'];
-                                                            echo $MAGG;
-                                                            ?>">
-=======
                                                     $MAGG = $_GET['mgg'];
                                                     echo $MAGG;
                                                     ?>">
                                                       <span class="form-message" style="color:red"></span>
->>>>>>> 4577208ff2f3eaefcdbb3d7920e270622c6d9a02
+
         </div>
         <div class="form-group">
             <p>Địa Chỉ</p>
             <input type="text" id="dc" name="dc" value="<?php
-<<<<<<< HEAD
-                                                        $DC = $_GET['dc'];
-                                                        echo $DC;
-                                                        ?>">
-=======
                                                 $DC = $_GET['dc'];
                                                 echo $DC;
                                                 ?>">
-                                                  <span class="form-message" style="color:red"></span>
->>>>>>> 4577208ff2f3eaefcdbb3d7920e270622c6d9a02
+            <span class="form-message" style="color:red"></span>
         </div>
         <div class="form-group">
             <p>Tình Trạng</p>
-<<<<<<< HEAD
             <?php
             $checked = "";
             $unchecked = "";
@@ -112,28 +103,14 @@
             ?>
             <input type="radio" <?php echo $checked; ?> class="form-control" id="trangthai" name="tt" value="1" require>Đã Xử Lý
             <input type="radio" <?php echo $unchecked; ?> class="form-control" id="trangthai" name="tt" value="0" require>Chưa Xử Lý
-
-=======
-            <input type="text" id="tt" name="tt" value="<?php
-                                                $TT = $_GET['tt'];
-                                                echo $TT;
-                                                ?>">
-                                                  <span class="form-message" style="color:red"></span>
->>>>>>> 4577208ff2f3eaefcdbb3d7920e270622c6d9a02
         </div>
         <div class="form-group">
             <p>Tiền Giảm GIá</p>
             <input type="text" id="tgg" name="tgg" value="<?php
-<<<<<<< HEAD
-                                                            $TGG = $_GET['tgg'];
-                                                            echo $TGG;
-                                                            ?>">
-=======
                                                     $TGG = $_GET['tgg'];
                                                     echo $TGG;
                                                     ?>">
                                                       <span class="form-message" style="color:red"></span>
->>>>>>> 4577208ff2f3eaefcdbb3d7920e270622c6d9a02
         </div>
         <div class="form-group">
             <p>Ngày Lập</p>
@@ -146,7 +123,6 @@
       
         <div>
             <input type="submit" name="" id="bt1" value="Sửa">
-            <input type="button" value="Đóng" id="bt2" onclick=dongthemhoadon()>
         </div>
     </form>
 </div>

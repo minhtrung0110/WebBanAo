@@ -54,7 +54,7 @@
                     <a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
                 </button>
                 <button id="open-update-PN" class="btn btn-warning">
-                    <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
+                    <a href="SuaHoaDon.php?mahd=' . $row["MA_HD"] . 
                     '&manv=' . $row["MA_NV"] .
                     '&makh=' . $row["MA_KH"] .
                     '&mgg=' . $row["MA_MGG"] .
@@ -120,7 +120,7 @@
                     <a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
                 </button>
                 <button id="open-update-PN" class="btn btn-warning">
-                    <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
+                    <a href="SuaHoaDon.php?mahd=' . $row["MA_HD"] . 
                     '&manv=' . $row["MA_NV"] .
                     '&makh=' . $row["MA_KH"] .
                     '&mgg=' . $row["MA_MGG"] .
@@ -184,7 +184,7 @@
                     <a href="index.php?manage=orders&chitiet=true&mahd=' . $row["MA_HD"] . '&tt='. $row["TINH_TRANG"] .'">Xem</a>
                 </button>
                 <button id="open-update-PN" class="btn btn-warning">
-                    <a href="index.php?manage=orders&sua=true&mahd=' . $row["MA_HD"] . 
+                    <a href="SuaHoaDon.php?mahd=' . $row["MA_HD"] . 
                     '&manv=' . $row["MA_NV"] .
                     '&makh=' . $row["MA_KH"] .
                     '&mgg=' . $row["MA_MGG"] .
