@@ -4,7 +4,7 @@
 				<h5 style="font-style: italic;font-weight: bold;color: #ff0000;">Hotline: 0707624367</h5>
 			</div>
 			<div class="Logo-Brand col-md-2 col-sm-5" >
-				<img src="">
+				<img src="../images/logo.png">
 			</div>
 			<div class=" col-md-1 col-sm-0" ></div>
 			<div class="Account col-md-4 col-sm-5" >
