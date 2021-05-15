@@ -2,12 +2,8 @@
 <div class="right_col" role="main">
   <div class="">
     <div class="page-title">
-      <div class="title_left">
-        <h3>Bảng Thống Kê <small>Tình hình kinh doanh cửa hàng</small></h3>
-      </div>
-
-      <div class="title_right">
-       
+      <div class="title">
+        <h3>Bảng Thống Kê <small>Chứa thông tin tình hình kinh doanh cửa hàng</small></h3>
       </div>
       <div class="col-md-6 col-sm-12 form-group">
       <form action="./action/pushdata.php" method="get">
@@ -131,7 +127,7 @@
           <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>MÃ SẢN PHẨM</th>
+                          <th>LOẠI SẢN PHẨM</th>
                           <th>TÊN SẢN PHẨM</th>
                           <th>SÔ LƯỢNG BÁN ĐƯỢC</th>
                           <th>DOANH THU</th>
