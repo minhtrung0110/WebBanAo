@@ -6,9 +6,8 @@
             <label>Thêm Hóa Đơn</label>
         </div>
         <div class="form-group" >
-  	        <label>Mã Hóa Đơn</label>
-  	        <input type="text" name="mhd" id='mahd' placeholder="Nhập Mã Hóa Đơn . . ." >
-              <span class="form-message" style="color:red"></span>
+  	        <input type="hidden" name="mhd" id='mahd' placeholder="Nhập Mã Hóa Đơn . . ." >
+            
         </div>
         <div class="form-group" >
   	        <label>Mã Nhân Viên</label>
@@ -112,8 +111,9 @@
         $NGAY=$_GET['ngaylap'];
         $con -> set_charset("utf8");
         mysqli_query($con, "SET NAMES 'utf8");
-        $sql="INSERT INTO hoadon(MA_HD,MA_NV,MA_KH,MA_MGG,DIA_CHI,TINH_TRANG,TIEN_GIAM_GIA,TONG_TIEN,NGAY_LAP)
-             VALUE('$MAHD','$MANV','$MKH','$MGG','$DC','$TT','$TGG','$TONG','$NGAY')";
+        $sql="INSERT INTO hoadon(MA_NV,MA_KH,MA_MGG,DIA_CHI,TINH_TRANG,TIEN_GIAM_GIA,TONG_TIEN,NGAY_LAP)
+             VALUE('$MANV','$MKH','$MGG','$DC','$TT','$TGG','$TONG','$NGAY')";
+             echo $sql;
         mysqli_query($con, $sql);
         header('location: index.php?manage=orders');
     }
@@ -125,8 +125,7 @@
           formGroupSelector: '.form-group',
           errorSelector: '.form-message',
           rules: [
-            Validator.isRequired('#mahd'),
-           Validator.isRequired('#magg'),
+         
            Validator.isRequired('#tiengiamgia'),
            Validator.isRequired('#diachi'),
            Validator.isRequired('#tinhtrang'),
