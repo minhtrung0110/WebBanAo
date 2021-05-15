@@ -1,7 +1,8 @@
 
 
 <form action="ThemHoaDon.php" method="get" id='dangki' >
-        <div style=" width: 500px;height:50px;text-align: center; ">
+    <div id="themhoadon">
+        <div style="width: 500px;height:50px;text-align: center;line-height: 50px; ">
             <label>Thêm Hóa Đơn</label>
         </div>
         <div class="form-group" >
@@ -31,7 +32,6 @@
             </select>
             <span class="form-message" style="color:red"></span>
         </div>
-	    </div>
         <div class="form-group" >
   	        <label>Mã Khách Hàng</label>
                 <select name="makh">
@@ -54,47 +54,41 @@
                 </select>
                 <span class="form-message" style="color:red"></span>
         </div>
-	    </div>
         <div class="form-group" >
   	        <label>Mã Giảm Giá</label>
             <input type="text" name="mgg" id='magg' placeholder="Nhập Mã giảm giá. . .">
             <span class="form-message" style="color:red"></span>
         </div>
-	    </div>
 	    <div class="form-group" >
   	        <label>Địa Chỉ</label>
             <input type="text" name="dc" id='diachi' placeholder="Nhập địa chỉ . . .">
             <span class="form-message" style="color:red"></span>
         </div>
-	    </div>
         <div class="form-group" >
   	        <label>Tình Trạng</label>
             <input type="text" name="tt" id='tinhtrang' placeholder="-1: chưa xử lý; 0: đang xử lý; 1: đã xử lý...">
             <span class="form-message" style="color:red"></span>
         </div>
-	    </div>
         <div class="form-group" >
   	        <p>Tiền Giảm GIá</p>
             <input type="text" name="tgg" id='tiengiamgia' placeholder="Nhập tiền giảm giá...">
             <span class="form-message" style="color:red"></span>
         </div>
-	    </div>
         <div class="form-group" >
   	        <label>Tổng Tiền</label>
             <input type="text" readonly="true" id='tongtien' name="tongtien" value="0">
             <span class="form-message" style="color:red"></span>
         </div>
-	    </div>
         <div class="form-group" >
   	        <label>Ngày Lập</label>
             <input type="datetime-local" name="ngaylap" id="ngaylap" placeholder="Nhập theo dạng: YYYY-MM-DD hh:mm:ss">
             <span class="form-message" style="color:red"></span>
         </div>
-	    </div>
         <div class="form-group" >
             <input type="submit" name="" id="bt1" value="Thêm">
             <input type="button" value="Đóng" id="bt2" onclick=dongthemhoadon()>
         </div>
+    </div>
 </form>
 <script>
     function dongthemhoadon(){
@@ -147,7 +141,7 @@
 </script>
 
 <style>
-#dangki {
+#themhoadon {
     display: block;
     width: 500px;
     height: 600px;
@@ -159,23 +153,20 @@
     z-index: 500;
     overflow-y: auto;
 }
-#dangki label{
+#themhoadon label{
     font-size: 30px;
 }
-#dangki input
+#themhoadon input
 {
     border-radius: 5px;
     width: 450px;
     height: 40px;
     border: solid 2px;
 }
-#dangki input:active{
+#themhoadon input:active{
     border: solid 2px red;
 }
-#dangki div{
-padding-left: 20px;
-padding-bottom: 10px;
-}
+
 #bt1{
     margin-top: 30px;
     color: white;
@@ -189,8 +180,11 @@ padding-bottom: 10px;
     opacity: 0.7;
     border:ridge 1px #00BFFF;
 }
-
-#dangki p{
+#themhoadon div{
+padding-left: 20px;
+padding-bottom: 10px;
+}
+#themhoadon p{
     font-size: 20px;
 }
 </style>
