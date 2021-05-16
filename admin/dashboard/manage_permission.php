@@ -186,6 +186,9 @@
                       <?php if($row_GQ['MA_GROUP_QUYEN'] !== $MA_GQ): ?>
                       <option value="<?php echo $row_GQ['MA_GROUP_QUYEN']?>"><?php echo $row_GQ['TEN_GROUP_QUYEN']?></option>
                       <?php endif; ?>
+                      <?php if($row_GQ['MA_GROUP_QUYEN'] == $MA_GQ): ?>
+                        <option value="<?php echo $row_GQ['MA_GROUP_QUYEN']?>" selected><?php echo $row_GQ['TEN_GROUP_QUYEN']?></option>
+                      <?php endif; ?>
                     <?php  } ?>
                     </select>
                     <span class="form-message" id="" style="color:red"></span>
@@ -198,6 +201,9 @@
                       while($row_Quyen= mysqli_fetch_array($getMA_QUYEN)) {       ?>
                       <?php if($row_Quyen['MA_DANH_MUC'] !== $MA_DM): ?>
                       <option value="<?php echo $row_Quyen['MA_DANH_MUC']?>"><?php echo $row_Quyen['TEN_DANH_MUC']?></option>
+                      <?php endif; ?>
+                      <?php if($row_Quyen['MA_DANH_MUC'] == $MA_DM): ?>
+                      <option value="<?php echo $row_Quyen['MA_DANH_MUC']?>" selected><?php echo $row_Quyen['TEN_DANH_MUC']?></option>
                       <?php endif; ?>
                     <?php  } ?>
                     </select>
