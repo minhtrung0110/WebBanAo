@@ -38,11 +38,15 @@
 		$getIDnew=$db_handle->runQuery("SELECT MA_HD FROM `hoadon` ORDER BY `hoadon`.`MA_HD` DESC");
 		$IDnew=$getIDnew[0]["MA_HD"];
 		foreach($_SESSION["cart_item"] as $k=>$v){
+			$getInventory=$db_handle->runQuery("SELECT SO_LUONG FROM sanpham WHERE MA_SP='".$_SESSION["cart_item"][$k]["id"]."'");
+			$inventory=$getInventory[0]["SO_LUONG"];
+			$newQuanlity=$inventory-$_SESSION["cart_item"][$k]["quanlity"];
 			$totalprice=($_SESSION["cart_item"][$k]["price"]+$discount[$k]["price"])*$_SESSION["cart_item"][$k]["quanlity"];
 			$queryCT="INSERT INTO chitiethoadon(MA_HD, MA_SP, SO_LUONG, TIEN_GIAM_GIA, DON_GIA, THANH_TIEN)";
 			$queryCT.=" VALUES('" .$IDnew. "', '" .$k. "', '" .$_SESSION["cart_item"][$k]["quanlity"]. "', '" .$discount[$k]["price"]. "', '" 
 			.$_SESSION["cart_item"][$k]["price"]. "', '" .$totalprice. "')";
 			$checkPay=mysqli_query($connect,$queryCT);
+			mysqli_query($connect,"UPDATE sanpham SET SO_LUONG=$newQuanlity WHERE MA_SP='".$_SESSION["cart_item"][$k]["id"]."'");
 		}
 	}
 ?>

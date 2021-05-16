@@ -73,7 +73,9 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 			obj.value=MAX;
 		}
 		if(obj.value<1)
-			obj.value=1;				
+			obj.value=1;
+		if(MAX==0)
+			obj.value=0;				
 	}
 	var selectedSize='<?php
 		$selSize="";
