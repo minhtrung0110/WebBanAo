@@ -96,7 +96,7 @@ function getresult(url) {
                                     while($row_type_product=mysqli_fetch_array($getLoai)){ 
                                 ?>
 								<li>
-									<input type="checkbox" class="typ " value="<?php echo $row_type_product['LOAI_SP']; ?>" >
+									<input type="checkbox" class="type" value="<?php echo $row_type_product['LOAI_SP']; ?>" >
 									<span class="span" style="font-weight: bold;" ><?php echo $row_type_product['LOAI_SP']  ?></span>
 								</li>
                                 <?php
@@ -127,7 +127,7 @@ function getresult(url) {
 				
 				<div id="pagination-result" class="col-md-9 col-sm-12 row product ">
                 			<input type="hidden" name="rowcount" id="rowcount" />
-                		</div>
+                </div>
 			</div>
 		
 	</div>
