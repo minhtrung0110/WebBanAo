@@ -186,6 +186,8 @@ function getresult(url) {
 			alert("Khoảng giá không hợp lệ");
 			return 0;
 			}
+		if(minPrice==0)
+			$("#min_price").val('00');	
 		filter_data();
 	}
 </script>
