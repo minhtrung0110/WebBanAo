@@ -1,3 +1,8 @@
+<style>
+	#txQuanlity_detail{
+		width:50px;
+	}
+</style>
 <?php
 if(isset($_GET['id']) ) $id=$_GET['id'];
 $getdetail="SELECT * FROM sanpham WHERE MA_SP=$id ";
@@ -34,83 +39,12 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 
 ?>
 <script>
-	function adjustQuanlity(obj){
-		var op=obj.value;
-		var MAX=parseInt(<?php
-			if(isset($_GET["size"])){
-				if(isset($_SESSION["cart_item"][$_GET["product"]]["quanlity"]))
-					echo $quanlityOfSize[$_GET["size"]] - $_SESSION["cart_item"][$_GET["product"]]["quanlity"];
-				else
-					echo $quanlityOfSize[$_GET["size"]];
-			}
-			else
-				echo 0;
-		?>);
-		var txQuanlity=document.getElementById("txQuanlity_detail");
-		if(op=='+'){
-			if(txQuanlity.value<MAX)
-				txQuanlity.value++;
-			else
-				alert("Số lượng size <?php if(isset($_GET["size"])) echo $_GET["size"]; ?> đã đạt tối đa");
-		}
-		else
-			if(txQuanlity.value>1)
-				txQuanlity.value--;
-	}
-	function validateQuanlity(obj){
-		var MAX=parseInt(<?php
-			if(isset($_GET["size"])){
-				if(isset($_SESSION["cart_item"][$_GET["product"]]["quanlity"]))
-					echo $quanlityOfSize[$_GET["size"]] - $_SESSION["cart_item"][$_GET["product"]]["quanlity"];
-				else
-					echo $quanlityOfSize[$_GET["size"]];
-			}
-			else
-				echo 0;
-		?>);
-		if(obj.value>MAX){
-			alert("Size <?php if(isset($_GET["size"])) echo $_GET["size"]; ?> chỉ còn "+MAX+" sản phẩm");
-			obj.value=MAX;
-		}
-		if(obj.value<1)
-			obj.value=1;
-		if(MAX==0)
-			obj.value=0;				
-	}
-	var selectedSize='<?php
+var selectedSize='<?php
 		$selSize="";
 		if(isset($_GET['size']))
 			$selSize=$_GET['size'];
 		echo $selSize;
 	?>';
-	function checkQuanlity(){
-		if(selectedSize==''){
-			alert("Vui lòng chọn size");
-			return 0;
-		}
-		var quanlityInput=document.getElementById("txQuanlity_detail").value;
-		switch(selectedSize){
-			case 'S':
-				if(quanlityInput><?php echo $quanlityOfSize["S"] ?>){
-					alert("Size này chỉ còn <?php echo $quanlityOfSize["S"] ?> sản phẩm");
-					return 0;
-				}
-				break;
-			case 'M':
-				if(quanlityInput><?php echo $quanlityOfSize["M"] ?>){
-					alert("Size này chỉ còn <?php echo $quanlityOfSize["M"] ?> sản phẩm");
-					return 0;
-				}
-				break;
-			case 'L':
-				if(quanlityInput><?php echo $quanlityOfSize["L"] ?>){
-					alert("Size này chỉ còn <?php echo $quanlityOfSize["L"] ?> sản phẩm");
-					return 0;
-				}
-				break;
-		}
-		detailForm.submit();
-	}
 </script>
 <div  class="detail">
 	<div style="margin: 30px 0;" class="row chitiet">
@@ -171,13 +105,13 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
                         <label class="qty-name font-weight-bold">SỐ LƯỢNG: </label>
                         <div class="buttons_added">
                             <input <?php echo $disableQuanlity; ?> style="cursor: pointer;" class="minus is-form" type="button" value="-" onclick="adjustQuanlity(this)">
-                            <input <?php echo $disableQuanlity; ?> aria-label="quantity" id="txQuanlity_detail" class="input-qty" min="1" max="20" name="quanlity" type="number" value="<?php if(isset($_POST["quanlity"])) echo $_POST["quanlity"]; else echo "1"; ?>" onchange="validateQuanlity(this)">
+                            <input <?php echo $disableQuanlity; ?> aria-label="quantity" id="txQuanlity_detail" class="input-qty" min="0" name="quanlity" type="number" value=0 onchange="validateQuanlity(this)">
                             <input <?php echo $disableQuanlity; ?> style="cursor: pointer;" class="plus is-form" type="button" value="+" onclick="adjustQuanlity(this)">
                         </div>
                     </div>
                 </form>
 				<div class=" button-chitiet row">
-					<button type="button" <?php echo $disable ?> class="btn btn-outline-primary col-md-4  col-sm-12" value="add" style="float: left;" onclick="checkQuanlity()"><a  style="    font-weight: bold;text-decoration: none;color: #3B0B39"> Thêm Vào Giỏ Hàng</a> </button>
+					<button type="button" <?php echo $disable ?> id="btAddCart" class="btn btn-outline-primary col-md-4  col-sm-12" value="add" style="float: left;" onclick="checkQuanlity()"><a  style="    font-weight: bold;text-decoration: none;color: #3B0B39"> Thêm Vào Giỏ Hàng</a> </button>
 				</div>
                         </br></br>
                 <span class="sold-out" ><?php echo $notification ?> </span>
@@ -269,4 +203,85 @@ if ( $sum > 0)  $checksoluong="Còn Hàng"; else {$checksoluong="Hết Hàng";$d
 		}
 	}
 	changeFocus();
+	function adjustQuanlity(obj){
+		var op=obj.value;
+		var MAX=parseInt(<?php
+			if(isset($_GET["size"])){
+				if(isset($_SESSION["cart_item"][$_GET["product"]]["quanlity"]))
+					echo $quanlityOfSize[$_GET["size"]] - $_SESSION["cart_item"][$_GET["product"]]["quanlity"];
+				else
+					echo $quanlityOfSize[$_GET["size"]];
+			}
+			else
+				echo 0;
+		?>);
+		var txQuanlity=document.getElementById("txQuanlity_detail");
+		if(op=='+'){
+			if(txQuanlity.value<MAX)
+				txQuanlity.value++;
+			else
+				alert("Số lượng size <?php if(isset($_GET["size"])) echo $_GET["size"]; ?> đã đạt tối đa");
+		}
+		else
+			if(txQuanlity.value>0)
+				txQuanlity.value--;
+		if(document.getElementById("txQuanlity_detail").value==0)
+			document.getElementById("btAddCart").disabled="disabled";
+		else
+			document.getElementById("btAddCart").disabled="";
+	}
+	function validateQuanlity(obj){
+		var MAX=parseInt(<?php
+			if(isset($_GET["size"])){
+				if(isset($_SESSION["cart_item"][$_GET["product"]]["quanlity"]))
+					echo $quanlityOfSize[$_GET["size"]] - $_SESSION["cart_item"][$_GET["product"]]["quanlity"];
+				else
+					echo $quanlityOfSize[$_GET["size"]];
+			}
+			else
+				echo 0;
+		?>);
+		if(obj.value>MAX){
+			alert("Size <?php if(isset($_GET["size"])) echo $_GET["size"]; ?> chỉ còn "+MAX+" sản phẩm");
+			obj.value=MAX;
+		}
+		if(obj.value<0)
+			obj.value=0;
+		if(obj.value=="")
+			obj.value=0;
+		if(MAX==0)
+			obj.value=0;	
+		if(document.getElementById("txQuanlity_detail").value==0)
+			document.getElementById("btAddCart").disabled="disabled";
+		else
+			document.getElementById("btAddCart").disabled="";			
+	}
+	function checkQuanlity(){
+		var quanlityInput=document.getElementById("txQuanlity_detail").value;
+		switch(selectedSize){
+			case 'S':
+				if(quanlityInput><?php echo $quanlityOfSize["S"] ?>){
+					alert("Size này chỉ còn <?php echo $quanlityOfSize["S"] ?> sản phẩm");
+					return 0;
+				}
+				break;
+			case 'M':
+				if(quanlityInput><?php echo $quanlityOfSize["M"] ?>){
+					alert("Size này chỉ còn <?php echo $quanlityOfSize["M"] ?> sản phẩm");
+					return 0;
+				}
+				break;
+			case 'L':
+				if(quanlityInput><?php echo $quanlityOfSize["L"] ?>){
+					alert("Size này chỉ còn <?php echo $quanlityOfSize["L"] ?> sản phẩm");
+					return 0;
+				}
+				break;
+		}
+		detailForm.submit();
+	}
+	if(document.getElementById("txQuanlity_detail").value==0)
+		document.getElementById("btAddCart").disabled="disabled";
+	else
+		document.getElementById("btAddCart").disabled="";
 </script>
