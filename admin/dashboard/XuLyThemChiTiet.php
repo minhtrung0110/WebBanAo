@@ -28,7 +28,8 @@
         $sql="INSERT INTO chitiethoadon(MA_HD,MA_SP,SO_LUONG,TIEN_GIAM_GIA,DON_GIA, THANH_TIEN)
                 VALUE('$MAHD','$MASP','$SOLUONG','$TIENGG','$DONGIA','$THANHTIEN')";
     }
+    echo $sql;
     mysqli_query($con, $sql);
-    header('location: index.php?manage=orders');
+    header("location: index.php?manage=orders");
 }
 ?>
