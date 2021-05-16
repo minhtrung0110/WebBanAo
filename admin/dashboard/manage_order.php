@@ -159,7 +159,7 @@
         } else {
         echo "0 results";
         }
-    } else if (!isset($_GET['sort']) && !isset($_GET['stt']) || isset($_GET['show']) || isset($_GET['manage']) ) {
+    } else if (!isset($_GET['sort']) && !isset($_GET['stt']) || isset($_GET['show'])) {
         
         $sql = "select * from hoadon";        
         mysqli_query($con, "SET NAMES 'utf8");
