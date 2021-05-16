@@ -84,9 +84,9 @@ function getresult(url) {
 						<div class="range border-bottom py-2" style="font-weight: bold;" >
 							<h4 class="agileits-sear-head mb-3" style="font-weight: bold;text-shadow: 2px 2px #eee; color: #3bb137;">Khoảng Giá</h4>
 							Từ:
-                            <p><input class="form-control" id="min_price" type="text"placeholder="VD: 100.000 VNĐ" /></p>
+                            <p><input class="form-control" id="min_price" type="text"placeholder="VD: 0" /></p>
                             Đến:
-                            <p><input  class="form-control" id="max_price" type="text" placeholder="VD: 100.000 VNĐ"  /></p>
+                            <p><input  class="form-control" id="max_price" type="text" placeholder="VD: 100000"  /></p>
 						</div>
 					
 						<div class="left-side border-bottom py-2">
