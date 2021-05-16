@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2021 at 05:34 PM
+-- Generation Time: May 16, 2021 at 05:49 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -92,7 +92,11 @@ CREATE TABLE `chitiethoadon` (
 --
 
 INSERT INTO `chitiethoadon` (`MA_CTHD`, `MA_HD`, `MA_SP`, `SO_LUONG`, `TIEN_GIAM_GIA`, `DON_GIA`, `THANH_TIEN`) VALUES
-(1, 1, 76, 1, 60000, 540000, 600000);
+(1, 1, 76, 1, 60000, 540000, 600000),
+(2, 2, 76, 1, 60000, 540000, 600000),
+(3, 2, 47, 3, 0, 750000, 2250000),
+(4, 3, 7, 1, 0, 600000, 600000),
+(5, 4, 26, 2, 0, 700000, 1400000);
 
 -- --------------------------------------------------------
 
@@ -277,7 +281,13 @@ CREATE TABLE `danhmuc` (
 --
 
 INSERT INTO `danhmuc` (`MA_DANH_MUC`, `TEN_DANH_MUC`) VALUES
-(1, 'Quản Lý Nhân Viên');
+(1, 'Quản Lý Đơn Hàng'),
+(2, 'Quản Lý Sản Phẩm'),
+(3, 'Quản Lý Tài Khoản'),
+(4, 'Quản Lý  Nhập Hàng'),
+(5, 'Quản Lý Khách Hàng'),
+(6, 'Quản Lý Giảm Giá'),
+(7, 'Quản Lý  Phân Quyền');
 
 -- --------------------------------------------------------
 
@@ -321,7 +331,10 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MA_HD`, `MA_NV`, `MA_KH`, `DIA_CHI`, `SODIENTHOAI`, `TINH_TRANG`, `TONG_TIEN`, `NGAY_LAP`) VALUES
-(1, NULL, 1, 'B14/12 ấp 2 xã Tân Quý Tây', '0707624367', 0, 540000, '2021-05-15 10:22:41');
+(1, NULL, 1, 'B14/12 ấp 2 xã Tân Quý Tây', '0707624367', 0, 600000, '2021-05-15 10:22:41'),
+(2, NULL, 1, 'H.Bình Chánh ,tp HCM', '0707624367', 0, 2850000, '2021-05-15 11:22:30'),
+(3, NULL, 1, 'H.Bình Chánh ,tp HCM', '0707624367', 0, 600000, '2021-05-15 11:23:44'),
+(4, NULL, 1, 'H.Bình Chánh ,tp HCM', '0707624367', 0, 1400000, '2021-05-15 11:24:47');
 
 -- --------------------------------------------------------
 
@@ -344,7 +357,7 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MA_KH`, `MA_TK`, `TEN_KH`, `EMAIL`, `PHONE`, `GIOI_TINH`, `DIA_CHI`) VALUES
-(1, 2, 'Nguyễn Đức Minh Trung', 'minhtrung4367@gmail.com', '0707624367', 'Nam', 'H.Bình Chánh ,tp HCM');
+(1, 2, 'Nguyễn Đức Minh Trung', 'minhtrung4367@gmail.com', '0707624367', '1', 'B14/12 ấp 2 H.Bình Chánh ,tp HCM');
 
 -- --------------------------------------------------------
 
@@ -390,8 +403,7 @@ INSERT INTO `phieunhap` (`MA_PN`, `MA_TK`, `NGAY_NHAP`, `TONG_DON_GIA`) VALUES
 (2, 1, '2020-12-02', 10000000),
 (3, 1, '2021-01-05', 2050000),
 (4, 2, '2021-05-03', 750000000),
-(5, 1, '2021-05-08', 750000000),
-(7, 1, '0000-00-00', 0);
+(5, 1, '2021-05-08', 750000000);
 
 -- --------------------------------------------------------
 
@@ -410,10 +422,13 @@ CREATE TABLE `quyen` (
 --
 
 INSERT INTO `quyen` (`MA_GROUP_QUYEN`, `MA_DANH_MUC`, `TEN_QUYEN`) VALUES
-(1, 1, 'Quản Lý Nhân Viên'),
-(1, 1, 'Quản Lý Nhân Viên'),
-(1, 1, 'Quản Lý Nhân Viên'),
-(1, 1, 'Quản Lý Nhân Viên');
+(1, 1, 'Quản Lý Đơn Hàng'),
+(1, 2, 'Quản Lý Sản Phẩm'),
+(1, 4, 'Quản Lý  Nhập Hàng'),
+(1, 6, 'Quản Lý Giảm Giá'),
+(1, 7, 'Quản Lý  Phân Quyền'),
+(1, 3, 'Quản Lý Tài Khoản'),
+(1, 5, 'Quản Lý Khách Hàng');
 
 -- --------------------------------------------------------
 
@@ -452,9 +467,9 @@ INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KIC
 (13, 'BIG-LOGO-LVENTS', 100, 550000, 'Tee', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'BIG-LOGO-LVENTS.jpg'),
 (14, 'BIG-LOGO-LVENTS', 100, 550000, 'Tee', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'BIG-LOGO-LVENTS.jpg'),
 (15, 'BIG-LOGO-LVENTS', 100, 550000, 'Tee', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'BIG-LOGO-LVENTS.jpg'),
-(16, 'BIG-LOGO-LVENTS', 100, 550000, 'Tee', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'BIG-LOGO-LVENTS.jpg'),
-(17, 'BIG-LOGO-LVENTS', 100, 550000, 'Tee', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'BIG-LOGO-LVENTS.jpg'),
-(18, 'BIG-LOGO-LVENTS', 100, 550000, 'Tee', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'BIG-LOGO-LVENTS.jpg'),
+(16, 'GUN GUN KIMI', 100, 550000, 'Tee', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'product-tops04-e.jpg'),
+(17, 'GUN GUN KIMI', 100, 550000, 'Tee', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'product-tops04-e.jpg'),
+(18, 'GUN GUN KIMI', 100, 550000, 'Tee', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'product-tops04-e.jpg'),
 (19, 'HOLLIDAY SUMMER', 100, 580000, 'Tee', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer.jpg'),
 (20, 'HOLLIDAY SUMMER', 100, 580000, 'Tee', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer.jpg'),
 (21, 'HOLLIDAY SUMMER', 100, 580000, 'Tee', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer.jpg'),
@@ -573,7 +588,8 @@ CREATE TABLE `taikhoan` (
 
 INSERT INTO `taikhoan` (`MA_TK`, `MA_GROUP_QUYEN`, `TEN_DANG_NHAP`, `MAT_KHAU`, `STATUS`, `EMAIL`) VALUES
 (1, 1, 'admin', 'admin', 1, ''),
-(2, 3, 'Nguyễn Đức Minh Trung', 'e10adc3949ba59abbe56e057f20f883e', 1, 'minhtrung4367@gmail.com');
+(2, 3, 'Nguyễn Đức Minh Trung', 'e10adc3949ba59abbe56e057f20f883e', 1, 'minhtrung4367@gmail.com'),
+(3, 2, 'Minh Trung', 'nhanvien', 1, 'minhtrung@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -684,7 +700,7 @@ ALTER TABLE `chitietgiamgia`
 -- AUTO_INCREMENT for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `MA_CTHD` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MA_CTHD` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `chitietphieunhap`
@@ -702,7 +718,7 @@ ALTER TABLE `chuongtrinhgiamgia`
 -- AUTO_INCREMENT for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `MA_DANH_MUC` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MA_DANH_MUC` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `groupquyen`
@@ -714,13 +730,13 @@ ALTER TABLE `groupquyen`
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MA_HD` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MA_HD` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MA_KH` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MA_KH` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `nhanvien`
@@ -744,7 +760,7 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `MA_TK` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MA_TK` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
