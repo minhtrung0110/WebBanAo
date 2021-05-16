@@ -188,6 +188,8 @@ function getresult(url) {
 			}
 		if(minPrice==0)
 			$("#min_price").val('00');	
+		if(maxPrice==0)
+			$("#max_price").val('00');
 		filter_data();
 	}
 </script>
