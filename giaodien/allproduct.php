@@ -78,7 +78,7 @@ function getresult(url) {
 							>TÌM KIẾM SẢN PHẨM</h4>
 
 								<input  class="col-md-8 col-sm-8 mr-1 ml-3 form-control" type="text" id="name">
-								<button class="col-md-3 col-sm-3 btn btn-outline-success" id="submitSearch" onclick="filter_data()">Tìm Kiếm</button>
+								<button class="col-md-3 col-sm-3 btn btn-outline-success" id="submitSearch" onclick="validatePrice()">Tìm Kiếm</button>
 						</div>
 						<!-- price -->
 						<div class="range border-bottom py-2" style="font-weight: bold;" >
@@ -142,7 +142,7 @@ function getresult(url) {
 </style>
 
 <script>
-$(document).ready(function(){
+
 
     function filter_data()
     {
@@ -177,10 +177,15 @@ $(document).ready(function(){
         });
         return filter;
     }
-
-    $('#submitSearch').click(function(){
-        filter_data();
-    });
-
-});
+	function validatePrice(){
+		var patt=/^\d+/;
+		var minPrice=$("#min_price").val();
+		var maxPrice=$("#max_price").val();
+		if(minPrice!="" || maxPrice!="")
+			if(!minPrice.match(patt) || !maxPrice.match(patt)){
+			alert("Khoảng giá không hợp lệ");
+			return 0;
+			}
+		filter_data();
+	}
 </script>

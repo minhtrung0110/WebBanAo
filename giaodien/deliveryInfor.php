@@ -100,8 +100,7 @@
 			alert("Vui lòng nhập số điện thoại");
 			return 0;
 		}
-		var patt=/\d$/g;
-		var patt=/\d$/g;
+		var patt=/^\d+/;
 		if(!phone.match(patt)){
 			alert("Số điện thoại không hợp lệ");
 			return 0;
