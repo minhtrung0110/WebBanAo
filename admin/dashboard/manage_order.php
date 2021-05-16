@@ -262,7 +262,7 @@
         $tt=$_GET['tt'];
         if($Them=='true' && $tt=="0"){
             include("ThemChiTietHoaDon.php");
-        } else if($Them=='true' && $tt!="1"){
+        } else if($Them=='true' && $tt=="1"){
             echo '<div id="thongbaoxoa">
             <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không thêm chi tiết hóa đơn</h1>
             <button  id="bt3"><a href="index.php?manage=orders">OK</a></button>
@@ -274,7 +274,7 @@
         $tt=$_GET['tt'];
         if($Them=='true' && $tt=="0"){
             include("SuaChiTietHoaDon.php");
-        }else if($Them=='true' && $tt!="1"){
+        }else if($Them=='true' && $tt=="1"){
             echo '<div id="thongbaoxoa">
             <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không sửa chi tiết hóa đơn</h1>
             <button  id="bt3"><a href="index.php?manage=orders">OK</a></button>
@@ -286,7 +286,7 @@
         $tt=$_GET['tt'];
         if($Them=='true' && $tt=="0"){
             include("XoaChiTiet.php");
-        }else if($Them=='true' && $tt!="1"){
+        }else if($Them=='true' && $tt=="1"){
             echo '<div id="thongbaoxoa">
             <h1>Đơn hàng này đã hoặc đang được xử lý. Vui lòng không xóa chi tiết hóa đơn</h1>
             <button  id="bt3"><a href="index.php?manage=orders">OK</a></button>
