@@ -5,7 +5,7 @@ session_start();
         $password=$_POST['password'];
        // $password=md5($password);
         include(" ../../../../db/MySQLConnect.php");
-        $query="SELECT TEN_DANG_NHAP,MAT_KHAU,MA_GROUP_QUYEN FROM `taikhoan` WHERE MA_GROUP_QUYEN=2 OR MA_GROUP_QUYEN=1 GROUP BY TEN_DANG_NHAP";
+        $query="SELECT TEN_DANG_NHAP,MAT_KHAU,MA_GROUP_QUYEN FROM `taikhoan` WHERE MA_GROUP_QUYEN !=3 AND STATUS = 1  GROUP BY TEN_DANG_NHAP";
         $result=mysqli_query($connect,$query);
         $check=false;
         while($data=mysqli_fetch_array($result) ){

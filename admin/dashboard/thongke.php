@@ -17,7 +17,7 @@
             <span class="form-message" style="color:red"></span>
           </div>
           <div class="col-md-6 col-sm-12">
-          <label for="count">Hiển thị số lượng:</label>
+          <label for="count">Hiển thị số lượng top sản phẩm bán chạy:</label>
               <select id="count" name="count">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -82,7 +82,7 @@
                             from(( sanpham as p inner join chitiethoadon as od on p.MA_SP = od.MA_SP 
                                  INNER JOIN hoadon as hd on hd.MA_HD = od.MA_HD))
                                  where  '$StartDay' <= hd.NGAY_LAP AND hd.NGAY_LAP <= '$EndDay'
-                                 GROUP BY p.TEN_SP ORDER BY SUM(od.SO_LUONG) , SUM(od.DON_GIA) LIMIT $Count";
+                                 GROUP BY p.TEN_SP ORDER BY SUM(od.SO_LUONG) DESC , SUM(od.DON_GIA) LIMIT $Count";
                             $Bestsaler = mysqli_query($connect,$getDoanhThu);
                             while($BS=mysqli_fetch_array($Bestsaler)){
                         ?>
@@ -143,7 +143,7 @@
                             from(( sanpham as p inner join chitiethoadon as od on p.MA_SP = od.MA_SP 
                                  INNER JOIN hoadon as hd on hd.MA_HD = od.MA_HD))
                                  where  '$StartDay' <= hd.NGAY_LAP AND hd.NGAY_LAP <= '$EndDay'
-                                 GROUP BY p.LOAI_SP ORDER BY SUM(od.SO_LUONG) , SUM(od.DON_GIA) LIMIT $Count";
+                                 GROUP BY p.LOAI_SP ORDER BY SUM(od.SO_LUONG) DESC , SUM(od.DON_GIA) LIMIT $Count";
                             $TinhhinhKinhDoanh = mysqli_query($connect,$getTinhhinhKinhDoanh);
                             while($THKD=mysqli_fetch_array($TinhhinhKinhDoanh)){
                         ?>

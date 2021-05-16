@@ -105,7 +105,7 @@ var selectedSize='<?php
                         <label class="qty-name font-weight-bold">SỐ LƯỢNG: </label>
                         <div class="buttons_added">
                             <input <?php echo $disableQuanlity; ?> style="cursor: pointer;" class="minus is-form" type="button" value="-" onclick="adjustQuanlity(this)">
-                            <input <?php echo $disableQuanlity; ?> aria-label="quantity" id="txQuanlity_detail" class="input-qty" min="0" name="quanlity" type="number" value=0 onchange="validateQuanlity(this)">
+                            <input <?php echo $disableQuanlity; ?> aria-label="quantity" id="txQuanlity_detail" class="input-qty" min="1" name="quanlity" type="number" value=1 onchange="validateQuanlity(this)">
                             <input <?php echo $disableQuanlity; ?> style="cursor: pointer;" class="plus is-form" type="button" value="+" onclick="adjustQuanlity(this)">
                         </div>
                     </div>
