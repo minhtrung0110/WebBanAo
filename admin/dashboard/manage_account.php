@@ -182,9 +182,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
 
             <form action="<?php echo $action_permission ?>" method="get" id='form-account' >
               <div class="form-group">
-                <label for="matk">MÃ TÀI KHOẢN:</label>
-                <input type="text" class="form-control" id="matk" placeholder="Nhập mã tài khoản" name="matk" value="<?php echo  $MA_TK ?>" require>
-                <span class="form-message" id="" style="color:red"></span>
+                <input type="hidden" class="form-control" id="matk" placeholder="Nhập mã tài khoản" name="matk" value="<?php echo  $MA_TK ?>" require>
               </div>
               <div class="form-group">
                 <div class="form-group">
@@ -210,7 +208,7 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
                   <input type="text" class="form-control" id="mk" placeholder="Nhập mã tài khoản" name="mk" value="<?php echo  $MK ?>" require>
                   <span class="form-message" id="" style="color:red"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group row">
                   <label for="trangthai">TRẠNG THÁI:</label>
                   <?php
                     $checked="";
@@ -260,7 +258,6 @@ if (isset($_GET['unblockstt']) && isset($_GET['matk'])) {
           formGroupSelector: '.form-group',
           errorSelector: '.form-message',
           rules: [
-           Validator.isRequired('#matk'),
            Validator.isRequired('#manhomquyen'),
            Validator.isRequired('#tendn'),
            Validator.isRequired('#mk'),

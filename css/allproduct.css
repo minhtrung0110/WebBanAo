@@ -187,7 +187,13 @@
     font-weight: bold;
     color: #045a28;
 }
- 
+/*Bộ Lọc*/
+
+.all-product .row .ads-grid  .product-right .side-bar .search-hotel .agileits{
+    font-weight: bold;
+    text-shadow: 2px 2px #eee;
+    color: #045a28;
+}
 
 @media screen and (max-width: 850px) {
 
