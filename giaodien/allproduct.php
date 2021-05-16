@@ -71,31 +71,33 @@ function getresult(url) {
 					?>");
 				</script>
 				<!-- product right -->
-				<div class="col-md-3 mt-lg-0 mt-4 p-lg-0">
+				<div class="product-right col-md-3 mt-lg-0 mt-4 p-lg-0">
 					<div class="side-bar p-sm-4 p-3">
-						<div class="search-hotel border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">TÌM KIẾM SẢN PHẨM</h3>
-								<input type="text" id="name">
-								<button id="submitSearch" onclick="filter_data()">Search</button>
+						<div class="search-hotel border-bottom py-2 row">
+							<h4 class="agileits-sear-head mb-3 col-md-12 col-sm-12" style="font-weight: bold;text-shadow: 2px 2px #eee; color: #f1a80a;"
+							>TÌM KIẾM SẢN PHẨM</h4>
+
+								<input  class="col-md-8 col-sm-8 mr-1 ml-3 form-control" type="text" id="name">
+								<button class="col-md-3 col-sm-3 btn btn-outline-success" id="submitSearch" onclick="filter_data()">Tìm Kiếm</button>
 						</div>
 						<!-- price -->
-						<div class="range border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">Khoảng Giá</h3>
+						<div class="range border-bottom py-2" style="font-weight: bold;" >
+							<h4 class="agileits-sear-head mb-3" style="font-weight: bold;text-shadow: 2px 2px #eee; color: #3bb137;">Khoảng Giá</h4>
 							Từ:
-                            <p><input id="min_price" type="text" /></p>
+                            <p><input class="form-control" id="min_price" type="text"placeholder="VD: 100.000 VNĐ" /></p>
                             Đến:
-                            <p><input id="max_price" type="text"  /></p>
+                            <p><input  class="form-control" id="max_price" type="text" placeholder="VD: 100.000 VNĐ"  /></p>
 						</div>
 					
 						<div class="left-side border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">Loại Sản Phẩm</h3>
+							<h4 class="agileits-sear-head mb-3" style="font-weight: bold;text-shadow: 2px 2px #eee; color: #ad1010;">Loại Sản Phẩm</h4>
 							<ul>
                                 <?php
                                     while($row_type_product=mysqli_fetch_array($getLoai)){ 
                                 ?>
 								<li>
-									<input type="checkbox" class="type" value="<?php echo $row_type_product['LOAI_SP']; ?>" >
-									<span class="span"><?php echo $row_type_product['LOAI_SP']  ?></span>
+									<input type="checkbox" class="typ " value="<?php echo $row_type_product['LOAI_SP']; ?>" >
+									<span class="span" style="font-weight: bold;" ><?php echo $row_type_product['LOAI_SP']  ?></span>
 								</li>
                                 <?php
                                     }
@@ -103,14 +105,14 @@ function getresult(url) {
 							</ul>
 						</div>
 						<div class="left-side border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">Kích Thước</h3>
+							<h4 class="agileits-sear-head mb-3" style="font-weight: bold;text-shadow: 2px 2px #fff; color: #1a26c9">Kích Thước</h4>
 							<ul>
                                 <?php
                                     while($row_size_product=mysqli_fetch_array($getSize)){ 
                                 ?>
 								<li>
 									<input type="checkbox" class="size" value="<?php echo $row_size_product['KICH_THUOC']; ?>">
-									<span class="span"><?php echo $row_size_product['KICH_THUOC']  ?></span>
+									<span class="span" style="font-weight: bold;" ><?php echo $row_size_product['KICH_THUOC']  ?></span>
 								</li>
                                 <?php
                                     }
