@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2021 at 05:49 AM
+-- Generation Time: May 16, 2021 at 10:30 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -69,7 +69,8 @@ INSERT INTO `chitietgiamgia` (`ID_CTGG`, `MA_CTGG`, `MA_SP`) VALUES
 (29, 1, 82),
 (30, 1, 83),
 (31, 1, 84),
-(32, 2, 46);
+(32, 2, 46),
+(33, 2, 85);
 
 -- --------------------------------------------------------
 
@@ -92,11 +93,14 @@ CREATE TABLE `chitiethoadon` (
 --
 
 INSERT INTO `chitiethoadon` (`MA_CTHD`, `MA_HD`, `MA_SP`, `SO_LUONG`, `TIEN_GIAM_GIA`, `DON_GIA`, `THANH_TIEN`) VALUES
-(1, 1, 76, 1, 60000, 540000, 600000),
+(1, 1, 76, 1, 60000, 540000, 480000),
 (2, 2, 76, 1, 60000, 540000, 600000),
 (3, 2, 47, 3, 0, 750000, 2250000),
 (4, 3, 7, 1, 0, 600000, 600000),
-(5, 4, 26, 2, 0, 700000, 1400000);
+(5, 4, 26, 2, 0, 700000, 1400000),
+(6, 6, 31, 1, 0, 400000, 400000),
+(7, 7, 7, 1, 0, 600000, 600000),
+(8, 8, 25, 1, 0, 700000, 700000);
 
 -- --------------------------------------------------------
 
@@ -239,7 +243,8 @@ INSERT INTO `chitietphieunhap` (`MA_CTPN`, `MA_PN`, `MA_SP`, `DON_GIA`, `SIZE`, 
 (119, 5, 81, 400000, 'L', 100),
 (120, 5, 82, 400000, 'S', 100),
 (121, 5, 83, 400000, 'M', 100),
-(122, 5, 84, 400000, 'L', 100);
+(122, 5, 84, 400000, 'L', 100),
+(123, 1, 85, 500000, 'S', 40);
 
 -- --------------------------------------------------------
 
@@ -287,7 +292,8 @@ INSERT INTO `danhmuc` (`MA_DANH_MUC`, `TEN_DANH_MUC`) VALUES
 (4, 'Quản Lý  Nhập Hàng'),
 (5, 'Quản Lý Khách Hàng'),
 (6, 'Quản Lý Giảm Giá'),
-(7, 'Quản Lý  Phân Quyền');
+(7, 'Quản Lý  Phân Quyền'),
+(8, 'ABC');
 
 -- --------------------------------------------------------
 
@@ -331,10 +337,13 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MA_HD`, `MA_NV`, `MA_KH`, `DIA_CHI`, `SODIENTHOAI`, `TINH_TRANG`, `TONG_TIEN`, `NGAY_LAP`) VALUES
-(1, NULL, 1, 'B14/12 ấp 2 xã Tân Quý Tây', '0707624367', 0, 600000, '2021-05-15 10:22:41'),
+(1, 1, 1, 'B14/12 ấp 2 xã Tân Quý Tây', '0707624367', 1, 480000, '0000-00-00 00:00:00'),
 (2, NULL, 1, 'H.Bình Chánh ,tp HCM', '0707624367', 0, 2850000, '2021-05-15 11:22:30'),
 (3, NULL, 1, 'H.Bình Chánh ,tp HCM', '0707624367', 0, 600000, '2021-05-15 11:23:44'),
-(4, NULL, 1, 'H.Bình Chánh ,tp HCM', '0707624367', 0, 1400000, '2021-05-15 11:24:47');
+(4, NULL, 1, 'H.Bình Chánh ,tp HCM', '0707624367', 0, 1400000, '2021-05-15 11:24:47'),
+(6, NULL, 1, 'B14/12 ấp 2 H.Bình Chánh ,tp HCM', '0707624367', 0, 400000, '2021-05-16 01:37:08'),
+(7, NULL, 1, 'B14/12 ấp 2 H.Bình Chánh ,tp HCM', '0707624367', 0, 600000, '2021-05-16 01:42:35'),
+(8, 1, 4, 'HCM', '0899623648', 1, 700000, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -357,7 +366,9 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MA_KH`, `MA_TK`, `TEN_KH`, `EMAIL`, `PHONE`, `GIOI_TINH`, `DIA_CHI`) VALUES
-(1, 2, 'Nguyễn Đức Minh Trung', 'minhtrung4367@gmail.com', '0707624367', '1', 'B14/12 ấp 2 H.Bình Chánh ,tp HCM');
+(1, 2, 'Nguyễn Đức Minh Trung', 'minhtrung4367@gmail.com', '0707624367', '1', 'B14/12 ấp 2 H.Bình Chánh ,tp HCM'),
+(3, 4, 'aaa', 'minhtrungaaa@gmail.com', '', '', NULL),
+(4, 5, 'Trần Đại Nam', 'abc@gmail.com', '0899623648', 'Nam', 'HCM');
 
 -- --------------------------------------------------------
 
@@ -399,7 +410,7 @@ CREATE TABLE `phieunhap` (
 --
 
 INSERT INTO `phieunhap` (`MA_PN`, `MA_TK`, `NGAY_NHAP`, `TONG_DON_GIA`) VALUES
-(1, 2, '2020-11-06', 10000000),
+(1, 2, '2020-11-06', 30000000),
 (2, 1, '2020-12-02', 10000000),
 (3, 1, '2021-01-05', 2050000),
 (4, 2, '2021-05-03', 750000000),
@@ -428,7 +439,9 @@ INSERT INTO `quyen` (`MA_GROUP_QUYEN`, `MA_DANH_MUC`, `TEN_QUYEN`) VALUES
 (1, 6, 'Quản Lý Giảm Giá'),
 (1, 7, 'Quản Lý  Phân Quyền'),
 (1, 3, 'Quản Lý Tài Khoản'),
-(1, 5, 'Quản Lý Khách Hàng');
+(1, 5, 'Quản Lý Khách Hàng'),
+(2, 2, 'Quản Lý Sản Phẩm'),
+(2, 1, 'Quản Lý Đơn Hàng');
 
 -- --------------------------------------------------------
 
@@ -458,7 +471,7 @@ INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KIC
 (4, 'Aniversary Big Logo', 50, 500000, 'Tee', 'S', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary02.jpg'),
 (5, 'Aniversary Big Logo', 100, 500000, 'Tee', 'M', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary02.jpg'),
 (6, 'Aniversary Big Logo', 80, 500000, 'Tee', 'L', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary02.jpg'),
-(7, 'HappyAniversary Special Fire', 40, 600000, 'Tee', 'S', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary03.jpg'),
+(7, 'HappyAniversary Special Fire', 39, 600000, 'Tee', 'S', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary03.jpg'),
 (8, 'HappyAniversary Special Fire', 40, 600000, 'Tee', 'M', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary03.jpg'),
 (9, 'HappyAniversary Special Fire', 40, 600000, 'Tee', 'L', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary03.jpg'),
 (10, 'HappyAniversary Church', 80, 500000, 'Tee', 'S', 'Kỷ Niệm 3 năm thành lập Three Clothing', 'aniversary04.jpg'),
@@ -476,13 +489,13 @@ INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KIC
 (22, 'HOLLIDAY FUNNY', 100, 600000, 'Tee', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer-Fun.jpg'),
 (23, 'HOLLIDAY FUNNY', 100, 600000, 'Tee', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer-Fun.jpg'),
 (24, 'HOLLIDAY FUNNY', 100, 600000, 'Tee', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Holiday_Summer-Fun.jpg'),
-(25, 'ANGLES-RAINBOW', 100, 700000, 'Hoodie', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodies-Angles.jpg'),
+(25, 'ANGLES-RAINBOW', 99, 700000, 'Hoodie', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodies-Angles.jpg'),
 (26, 'ANGLES-RAINBOW', 100, 700000, 'Hoodie', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodies-Angles.jpg'),
 (27, 'ANGLES-RAINBOW', 100, 700000, 'Hoodie', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodies-Angles.jpg'),
 (28, 'Hoodie-Orange', 100, 450000, 'Hoodie', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodie-Orange.jpg'),
 (29, 'Hoodie-Orange', 100, 450000, 'Hoodie', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodie-Orange.jpg'),
 (30, 'Hoodie-Orange', 100, 450000, 'Hoodie', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Hoodie-Orange.jpg'),
-(31, 'Funny-Club', 100, 400000, 'Hoodie', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Funny-Club.jpg'),
+(31, 'Funny-Club', 99, 400000, 'Hoodie', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Funny-Club.jpg'),
 (32, 'Funny-Club', 100, 400000, 'Hoodie', 'M', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Funny-Club.jpg'),
 (33, 'Funny-Club', 100, 400000, 'Hoodie', 'L', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Funny-Club.jpg'),
 (34, 'Vie-Life', 100, 400000, 'Hoodie', 'S', 'Không Mua Bây Giờ Thì Mua Bao Giờ!!!', 'Vie-Life.jpg'),
@@ -523,7 +536,8 @@ INSERT INTO `sanpham` (`MA_SP`, `TEN_SP`, `SO_LUONG`, `DON_GIA`, `LOAI_SP`, `KIC
 (81, 'Jacket-Black', 50, 400000, 'Jacket', 'L', 'DVRK Privé Fall 2021 \"Les Vacances\" – Định nghĩa của một kỳ nghỉ mát hoàn hảo.\r\nVới Privé, kỳ nghỉ hoàn hảo không chỉ là nơi có nắng vàng, cát trắng, biển xanh mà còn là nơi có thể để lại thật nhiều kỷ niệm với những người bạn, người thân và đong đầy mọi cung bậc cảm xúc. Ngoài ra, để những khoảnh khắc tuyệt vời ấy được lưu giữ một cách trọn vẹn nhất, đương nhiên là không thể thiếu những bộ trang phục đẹp mắt và ưng ý nhất mà chúng ta đã dành riêng cho kỳ nghỉ này. \r\n', 'Jacket-Black.jpg'),
 (82, 'Jacket-Sweet', 50, 400000, 'Jacket', 'S', 'DVRK Privé Fall 2021 \"Les Vacances\" – Định nghĩa của một kỳ nghỉ mát hoàn hảo.\r\nVới Privé, kỳ nghỉ hoàn hảo không chỉ là nơi có nắng vàng, cát trắng, biển xanh mà còn là nơi có thể để lại thật nhiều kỷ niệm với những người bạn, người thân và đong đầy mọi cung bậc cảm xúc. Ngoài ra, để những khoảnh khắc tuyệt vời ấy được lưu giữ một cách trọn vẹn nhất, đương nhiên là không thể thiếu những bộ trang phục đẹp mắt và ưng ý nhất mà chúng ta đã dành riêng cho kỳ nghỉ này. \r\n', 'Jacket_Sweeat.jpg'),
 (83, 'Jacket-Sweet', 50, 400000, 'Jacket', 'M', 'DVRK Privé Fall 2021 \"Les Vacances\" – Định nghĩa của một kỳ nghỉ mát hoàn hảo.\r\nVới Privé, kỳ nghỉ hoàn hảo không chỉ là nơi có nắng vàng, cát trắng, biển xanh mà còn là nơi có thể để lại thật nhiều kỷ niệm với những người bạn, người thân và đong đầy mọi cung bậc cảm xúc. Ngoài ra, để những khoảnh khắc tuyệt vời ấy được lưu giữ một cách trọn vẹn nhất, đương nhiên là không thể thiếu những bộ trang phục đẹp mắt và ưng ý nhất mà chúng ta đã dành riêng cho kỳ nghỉ này. \r\n', 'Jacket_Sweeat.jpg'),
-(84, 'Jacket-Sweet', 50, 400000, 'Jacket', 'L', 'DVRK Privé Fall 2021 \"Les Vacances\" – Định nghĩa của một kỳ nghỉ mát hoàn hảo.\r\nVới Privé, kỳ nghỉ hoàn hảo không chỉ là nơi có nắng vàng, cát trắng, biển xanh mà còn là nơi có thể để lại thật nhiều kỷ niệm với những người bạn, người thân và đong đầy mọi cung bậc cảm xúc. Ngoài ra, để những khoảnh khắc tuyệt vời ấy được lưu giữ một cách trọn vẹn nhất, đương nhiên là không thể thiếu những bộ trang phục đẹp mắt và ưng ý nhất mà chúng ta đã dành riêng cho kỳ nghỉ này. \r\n', 'Jacket_Sweeat.jpg');
+(84, 'Jacket-Sweet', 50, 400000, 'Jacket', 'L', 'DVRK Privé Fall 2021 \"Les Vacances\" – Định nghĩa của một kỳ nghỉ mát hoàn hảo.\r\nVới Privé, kỳ nghỉ hoàn hảo không chỉ là nơi có nắng vàng, cát trắng, biển xanh mà còn là nơi có thể để lại thật nhiều kỷ niệm với những người bạn, người thân và đong đầy mọi cung bậc cảm xúc. Ngoài ra, để những khoảnh khắc tuyệt vời ấy được lưu giữ một cách trọn vẹn nhất, đương nhiên là không thể thiếu những bộ trang phục đẹp mắt và ưng ý nhất mà chúng ta đã dành riêng cho kỳ nghỉ này. \r\n', 'Jacket_Sweeat.jpg'),
+(85, 'Christmas Tee', 40, 500000, 'Tee', 'S', 'Ba đồng một mớ đàn ông Bạn tôi vẫn chọn thằng không ra gì =)))))) ???? ', 'Christmas Tee.jpg');
 
 -- --------------------------------------------------------
 
@@ -589,7 +603,9 @@ CREATE TABLE `taikhoan` (
 INSERT INTO `taikhoan` (`MA_TK`, `MA_GROUP_QUYEN`, `TEN_DANG_NHAP`, `MAT_KHAU`, `STATUS`, `EMAIL`) VALUES
 (1, 1, 'admin', 'admin', 1, ''),
 (2, 3, 'Nguyễn Đức Minh Trung', 'e10adc3949ba59abbe56e057f20f883e', 1, 'minhtrung4367@gmail.com'),
-(3, 2, 'Minh Trung', 'nhanvien', 1, 'minhtrung@gmail.com');
+(3, 2, 'Minh Trung', 'nhanvien', 1, 'minhtrung@gmail.com'),
+(4, 3, 'aaa', 'e10adc3949ba59abbe56e057f20f883e', 1, 'minhtrungaaa@gmail.com'),
+(5, 3, 'Trần Đại Nam', 'e10adc3949ba59abbe56e057f20f883e', 1, 'abc@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -694,19 +710,19 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT for table `chitietgiamgia`
 --
 ALTER TABLE `chitietgiamgia`
-  MODIFY `ID_CTGG` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `ID_CTGG` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `MA_CTHD` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MA_CTHD` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `chitietphieunhap`
 --
 ALTER TABLE `chitietphieunhap`
-  MODIFY `MA_CTPN` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `MA_CTPN` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `chuongtrinhgiamgia`
@@ -718,7 +734,7 @@ ALTER TABLE `chuongtrinhgiamgia`
 -- AUTO_INCREMENT for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `MA_DANH_MUC` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `MA_DANH_MUC` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `groupquyen`
@@ -730,13 +746,13 @@ ALTER TABLE `groupquyen`
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MA_HD` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MA_HD` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MA_KH` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MA_KH` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `nhanvien`
@@ -754,13 +770,13 @@ ALTER TABLE `phieunhap`
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `MA_SP` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `MA_SP` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `MA_TK` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MA_TK` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
