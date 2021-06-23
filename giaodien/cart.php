@@ -5,9 +5,9 @@
 <style>
 	#cart_container{
 		width:80%;
-		height:500px;
+		height:auto;
 		background-color:white;
-		box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		margin-left:10%;
 		position:fixed;
 		z-index:10;
@@ -58,7 +58,8 @@
 		height:60px;
 		margin:20px 0 0 5%;
 		float:left;
-		border:solid 2px #000
+		border:solid 1px #eee;
+		box-shadow: 2px 2px 3px #ddd;
 	}
 	.nameCart{
 		width:79%;
@@ -112,22 +113,20 @@
 		color:#000;
 	}
 	.removeP{
-		width:30px;
-		height:30px;
-		line-height:30px;
 		font-size:18px;
-		margin-top:25px;
-		display:inline-block;
-		border:solid 2px #000;
+		
 		cursor:pointer;
 	}
 	.XSign{
-		width:3%;
+		color:red; 
+		width:4%;
         height:15px;
+		font-weight:bold;
+		font-size:30px;
 		line-height:15px;
 		text-align:center;
 		position:absolute;
-		margin:0 0 0 97%;
+		margin:1% 0 0 94%;
 		cursor:pointer
     }
 </style>
@@ -200,6 +199,7 @@
 					else
 						echo 2;
 				}
+				else echo 1;
 			}
 			else echo 1;
 		?>;
@@ -220,14 +220,14 @@
 	}
 </script>
 <div id="cart_container">
-	<div class="XSign" id="XSign_cart" style="color:white; text-align:right" onclick="hideCartContainer()">x</div>
+	<div class="XSign" id="XSign_cart"  onclick="hideCartContainer()" >x</div>
     <div id="titleCart">
-        <div style="width:40%; float:left; text-align:center"><b>Sản phẩm</b></div>
-        <div style="width:10%; float:left; text-align:center"><b>Size</b></div>
-        <div style="width:12.5%; float:left; text-align:center"><b>Đơn giá</b></div>
-        <div style="width:15%; float:left; text-align:center"><b>Số lượng</b></div>
-        <div style="width:12.5%; float:left; text-align:center"><b>Thành tiền</b></div>
-        <div style="width:10%; float:left"><b></b></div>
+        <div style="width:30%; float:left; text-align:center"><b>SẢN PHẨM</b></div>
+        <div style="width:10%; float:left; text-align:center"><b>KÍCH THƯỚC</b></div>
+        <div style="width:12.5%; float:left; text-align:center"><b>ĐƠN GIÁ</b></div>
+        <div style="width:15%; float:left; text-align:center"><b>SỐ LƯỢNG</b></div>
+        <div style="width:12.5%; float:left; text-align:center"><b>THÀNH TIỀN</b></div>
+        <div style="width:10%; float:left"><b>THAO TÁC</b></div>
     </div>
     <div id="productCart">
     	<?php		
@@ -250,7 +250,7 @@
                 <form action="<?php echo  $_SERVER['REQUEST_URI']; ?>" method="POST">
                 	<input type="hidden" name="cart" value="remove">
                     <input type="hidden" name="product" value="<?php echo $item["id"] ?>" />
-                    <input type="submit" class="removeP" value="X" />
+                    <button type="submit" class="removeP" ><i class="fas fa-trash-alt"></i></button>
                 </form>
             </div>
         </div>
@@ -258,19 +258,21 @@
 				}
 		?>
     </div>
-    <div id="footerCart">
-        <div style="width:50%; float:left">
-            <div style="margin:0 1% 0 20%; float:left"><b>Tổng đơn: <?php if($total_price!="") echo "$total_price VNĐ"; else echo $total_price; ?></b></div>
+    <div id="footerCart" class="row">
+        <div class="col-md-6 col-sm-6">
+            <div style="margin:0 1% 0 20%; float:left"><b>Tổng Đơn: <?php if($total_price!="") echo "$total_price VNĐ"; else echo $total_price; ?></b></div>
             <div style="float:left" id="totalBill"></div>
         </div>     
-        <div style="width:50%; float:left">
-            <button style="margin-right:5%; height:25px; line-height:25px" onclick="checkLogin()">Đặt hàng</button>
+        <div class="col-md-6 col-sm-6">
+            <button class="btn btn-ouline-success" onclick="checkLogin()">Đặt Hàng</button>
             <form action="<?php echo  $_SERVER['REQUEST_URI']; ?>" method="POST">
             	<input type="hidden" name="cart" value="empty">
-            	<button type="submit" style="margin-right:5%; height:25px; line-height:25px" >Làm trống</button>
+            	<button type="submit" class="btn btn-ouline-warning" >Làm Trống</button>
             </form>
         </div>
     </div>
+	<br>
+	
 </div>
 <script>
 	if(<?php 

@@ -46,7 +46,7 @@ include("db/MySQLConnect.php");
 	</script>
 	<?php require("giaodien/Navigation.php"); ?>
 	
-				
+    
 
 
     <!--CONTENT-->
