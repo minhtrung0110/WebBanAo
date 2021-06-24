@@ -151,7 +151,7 @@ var selectedSize='<?php
 				<td>59-64 </td>
 			  </tr>
 			  <tr>
-				<td>Vòng ngực(cm)</td>
+				<td>Vòng Ngực (cm)</td>
 				<td>79-82</td>
 				<td>82-87</td>
 				<td>88-94</td>
