@@ -20,18 +20,18 @@ html{
 .first{
 	border-left:#bccfd8 1px solid;
 }
-#pagination{
+#pagination {
 	margin-top: 20px;
 
 	padding-top: 30px;
 	border-top: #F0F0F0 1px solid;
 }
-#pagination a{
+#pagination a {
 	text-decoration:none;
 }
 #paginationWrapper{
 	width:100%;
-	text-align:center
+	text-align:center;
 }
 .dotSign{
 	padding:10px 13px;
